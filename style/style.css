@@ -1325,7 +1325,7 @@ body {
     }
 
     .carta-item--img img {
-        width: 100%;
+        width: 150px;
         max-width: 100%;
         border-radius: 10px;
     }
