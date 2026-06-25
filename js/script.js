@@ -64,7 +64,7 @@ const PALETAS = {
     '--color-traslucer': '#2e2d2d86',
     '--color-primary':   '#22391789',
     '--color-secundary': '#a5a5a5',
-    '--color-hover':     'rgb(138, 136, 136)',
+    '--color-hover':     '#8a8888',
   },
   cena: {
     '--color-principal': '#050000',
@@ -110,7 +110,8 @@ function getTurno() {
 }
 
 // ── APLICAR TURNO ────────────────────────────
-function aplicarTurno() {
+// hacerScroll: true solo la primera vez al cargar
+function aplicarTurno(hacerScroll = false) {
   const turno  = getTurno();
   const assets = ASSETS[turno];
   const iconos = ICONOS[turno];
@@ -161,12 +162,13 @@ function aplicarTurno() {
     document.documentElement.style.setProperty(variable, valor);
   });
 
-  // 7. Scroll automático a la sección
-  const seccionId = MAPA_SECCIONES[turno];
-  const seccion   = document.getElementById(seccionId);
-  if (seccion) seccion.scrollIntoView({ behavior: "smooth" });
+  // 7. Scroll automático — solo la primera vez
+  if (hacerScroll) {
+    const seccionId = MAPA_SECCIONES[turno];
+    const seccion   = document.getElementById(seccionId);
+    if (seccion) seccion.scrollIntoView({ behavior: "smooth" });
+  }
 
-  // Log
   console.log(`[Cuervo Blanco] Turno activo: ${turno} | ${new Date().toLocaleTimeString("es-AR")}`);
 }
 
@@ -185,15 +187,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Aplicar turno inicial
-  aplicarTurno();
-  setInterval(aplicarTurno, 60 * 1000);
+  // Cerrar menú hamburguesa al clickear un ítem
+  document.querySelectorAll('.nav-list a').forEach(link => {
+    link.addEventListener('click', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      if (menuToggle) menuToggle.checked = false;
+    });
+  });
+
+  // Aplicar turno — true = hace scroll solo la primera vez
+  aplicarTurno(true);
+  setInterval(() => aplicarTurno(false), 60 * 1000);
 
   // Observer carrusel: activar categoría al hacer scroll
   const secciones = document.querySelectorAll('.carta-box[id], .carta-grid[id]');
   const cards = document.querySelectorAll('.categoria-card');
 
-  const observer = new IntersectionObserver((entries) => {
+  const observerCarrusel = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
@@ -207,46 +217,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.3 });
 
-  secciones.forEach(s => observer.observe(s));
-});
+  secciones.forEach(s => observerCarrusel.observe(s));
 
+  // Animation scroll
+  const observerAnim = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observerAnim.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.carta-box, .evento-privado-card, .slider-container').forEach(el => {
+    observerAnim.observe(el);
+  });
+
+});
 
 /* ---- BOTONES CARRUSEL CATEGORIAS ---- */
 const carrusel = document.querySelector('.categorias-carrusel');
 const btnPrev = document.getElementById('btn-prev');
 const btnNext = document.getElementById('btn-next');
 
-btnNext.addEventListener('click', () => {
+if (btnNext) btnNext.addEventListener('click', () => {
     carrusel.scrollBy({ left: 150, behavior: 'smooth' });
 });
 
-btnPrev.addEventListener('click', () => {
+if (btnPrev) btnPrev.addEventListener('click', () => {
     carrusel.scrollBy({ left: -150, behavior: 'smooth' });
 });
 
-/* ---- DOTS CARRUSEL CATEGORIAS ---- */
-/*const dotsContainer = document.getElementById('dots-carrucel');
-const dotCards = document.querySelectorAll('.categoria-card');
-const cardWidth = 150;
-
-dotCards.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (i === 0) dot.classList.add('activo');
-    dot.addEventListener('click', () => {
-        carrusel.scrollTo({ left: cardWidth * i, behavior: 'smooth' });
-    });
-    dotsContainer.appendChild(dot);
-});
-
-carrusel.addEventListener('scroll', () => {
-    const index = Math.round(carrusel.scrollLeft / cardWidth);
-    document.querySelectorAll('.carrusel-dots .dot').forEach((d, i) => {
-        d.classList.toggle('activo', i === index);
-    });
-});*/
-
-// Slider de eventos
+// ── SLIDER EVENTOS ───────────────────────────
 const sliderTrack = document.getElementById('slider-track');
 const sliderDots = document.querySelectorAll('.slider-dot');
 let sliderCurrent = 0;
@@ -254,7 +256,7 @@ const sliderTotal = document.querySelectorAll('.slider-slide').length;
 
 function goToSlide(index) {
     sliderCurrent = index;
-    sliderTrack.style.transform = `translateX(-${sliderCurrent * 100}%)`;
+    if (sliderTrack) sliderTrack.style.transform = `translateX(-${sliderCurrent * 100}%)`;
     sliderDots.forEach((d, i) => d.classList.toggle('active', i === sliderCurrent));
 }
 
@@ -268,8 +270,7 @@ document.getElementById('slider-next')?.addEventListener('click', () => {
 
 sliderDots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
 
-
-// Modal eventos privados
+// ── MODAL EVENTOS PRIVADOS ───────────────────
 function abrirModal(tipo) {
     document.getElementById('form-tipo').value = tipo;
     document.getElementById('modal-tipo').textContent = tipo;
@@ -298,14 +299,7 @@ function enviarConsulta() {
     cerrarModal();
 }
 
-
-//catering
-function abrirModalCatering(tipo) {
-    document.getElementById('form-tipo').value = tipo + ' (Catering)';
-    document.getElementById('modal-tipo').textContent = tipo + ' · Catering';
-    document.getElementById('modal-overlay').classList.add('activo');
-}
-
+// ── MODAL CATERING ───────────────────────────
 let cateringTipoActual = '';
 let cateringPaqueteActual = '';
 
@@ -352,17 +346,32 @@ function enviarConsultaCatering() {
     cerrarModalCatering();
 }
 
-///animation scroll
+// ── MODAL RESERVAS ───────────────────────────
+function abrirModalReserva() {
+    document.getElementById('modal-reserva-overlay').classList.add('activo');
+}
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 });
+function cerrarModalReserva() {
+    document.getElementById('modal-reserva-overlay').classList.remove('activo');
+}
 
-document.querySelectorAll('.carta-box, .evento-privado-card, .slider-container').forEach(el => {
-    observer.observe(el);
-});
+function enviarReserva() {
+    const nombre  = document.getElementById('reserva-nombre').value;
+    const fecha   = document.getElementById('reserva-fecha').value;
+    const hora    = document.getElementById('reserva-hora').value;
+    const adultos = document.getElementById('reserva-adultos').value || '0';
+    const ninos   = document.getElementById('reserva-ninos').value || '0';
+    const mensaje = document.getElementById('reserva-mensaje').value;
+
+    if (!nombre || !fecha || !hora) {
+        alert('Por favor completá tu nombre, fecha y hora.');
+        return;
+    }
+
+    let msg = `Hola! Quiero hacer una reserva. Nombre: ${nombre}. Fecha: ${fecha}. Hora: ${hora}. Adultos: ${adultos}. Niños: ${ninos}.`;
+    if (mensaje) msg += ` Aclaración: ${mensaje}.`;
+
+    const url = `https://api.whatsapp.com/send?phone=543413742910&text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+    cerrarModalReserva();
+}
