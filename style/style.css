@@ -2,17 +2,7 @@
     box-sizing: border-box;
 }
 
-body,
-main,
-div,
-ul,
-li,
-a,
-h1,
-h2,
-h3,
-h4,
-p {
+body, main, div, ul, li, a, h1, h2, h3, h4, p {
     margin: 0;
     padding: 0;
 }
@@ -1692,6 +1682,23 @@ color: var(--color-blanco);
     width: 100%;
     padding: 4rem 1rem;
     z-index: 2;
+}
+
+.box-intro{
+    max-width: 
+    400px;
+    margin: 0 auto;
+}
+
+
+.eventos-intro{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    font-weight: 400;
 }
 
 .eventos-grid {
