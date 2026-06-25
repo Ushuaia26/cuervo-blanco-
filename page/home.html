@@ -55,8 +55,8 @@
         </nav>
         <div class="header-right">
             <label for="menu-toggle" class="menu-icon">☰</label>
-            <a href="https://api.whatsapp.com/send?phone=543413742910&text=Hola!%20quiero%20hacer%20una%20reserva"
-                class="nav-reserva">RESERVAR</a>
+            <a onclick="abrirModalReserva()" class="nav-reserva" style="cursor:pointer">RESERVAR</a>
+
         </div>
     </header>
 
@@ -140,7 +140,7 @@
             <div class="carta-item">
                 <div><span class="item-nombre">BRUNCH P/2 PERSONAS</span>
                     <p class="item-desc">Infusión clásica + frutas de estación + yogurt griego + granola + tostadas de
-                        pan de campo integral + palta y queso untable + huevo revuelto + 2 fetas de jamón + 2 fetas de
+                        pan de campo integral + palta y queso untable + huevo revuelto + 2 fotas de jamón + 2 fotas de
                         queso + 2 medialunas con jamón y queso (dulces o saladas)</p>
                 </div>
                 <span class="item-precio">$28.500</span>
@@ -167,7 +167,7 @@
                         class="item-precio">$5.500</span></div>
                 <div class="carta-item"><span class="item-nombre">Maracuyá con frutos rojos</span><span
                         class="item-precio">$5.500</span></div>
-                <div class="carta-item"><span class="item-nombre">Pomelada</span><span
+                <div class="carta-item"><span class="item-nombre">Pormelada</span><span
                         class="item-precio">$5.500</span></div>
             </div>
         </div>
@@ -1963,6 +1963,46 @@
             <p>© 2025 Cuervo Blanco · Puerto Norte, Rosario</p>
         </div>
     </footer>
+
+    <!-- MODAL RESERVAS -->
+<div class="modal-overlay" id="modal-reserva-overlay" onclick="cerrarModalReserva()">
+    <div class="modal" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="cerrarModalReserva()">✕</button>
+        <h2 class="modal-titulo">RESERVAR</h2>
+        <p class="modal-subtitulo">Cuervo Blanco · Puerto Norte</p>
+        <div class="modal-form">
+            <div class="form-group">
+                <label>Tu nombre</label>
+                <input type="text" id="reserva-nombre" placeholder="Nombre y apellido">
+            </div>
+            <div class="form-group">
+                <label>Fecha</label>
+                <input type="date" id="reserva-fecha">
+            </div>
+            <div class="form-group">
+                <label>Hora</label>
+                <input type="time" id="reserva-hora">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Adultos</label>
+                    <input type="number" id="reserva-adultos" placeholder="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label>Niños</label>
+                    <input type="number" id="reserva-ninos" placeholder="0" min="0">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Mensaje (opcional)</label>
+                <input type="text" id="reserva-mensaje" placeholder="Alguna aclaración...">
+            </div>
+            <button class="modal-btn" onclick="enviarReserva()">
+                <i class="ti ti-brand-whatsapp"></i> CONFIRMAR RESERVA
+            </button>
+        </div>
+    </div>
+</div>
 
     <script src="/js/script.js"></script>
 </body>
