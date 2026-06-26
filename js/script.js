@@ -1,8 +1,13 @@
-// ============================================
-//  CUERVO BLANCO — Lógica horaria
-// ============================================
+// ============================================================
+//  CUERVO BLANCO — Script principal
+//  Para modificar colores, horarios o videos buscá las
+//  secciones marcadas con ✏️ — son las únicas que necesitás tocar
+// ============================================================
 
-// ── FERIADOS 2025 / 2026 Argentina ──────────
+
+// ============================================================
+//  ✏️ FERIADOS — Agregar o quitar fechas en formato "YYYY-MM-DD"
+// ============================================================
 const FERIADOS = [
   // 2025
   "2025-01-01", "2025-03-03", "2025-03-04", "2025-03-24",
@@ -18,16 +23,27 @@ const FERIADOS = [
   "2026-12-25"
 ];
 
-// ── CONFIGURACIÓN POR TURNO ──────────────────
+
+// ============================================================
+//   VIDEOS Y LOGOS — Qué video y logo mostrar en cada turno
+//  mostrarPrincipal: true  → logo Cuervo Blanco (cuervo2.png)
+//  mostrarPrincipal: false → logo Cuervo Café (cuervocafe2.png)
+//  video: id del <video> en el HTML
+// ============================================================
 const ASSETS = {
-  manana:    { mostrarPrincipal: false, video: "video-cafe"     },
-  ejecutivo: { mostrarPrincipal: true,  video: "video-mediodia" },
-  carta:     { mostrarPrincipal: true,  video: "video-mediodia" },
-  tarde:     { mostrarPrincipal: false, video: "video-cafe"     },
-  cena:      { mostrarPrincipal: true,  video: "video-cena"     },
+  manana:    { mostrarPrincipal: false, video: "video-cafe"     }, // 06:00 – 11:59
+  ejecutivo: { mostrarPrincipal: true,  video: "video-mediodia" }, // 12:00 – 15:59 L-J
+  carta:     { mostrarPrincipal: true,  video: "video-mediodia" }, // 12:00 – 15:59 V-S-D-feriados
+  tarde:     { mostrarPrincipal: false, video: "video-cafe"     }, // 16:00 – 19:59
+  cena:      { mostrarPrincipal: true,  video: "video-cena"     }, // 20:00+
 };
 
-// ── ÍCONOS DEL ACORDEÓN POR TURNO ───────────
+
+// ============================================================
+//   ÍCONOS DEL ACORDEÓN — Clases de Tabler Icons por turno
+//  Orden: cafe, ejecutivo, carta, bebidas
+//  Ver iconos en: tabler.io/icons
+// ============================================================
 const ICONOS = {
   manana:    { cafe: "ti-coffee", ejecutivo: "ti-bowl-spoon", carta: "ti-tools-kitchen-2", bebidas: "ti-glass-full" },
   ejecutivo: { cafe: "ti-coffee", ejecutivo: "ti-bowl-spoon", carta: "ti-tools-kitchen-2", bebidas: "ti-glass-full" },
@@ -36,14 +52,19 @@ const ICONOS = {
   cena:      { cafe: "ti-coffee", ejecutivo: "ti-bowl-spoon", carta: "ti-tools-kitchen-2", bebidas: "ti-glass-full" },
 };
 
-// ── PALETA DE COLORES POR TURNO ──────────────
+
+// ============================================================
+//  ✏️ PALETA DE COLORES — Colores del tema por turno
+//  Cambiá --color-hover para cambiar el color principal de cada turno
+//  Estos valores sobreescriben las variables CSS del :root
+// ============================================================
 const PALETAS = {
   manana: {
-    '--color-principal': '#0d1a0a',
+    '--color-principal': '#0d1a0a', // fondo oscuro verdoso
     '--color-traslucer': '#1e2e1a86',
     '--color-primary':   '#22391789',
-    '--color-secundary': '#8aab7a',
-    '--color-hover':     '#4a6741',
+    '--color-secundary': '#8aab7a',  // verde claro
+    '--color-hover':     '#4a6741',  // verde logo café
   },
   tarde: {
     '--color-principal': '#0d1a0a',
@@ -75,7 +96,11 @@ const PALETAS = {
   },
 };
 
-// ── SCROLL AUTOMÁTICO POR TURNO ──────────────
+
+// ============================================================
+//  SCROLL AUTOMÁTICO — A qué sección ir al abrir cada turno
+//  El id tiene que coincidir con el id de la <section> en el HTML
+// ============================================================
 const MAPA_SECCIONES = {
   manana:    "cafe-section",
   ejecutivo: "ejecutivo-section",
@@ -84,41 +109,63 @@ const MAPA_SECCIONES = {
   cena:      "almuerzo-section",
 };
 
-// ── HELPER: fecha como string "YYYY-MM-DD" ──
+
+// ============================================================
+//  ✏️ NÚMERO DE WHATSAPP — Cambiar si cambia el número del local
+// ============================================================
+const WA_NUMBER = "543413742910";
+
+
+// ============================================================
+//  HELPERS — No necesitás tocar esto
+// ============================================================
+
+// Convierte fecha a string "YYYY-MM-DD" para comparar con FERIADOS
 function fechaStr(d) {
   return d.toISOString().slice(0, 10);
 }
 
-// ── HELPER: hora como número decimal ────────
+// Convierte hora a número decimal (ej: 11:45 → 11.75)
 function horaDecimal(d) {
   return d.getHours() + d.getMinutes() / 60;
 }
 
-// ── DETECTAR TURNO ACTUAL ────────────────────
+// Abre WhatsApp con un mensaje pre-armado
+function abrirWhatsApp(mensaje) {
+  window.open(`https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${encodeURIComponent(mensaje)}`, '_blank');
+}
+
+
+// ============================================================
+//  LÓGICA HORARIA — Detecta el turno según hora y día
+// ============================================================
 function getTurno() {
   const ahora         = new Date();
   const hora          = horaDecimal(ahora);
-  const diaSemana     = ahora.getDay();
+  const diaSemana     = ahora.getDay(); // 0=Dom, 1=Lun ... 6=Sab
   const esFeriado     = FERIADOS.includes(fechaStr(ahora));
-  const esFinDeSemana = diaSemana === 0 || diaSemana === 6;
+  const esFinDeSemana = diaSemana === 0 || diaSemana === 6; // Dom o Sab
   const esViernes     = diaSemana === 5;
 
+  // ✏️ Horarios — modificar si cambian los horarios del local
   if (hora >= 6  && hora < 12) return "manana";
   if (hora >= 12 && hora < 16) return (esFinDeSemana || esViernes || esFeriado) ? "carta" : "ejecutivo";
   if (hora >= 16 && hora < 20) return "tarde";
-  return "cena";
+  return "cena"; // 20:00 en adelante y madrugada
 }
 
-// ── APLICAR TURNO ────────────────────────────
-// hacerScroll: true solo la primera vez al cargar
+
+// ============================================================
+//  APLICAR TURNO — Actualiza videos, logos, íconos y colores
+//  hacerScroll: true solo la primera vez al cargar la página
+// ============================================================
 function aplicarTurno(hacerScroll = false) {
   const turno  = getTurno();
   const assets = ASSETS[turno];
   const iconos = ICONOS[turno];
 
-  // 1. Videos
-  const todosLosVideos = ["video-cafe", "video-mediodia", "video-cena"];
-  todosLosVideos.forEach(id => {
+  // 1. Videos — oculta todos y activa el del turno
+  ["video-cafe", "video-mediodia", "video-cena"].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     el.classList.remove("activo");
@@ -130,20 +177,21 @@ function aplicarTurno(hacerScroll = false) {
     videoActivo.play().catch(() => {});
   }
 
-  // 2. Logos splash
+  // 2. Logos splash (index.html)
   const divPrincipal = document.getElementById("logo-principal")?.closest(".splash__logo");
   const divCafe      = document.getElementById("logo-cafe")?.closest(".splash__logo");
   if (divPrincipal) divPrincipal.style.display = assets.mostrarPrincipal ? "block" : "none";
   if (divCafe)      divCafe.style.display      = assets.mostrarPrincipal ? "none"  : "block";
 
-  // 3. Logos nav
+  // 3. Logos nav (home.html)
   const logoNavPrincipal = document.getElementById("logo-nav-principal");
   const logoNavCafe      = document.getElementById("logo-nav-cafe");
   if (logoNavPrincipal) logoNavPrincipal.style.display = assets.mostrarPrincipal ? "block" : "none";
   if (logoNavCafe)      logoNavCafe.style.display      = assets.mostrarPrincipal ? "none"  : "block";
 
-  // 4. Íconos del acordeón
-  const items = document.querySelectorAll(".splash__acordeon-item");
+  // 4. Íconos del acordeón en index.html
+  //    Orden en el HTML: cafe(0), ejecutivo(1), carta(2), bebidas(3)
+  const items  = document.querySelectorAll(".splash__acordeon-item");
   const claves = ["cafe", "ejecutivo", "carta", "bebidas"];
   items.forEach((item, i) => {
     const icono = item.querySelector("i");
@@ -151,43 +199,42 @@ function aplicarTurno(hacerScroll = false) {
     icono.className = icono.className.replace(/ti-[^\s]+/, iconos[claves[i]]);
   });
 
-  // 5. Highlight ítem activo
+  // 5. Resaltar el ítem activo en el acordeón
   items.forEach(item => item.classList.remove("activo", "proxima"));
   const mapaItem = { manana: 0, ejecutivo: 1, carta: 2, tarde: 0, cena: 2 };
   if (items[mapaItem[turno]]) items[mapaItem[turno]].classList.add("activo");
 
-  // 6. Paleta de colores
-  const paleta = PALETAS[turno];
-  Object.entries(paleta).forEach(([variable, valor]) => {
+  // 6. Aplicar paleta de colores del turno
+  Object.entries(PALETAS[turno]).forEach(([variable, valor]) => {
     document.documentElement.style.setProperty(variable, valor);
   });
 
-  // 7. Scroll automático — solo la primera vez
+  // 7. Scroll automático a la sección correspondiente (solo al cargar)
   if (hacerScroll) {
-    const seccionId = MAPA_SECCIONES[turno];
-    const seccion   = document.getElementById(seccionId);
+    const seccion = document.getElementById(MAPA_SECCIONES[turno]);
     if (seccion) seccion.scrollIntoView({ behavior: "smooth" });
   }
 
-  console.log(`[Cuervo Blanco] Turno activo: ${turno} | ${new Date().toLocaleTimeString("es-AR")}`);
+  console.log(`[Cuervo Blanco] Turno: ${turno} | ${new Date().toLocaleTimeString("es-AR")}`);
 }
 
-// ── INIT ─────────────────────────────────────
+
+// ============================================================
+//  INIT — Se ejecuta cuando carga la página
+// ============================================================
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Acordeones: cerrar al abrir otro
+  // Acordeones del index: cerrar el anterior al abrir uno nuevo
   const toggles = document.querySelectorAll(".checkbox__submenu");
   toggles.forEach(toggle => {
     toggle.addEventListener("change", () => {
       if (toggle.checked) {
-        toggles.forEach(otro => {
-          if (otro !== toggle) otro.checked = false;
-        });
+        toggles.forEach(otro => { if (otro !== toggle) otro.checked = false; });
       }
     });
   });
 
-  // Cerrar menú hamburguesa al clickear un ítem
+  // Menú hamburguesa: cerrarlo al clickear un ítem del nav
   document.querySelectorAll('.nav-list a').forEach(link => {
     link.addEventListener('click', () => {
       const menuToggle = document.getElementById('menu-toggle');
@@ -195,183 +242,207 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Aplicar turno — true = hace scroll solo la primera vez
+  // Aplicar turno al cargar (con scroll) y cada 60 segundos (sin scroll)
   aplicarTurno(true);
   setInterval(() => aplicarTurno(false), 60 * 1000);
 
-  // Observer carrusel: activar categoría al hacer scroll
-  const secciones = document.querySelectorAll('.carta-box[id], .carta-grid[id]');
-  const cards = document.querySelectorAll('.categoria-card');
-
+  // Observer del carrusel: resalta la categoría visible al hacer scroll
   const observerCarrusel = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        cards.forEach(c => c.classList.remove('active'));
-        const cardActiva = document.querySelector(`.categoria-card[href="#${id}"]`);
-        if (cardActiva) {
-          cardActiva.classList.add('active');
-          cardActiva.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      document.querySelectorAll('.categoria-card').forEach(c => c.classList.remove('active'));
+      const cardActiva = document.querySelector(`.categoria-card[href="#${id}"]`);
+      if (cardActiva) {
+        cardActiva.classList.add('active');
+        cardActiva.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     });
   }, { threshold: 0.3 });
+  document.querySelectorAll('.carta-box[id], .carta-grid[id]').forEach(s => observerCarrusel.observe(s));
 
-  secciones.forEach(s => observerCarrusel.observe(s));
-
-  // Animation scroll
+  // Observer de animaciones: agrega clase 'visible' al entrar en pantalla
   const observerAnim = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observerAnim.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observerAnim.unobserve(entry.target);
     });
   }, { threshold: 0.1 });
-
-  document.querySelectorAll('.carta-box, .evento-privado-card, .slider-container').forEach(el => {
-    observerAnim.observe(el);
-  });
+  document.querySelectorAll('.carta-box, .evento-privado-card, .slider-container').forEach(el => observerAnim.observe(el));
 
 });
 
-/* ---- BOTONES CARRUSEL CATEGORIAS ---- */
+
+// ============================================================
+//  CARRUSEL DE CATEGORÍAS — Botones anterior/siguiente
+// ============================================================
 const carrusel = document.querySelector('.categorias-carrusel');
-const btnPrev = document.getElementById('btn-prev');
-const btnNext = document.getElementById('btn-next');
+const btnPrev  = document.getElementById('btn-prev');
+const btnNext  = document.getElementById('btn-next');
+if (btnNext) btnNext.addEventListener('click', () => carrusel.scrollBy({ left:  150, behavior: 'smooth' }));
+if (btnPrev) btnPrev.addEventListener('click', () => carrusel.scrollBy({ left: -150, behavior: 'smooth' }));
 
-if (btnNext) btnNext.addEventListener('click', () => {
-    carrusel.scrollBy({ left: 150, behavior: 'smooth' });
-});
 
-if (btnPrev) btnPrev.addEventListener('click', () => {
-    carrusel.scrollBy({ left: -150, behavior: 'smooth' });
-});
-
-// ── SLIDER EVENTOS ───────────────────────────
+// ============================================================
+//  SLIDER DE EVENTOS — Flechas y dots del slider de días especiales
+// ============================================================
 const sliderTrack = document.getElementById('slider-track');
-const sliderDots = document.querySelectorAll('.slider-dot');
+const sliderDots  = document.querySelectorAll('.slider-dot');
 let sliderCurrent = 0;
 const sliderTotal = document.querySelectorAll('.slider-slide').length;
 
 function goToSlide(index) {
-    sliderCurrent = index;
-    if (sliderTrack) sliderTrack.style.transform = `translateX(-${sliderCurrent * 100}%)`;
-    sliderDots.forEach((d, i) => d.classList.toggle('active', i === sliderCurrent));
+  sliderCurrent = index;
+  if (sliderTrack) sliderTrack.style.transform = `translateX(-${sliderCurrent * 100}%)`;
+  sliderDots.forEach((d, i) => d.classList.toggle('active', i === sliderCurrent));
 }
 
-document.getElementById('slider-prev')?.addEventListener('click', () => {
-    goToSlide(sliderCurrent === 0 ? sliderTotal - 1 : sliderCurrent - 1);
-});
-
-document.getElementById('slider-next')?.addEventListener('click', () => {
-    goToSlide(sliderCurrent === sliderTotal - 1 ? 0 : sliderCurrent + 1);
-});
-
+document.getElementById('slider-prev')?.addEventListener('click', () =>
+  goToSlide(sliderCurrent === 0 ? sliderTotal - 1 : sliderCurrent - 1));
+document.getElementById('slider-next')?.addEventListener('click', () =>
+  goToSlide(sliderCurrent === sliderTotal - 1 ? 0 : sliderCurrent + 1));
 sliderDots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
 
-// ── MODAL EVENTOS PRIVADOS ───────────────────
+
+// ============================================================
+//  MODAL RESERVAS — Botón RESERVAR del nav e index
+// ============================================================
+let sectorReserva = 'Adentro';
+
+function abrirModalReserva() {
+  document.getElementById('modal-reserva-overlay').classList.add('activo');
+}
+function cerrarModalReserva() {
+  document.getElementById('modal-reserva-overlay').classList.remove('activo');
+}
+function elegirSectorReserva(sector, btn) {
+  sectorReserva = sector;
+  document.querySelectorAll('#modal-reserva-overlay .sector-btn').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+}
+function enviarReserva() {
+  const nombre  = document.getElementById('reserva-nombre').value;
+  const fecha   = document.getElementById('reserva-fecha').value;
+  const hora    = document.getElementById('reserva-hora').value;
+  const adultos = document.getElementById('reserva-adultos').value || '0';
+  const ninos   = document.getElementById('reserva-ninos').value   || '0';
+
+  if (!nombre || !fecha || !hora) {
+    alert('Por favor completá nombre, fecha y hora.');
+    return;
+  }
+
+  abrirWhatsApp(`Hola! Quiero hacer una reserva. Nombre: ${nombre}. Fecha: ${fecha}. Hora: ${hora}. Adultos: ${adultos}. Niños: ${ninos}. Sector: ${sectorReserva}.`);
+  cerrarModalReserva();
+}
+
+
+// ============================================================
+//  MODAL EVENTOS DÍAS ESPECIALES — Miércoles de pasta / Jueves pizza
+//  Valida que sea el día correcto y que la hora sea desde las 20:00
+// ============================================================
+let sectorEvento = 'Adentro';
+let diaEvento    = '';
+
+function abrirModalEvento(tipo, dia) {
+  diaEvento = dia;
+  document.getElementById('modal-evento-tipo').textContent      = tipo;
+  document.getElementById('evento-dia-label').textContent       = dia === 'miercoles' ? 'miércoles' : 'jueves';
+  document.getElementById('evento-fecha').value                 = '';
+  document.getElementById('evento-hora').value                  = '';
+  document.getElementById('modal-evento-overlay').classList.add('activo');
+}
+function cerrarModalEvento() {
+  document.getElementById('modal-evento-overlay').classList.remove('activo');
+}
+function elegirSectorEvento(sector, btn) {
+  sectorEvento = sector;
+  document.querySelectorAll('#modal-evento-overlay .sector-btn').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+}
+function enviarReservaEvento() {
+  const nombre  = document.getElementById('evento-nombre').value;
+  const fecha   = document.getElementById('evento-fecha').value;
+  const hora    = document.getElementById('evento-hora').value;
+  const adultos = document.getElementById('evento-adultos').value || '0';
+  const ninos   = document.getElementById('evento-ninos').value   || '0';
+
+  if (!nombre || !fecha || !hora) { alert('Por favor completá nombre, fecha y hora.'); return; }
+  if (hora < '20:00')             { alert('Las reservas para eventos son a partir de las 20:00hs.'); return; }
+
+  // Validar día correcto
+  const diaSemana = new Date(fecha + 'T00:00:00').getDay();
+  if (diaEvento === 'miercoles' && diaSemana !== 3) { alert('El miércoles de pasta solo es los miércoles.'); return; }
+  if (diaEvento === 'jueves'    && diaSemana !== 4) { alert('El jueves de pizza & burger solo es los jueves.'); return; }
+
+  const tipo = document.getElementById('modal-evento-tipo').textContent;
+  abrirWhatsApp(`Hola! Quiero reservar para ${tipo}. Nombre: ${nombre}. Fecha: ${fecha}. Hora: ${hora}. Adultos: ${adultos}. Niños: ${ninos}. Sector: ${sectorEvento}.`);
+  cerrarModalEvento();
+}
+
+
+// ============================================================
+//  MODAL EVENTOS PRIVADOS — Cumpleaños, casamientos, etc.
+// ============================================================
 function abrirModal(tipo) {
-    document.getElementById('form-tipo').value = tipo;
-    document.getElementById('modal-tipo').textContent = tipo;
-    document.getElementById('modal-overlay').classList.add('activo');
+  document.getElementById('form-tipo').value              = tipo;
+  document.getElementById('modal-tipo').textContent       = tipo;
+  document.getElementById('modal-overlay').classList.add('activo');
 }
-
 function cerrarModal() {
-    document.getElementById('modal-overlay').classList.remove('activo');
+  document.getElementById('modal-overlay').classList.remove('activo');
 }
-
 function enviarConsulta() {
-    const tipo    = document.getElementById('form-tipo').value;
-    const nombre  = document.getElementById('form-nombre').value;
-    const fecha   = document.getElementById('form-fecha').value;
-    const adultos = document.getElementById('form-adultos').value || '0';
-    const ninos   = document.getElementById('form-ninos').value || '0';
+  const tipo    = document.getElementById('form-tipo').value;
+  const nombre  = document.getElementById('form-nombre').value;
+  const fecha   = document.getElementById('form-fecha').value;
+  const adultos = document.getElementById('form-adultos').value || '0';
+  const ninos   = document.getElementById('form-ninos').value   || '0';
 
-    if (!nombre || !fecha) {
-        alert('Por favor completá tu nombre y la fecha del evento.');
-        return;
-    }
+  if (!nombre || !fecha) { alert('Por favor completá tu nombre y la fecha del evento.'); return; }
 
-    const msg = `Hola! Quiero consultar presupuesto para un evento de ${tipo}. Nombre: ${nombre}. Fecha: ${fecha}. Adultos: ${adultos}. Niños: ${ninos}.`;
-    const url = `https://api.whatsapp.com/send?phone=543413742910&text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-    cerrarModal();
+  abrirWhatsApp(`Hola! Quiero consultar presupuesto para un evento de ${tipo}. Nombre: ${nombre}. Fecha: ${fecha}. Adultos: ${adultos}. Niños: ${ninos}.`);
+  cerrarModal();
 }
 
-// ── MODAL CATERING ───────────────────────────
-let cateringTipoActual = '';
+
+// ============================================================
+//  MODAL CATERING — Con selección de paquete en dos pasos
+// ============================================================
+let cateringTipoActual    = '';
 let cateringPaqueteActual = '';
 
 function abrirModalCatering(tipo) {
-    cateringTipoActual = tipo;
-    document.getElementById('modal-catering-tipo').textContent = tipo;
-    document.getElementById('catering-form-tipo').value = tipo;
-    document.getElementById('catering-paso1').style.display = 'block';
-    document.getElementById('catering-paso2').style.display = 'none';
-    document.getElementById('modal-catering-overlay').classList.add('activo');
+  cateringTipoActual = tipo;
+  document.getElementById('modal-catering-tipo').textContent  = tipo;
+  document.getElementById('catering-form-tipo').value         = tipo;
+  document.getElementById('catering-paso1').style.display     = 'block';
+  document.getElementById('catering-paso2').style.display     = 'none';
+  document.getElementById('modal-catering-overlay').classList.add('activo');
 }
-
 function cerrarModalCatering() {
-    document.getElementById('modal-catering-overlay').classList.remove('activo');
+  document.getElementById('modal-catering-overlay').classList.remove('activo');
 }
-
 function elegirPaquete(paquete) {
-    cateringPaqueteActual = paquete;
-    document.getElementById('catering-paquete-elegido').textContent = paquete;
-    document.getElementById('catering-paso1').style.display = 'none';
-    document.getElementById('catering-paso2').style.display = 'block';
+  cateringPaqueteActual = paquete;
+  document.getElementById('catering-paquete-elegido').textContent = paquete;
+  document.getElementById('catering-paso1').style.display          = 'none';
+  document.getElementById('catering-paso2').style.display          = 'block';
 }
-
 function volverPaso1() {
-    document.getElementById('catering-paso1').style.display = 'block';
-    document.getElementById('catering-paso2').style.display = 'none';
+  document.getElementById('catering-paso1').style.display = 'block';
+  document.getElementById('catering-paso2').style.display = 'none';
 }
-
 function enviarConsultaCatering() {
-    const tipo    = document.getElementById('catering-form-tipo').value;
-    const nombre  = document.getElementById('catering-form-nombre').value;
-    const fecha   = document.getElementById('catering-form-fecha').value;
-    const adultos = document.getElementById('catering-form-adultos').value || '0';
-    const ninos   = document.getElementById('catering-form-ninos').value || '0';
+  const tipo    = document.getElementById('catering-form-tipo').value;
+  const nombre  = document.getElementById('catering-form-nombre').value;
+  const fecha   = document.getElementById('catering-form-fecha').value;
+  const adultos = document.getElementById('catering-form-adultos').value || '0';
+  const ninos   = document.getElementById('catering-form-ninos').value   || '0';
 
-    if (!nombre || !fecha) {
-        alert('Por favor completá tu nombre y la fecha del evento.');
-        return;
-    }
+  if (!nombre || !fecha) { alert('Por favor completá tu nombre y la fecha del evento.'); return; }
 
-    const msg = `Hola! Quiero consultar catering para un evento de ${tipo}. Paquete: ${cateringPaqueteActual}. Nombre: ${nombre}. Fecha: ${fecha}. Adultos: ${adultos}. Niños: ${ninos}.`;
-    const url = `https://api.whatsapp.com/send?phone=543413742910&text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-    cerrarModalCatering();
-}
-
-// ── MODAL RESERVAS ───────────────────────────
-function abrirModalReserva() {
-    document.getElementById('modal-reserva-overlay').classList.add('activo');
-}
-
-function cerrarModalReserva() {
-    document.getElementById('modal-reserva-overlay').classList.remove('activo');
-}
-
-function enviarReserva() {
-    const nombre  = document.getElementById('reserva-nombre').value;
-    const fecha   = document.getElementById('reserva-fecha').value;
-    const hora    = document.getElementById('reserva-hora').value;
-    const adultos = document.getElementById('reserva-adultos').value || '0';
-    const ninos   = document.getElementById('reserva-ninos').value || '0';
-    const mensaje = document.getElementById('reserva-mensaje').value;
-
-    if (!nombre || !fecha || !hora) {
-        alert('Por favor completá tu nombre, fecha y hora.');
-        return;
-    }
-
-    let msg = `Hola! Quiero hacer una reserva. Nombre: ${nombre}. Fecha: ${fecha}. Hora: ${hora}. Adultos: ${adultos}. Niños: ${ninos}.`;
-    if (mensaje) msg += ` Aclaración: ${mensaje}.`;
-
-    const url = `https://api.whatsapp.com/send?phone=543413742910&text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-    cerrarModalReserva();
+  abrirWhatsApp(`Hola! Quiero consultar catering para un evento de ${tipo}. Paquete: ${cateringPaqueteActual}. Nombre: ${nombre}. Fecha: ${fecha}. Adultos: ${adultos}. Niños: ${ninos}.`);
+  cerrarModalCatering();
 }
