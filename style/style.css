@@ -2,7 +2,17 @@
     box-sizing: border-box;
 }
 
-body, main, div, ul, li, a, h1, h2, h3, h4, p {
+body,
+main,
+div,
+ul,
+li,
+a,
+h1,
+h2,
+h3,
+h4,
+p {
     margin: 0;
     padding: 0;
 }
@@ -506,7 +516,7 @@ body {
 }
 
 .nav-reserva:hover {
-    background: var(--color-gold-light);
+    background: transparent;
     color: var(--color-blanco);
 
 }
@@ -1647,6 +1657,36 @@ color: var(--color-blanco);
     background: var(--color-hover);
 }
 
+.sector-btns {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.sector-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: var(--color-secundary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sector-btn.activo {
+    border-color: var(--color-hover);
+    color: var(--color-hover);
+    background: rgba(255,255,255,0.08);
+}
+
+
 @media (max-width: 768px) {
     .slider-slide {
         height: 400px;
@@ -2191,12 +2231,10 @@ color: var(--color-blanco);
     margin-bottom: 0.8rem;
 }
 
-.footer-col p,
-.footer-col a {
+.footer-col p {
     display: block;
     font-size: 0.8rem;
     color: var(--color-blanco);
-    text-decoration: none;
     margin-bottom: 0.5rem;
     line-height: 1.5;
 }
@@ -2206,24 +2244,32 @@ color: var(--color-blanco);
     font-weight: 700;
 }
 
+.footer-col a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--color-blanco);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
 .footer-col a:hover {
     color: var(--color-hover);
 }
 
 .footer-col a i {
-    margin-right: 5px;
-}
-
-.footer-pedidosya {
-    display: flex ;
-    align-items: center;
-    gap: 8px;
-    margin-top: 0.5rem;
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
 .footer-pedidosya img {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: brightness(0) invert(1);
 }
 
 .footer-bottom {
