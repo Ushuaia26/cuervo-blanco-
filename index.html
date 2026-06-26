@@ -139,45 +139,42 @@
     </main>
     <script src="/js/script.js"></script>
 
-    <!-- MODAL RESERVAS -->
-<div class="modal-overlay" id="modal-reserva-overlay" onclick="cerrarModalReserva()">
-    <div class="modal" onclick="event.stopPropagation()">
-        <button class="modal-close" onclick="cerrarModalReserva()">✕</button>
-        <h2 class="modal-titulo">RESERVAR</h2>
-        <p class="modal-subtitulo">Cuervo Blanco · Puerto Norte</p>
-        <div class="modal-form">
-            <div class="form-group">
-                <label>Tu nombre</label>
-                <input type="text" id="reserva-nombre" placeholder="Nombre y apellido">
-            </div>
-            <div class="form-group">
-                <label>Fecha</label>
-                <input type="date" id="reserva-fecha">
-            </div>
-            <div class="form-group">
-                <label>Hora</label>
-                <input type="time" id="reserva-hora">
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Adultos</label>
-                    <input type="number" id="reserva-adultos" placeholder="0" min="0">
+   <!-- ==========================================
+        MODAL RESERVAS GENERAL
+        Se abre desde el botón RESERVAR del header
+========================================== -->
+    <div class="modal-overlay" id="modal-reserva-overlay" onclick="cerrarModalReserva()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="cerrarModalReserva()">✕</button>
+            <h2 class="modal-titulo">RESERVAR</h2>
+            <p class="modal-subtitulo">Cuervo Blanco · Puerto Norte</p>
+            <div class="modal-form">
+                <div class="form-group"><label>Tu nombre</label><input type="text" id="reserva-nombre"
+                        placeholder="Nombre y apellido"></div>
+                <div class="form-group"><label>Fecha</label><input type="date" id="reserva-fecha"></div>
+                <div class="form-group"><label>Hora</label><input type="time" id="reserva-hora"></div>
+                <div class="form-row">
+                    <div class="form-group"><label>Adultos</label><input type="number" id="reserva-adultos"
+                            placeholder="0" min="0"></div>
+                    <div class="form-group"><label>Niños</label><input type="number" id="reserva-ninos" placeholder="0"
+                            min="0"></div>
                 </div>
                 <div class="form-group">
-                    <label>Niños</label>
-                    <input type="number" id="reserva-ninos" placeholder="0" min="0">
+                    <label>Sector</label>
+                    <div class="sector-btns">
+                        <button class="sector-btn activo" onclick="elegirSectorReserva('Adentro', this)">
+                            <i class="ti ti-building"></i> Adentro
+                        </button>
+                        <button class="sector-btn" onclick="elegirSectorReserva('Afuera', this)">
+                            <i class="ti ti-tree"></i> Afuera
+                        </button>
+                    </div>
                 </div>
+                <button class="modal-btn" onclick="enviarReserva()"><i class="ti ti-brand-whatsapp"></i> CONFIRMAR
+                    RESERVA</button>
             </div>
-            <div class="form-group">
-                <label>Mensaje (opcional)</label>
-                <input type="text" id="reserva-mensaje" placeholder="Alguna aclaración...">
-            </div>
-            <button class="modal-btn" onclick="enviarReserva()">
-                <i class="ti ti-brand-whatsapp"></i> CONFIRMAR RESERVA
-            </button>
         </div>
     </div>
-</div>
 </body>
 
 </html>
