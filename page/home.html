@@ -16,6 +16,10 @@
 
 <body>
 
+    <!-- ==========================================
+         VIDEOS DE FONDO — cambian según el horario
+         via script.js (mañana/tarde/noche)
+         ========================================== -->
     <video id="video-cafe" autoplay muted loop playsinline class="video-background">
         <source src="../video/cuervocafe.mp4" type="video/mp4">
     </video>
@@ -25,11 +29,15 @@
     <video id="video-cena" autoplay muted loop playsinline class="video-background">
         <source src="../video/cuervo-cena.mp4" type="video/mp4">
     </video>
-
     <div class="video-overlay"></div>
 
+    <!-- ==========================================
+         HEADER — logo cambia según horario via JS
+         ========================================== -->
     <header class="header">
+        <!-- Logo principal (noche/tarde) -->
         <img id="logo-nav-principal" src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="main-logo">
+        <!-- Logo café (mañana) -->
         <img id="logo-nav-cafe" src="../img/cuervocafe2.png" alt="Logo Cuervo Café" class="main-logo">
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -55,16 +63,21 @@
         </nav>
         <div class="header-right">
             <label for="menu-toggle" class="menu-icon">☰</label>
+            <!-- Botón reservar — abre modal-reserva-overlay -->
             <a onclick="abrirModalReserva()" class="nav-reserva" style="cursor:pointer">RESERVAR</a>
-
         </div>
     </header>
 
-    <!-- CUERVO CAFÉ -->
+    <!-- ==========================================
+         SECCIÓN CUERVO CAFÉ
+         Horario: 8:00 - 11:30 y 16:00 - 19:30
+         ========================================== -->
     <section id="cafe-section" class="carta cuervo-cafe">
         <div class="logo-section">
             <img src="../img/cuervocafe2.png" alt="Logo Cuervo Café" class="logo-img">
         </div>
+
+        <!-- Carrusel de categorías — agregar/quitar <a> para nuevas categorías -->
         <div class="categorias-wrapper">
             <button class="carrusel-btn" id="btn-prev">&#171;</button>
             <div class="categorias-carrusel">
@@ -81,6 +94,7 @@
             <button class="carrusel-btn" id="btn-next">&#187;</button>
         </div>
 
+        <!-- CAFETERÍA CLÁSICA Y ESPECIAL -->
         <div id="cafeteria" class="carta-grid">
             <div class="carta-box">
                 <h2>CAFETERÍA CLÁSICA</h2>
@@ -115,6 +129,7 @@
             </div>
         </div>
 
+        <!-- PROMOS — actualizar horarios y precios cuando cambien -->
         <div id="promos" class="carta-box carta-box--full">
             <h2>PROMOS <span class="carta-subtitle">LUNES A DOMINGOS DE 8:00HS A 11:30HS Y DE 16:00HS A 19:30HS</span>
             </h2>
@@ -147,6 +162,7 @@
             </div>
         </div>
 
+        <!-- LICUADOS Y LIMONADAS -->
         <div class="carta-grid">
             <div id="licuados" class="carta-box">
                 <h2>LICUADOS</h2>
@@ -172,6 +188,7 @@
             </div>
         </div>
 
+        <!-- DETOX Y CROISSANT -->
         <div class="carta-grid">
             <div id="detox" class="carta-box">
                 <h2>DETOX <span class="carta-subtitle">jugos naturales desintoxicantes</span></h2>
@@ -204,6 +221,7 @@
             </div>
         </div>
 
+        <!-- SIN TACC Y ADICIONALES -->
         <div class="carta-grid">
             <div id="sintacc" class="carta-box">
                 <h2>SIN TACC</h2>
@@ -239,6 +257,7 @@
             </div>
         </div>
 
+        <!-- ADICIONALES ESPECIALES — tortas de estación: actualizar sabores según temporada -->
         <div id="adicionales-especiales" class="carta-box carta-box--full">
             <h2>ADICIONALES ESPECIALES</h2>
             <div class="carta-grid-inner">
@@ -262,7 +281,10 @@
         </div>
     </section>
 
-    <!-- MENÚ EJECUTIVO -->
+    <!-- ==========================================
+         SECCIÓN MENÚ EJECUTIVO
+         Horario: mediodía (lunes a viernes)
+         ========================================== -->
     <section id="ejecutivo-section" class="carta cuervo-ejecutivo">
         <div class="logo-section">
             <img src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="logo-img">
@@ -274,6 +296,7 @@
             </div>
         </div>
 
+        <!-- MENÚ EJECUTIVO — actualizar precio y opciones cuando cambien -->
         <div id="ejecutivo" class="carta-box carta-box--full">
             <div class="menu-precio-header">
                 <h2>MENÚ EJECUTIVO</h2>
@@ -301,6 +324,7 @@
             </div>
         </div>
 
+        <!-- MENÚ PREMIUM — actualizar precio y opciones cuando cambien -->
         <div id="premium" class="carta-grid">
             <div class="carta-box">
                 <div class="menu-precio-header">
@@ -341,11 +365,16 @@
         </div>
     </section>
 
-    <!-- CARTA DE COMIDA -->
+    <!-- ==========================================
+         SECCIÓN CARTA DE COMIDA
+         Almuerzo y cena
+         ========================================== -->
     <section id="almuerzo-cena-section" class="carta cuervo-bebidas">
         <div class="logo-section">
             <img src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="logo-img">
         </div>
+
+        <!-- Carrusel de categorías — agregar/quitar <a> para nuevas secciones -->
         <div class="categorias-wrapper">
             <button class="carrusel-btn" id="btn-prev">&#171;</button>
             <div class="categorias-carrusel">
@@ -370,7 +399,7 @@
             <button class="carrusel-btn" id="btn-next">&#187;</button>
         </div>
 
-        <!-- SUGERENCIAS -->
+        <!-- SUGERENCIAS — estos platos rotan, actualizar foto y descripción según temporada -->
         <div id="suge" class="carta-box carta-box--full">
             <h2>SUGERENCIAS <span class="carta-subtitle">CUBIERTO $3000</span></h2>
             <div class="carta-item carta-item--img">
@@ -449,8 +478,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">RABAS</span>
                         <p class="item-desc">Salsa tártara</p>
-                    </div>
-                    <span class="item-precio">$18.500 <span class="item-unidad">5 UNIDADES</span></span>
+                    </div><span class="item-precio">$18.500 <span class="item-unidad">5 UNIDADES</span></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -466,8 +494,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">BASTONES DE MUZZARELLA</span>
                         <p class="item-desc">Con salsa BBQ</p>
-                    </div>
-                    <span class="item-precio">$14.000 <span class="item-unidad">5 UNIDADES</span></span>
+                    </div><span class="item-precio">$14.000 <span class="item-unidad">5 UNIDADES</span></span>
                 </div>
             </div>
         </div>
@@ -505,8 +532,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">MATAMBRE DE CERDO A LA PIZZA</span>
                         <p class="item-desc">En colchón de papas clásicas</p>
-                    </div>
-                    <span class="item-precio">$33.000 <span class="item-unidad">PARA COMPARTIR</span></span>
+                    </div><span class="item-precio">$33.000 <span class="item-unidad">PARA COMPARTIR</span></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -537,8 +563,7 @@
                     <div><span class="item-nombre">QUESADILLA DE POLLO</span>
                         <p class="item-desc">Tiras de pollo, muzzarella, queso, cheddar, y cebolla de verdeo. Acompañada
                             de papas bastón</p>
-                    </div>
-                    <span class="item-precio">$17.500 <span class="item-unidad">PARA COMPARTIR</span></span>
+                    </div><span class="item-precio">$17.500 <span class="item-unidad">PARA COMPARTIR</span></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -576,7 +601,7 @@
             <span class="carta-subtitle">EL CONSUMO EXCESIVO DE SAL ES PERJUDICIAL PARA LA SALUD</span>
         </div>
 
-        <!-- PASTAS -->
+        <!-- PASTAS — elaboración artesanal, consultar sugerencia del chef -->
         <div id="pastas" class="carta-box carta-box--full">
             <h2>PASTAS <span class="carta-subtitle">ELABORACIÓN ARTESANAL · CONSULTAR SUGERENCIA DEL CHEF</span></h2>
             <div class="carta-item carta-item--img">
@@ -635,8 +660,7 @@
             <div class="carta-item carta-item--img">
                 <img src="../img/comida/rebozados.png" alt="Tabla de rebozados con dips de BBQ y tártara">
                 <div class="item-info">
-                    <div>
-                        <span class="item-nombre">TABLA DE REBOZADOS</span>
+                    <div><span class="item-nombre">TABLA DE REBOZADOS</span>
                         <p class="item-desc">Acompañado de dips de BBQ y salsa tártara
                         <ul>
                             <li class="desc-li">Tiras de pollo</li>
@@ -646,8 +670,7 @@
                             <li class="desc-li">Empanaditas criollas</li>
                             <li class="desc-li">Papas con cheddar</li>
                         </ul>
-                        </p>
-                        <span class="item-unidad">COMEN 2/3 PERSONAS</span>
+                        </p><span class="item-unidad">COMEN 2/3 PERSONAS</span>
                     </div>
                     <span class="item-precio">$36.500</span>
                 </div>
@@ -836,7 +859,7 @@
             </div>
         </div>
 
-        <!-- CELIACOS -->
+        <!-- CELÍACOS SIN TACC -->
         <div id="sitacc" class="carta-box carta-box--full">
             <h2>CELÍACOS <span class="carta-subtitle">SIN TACC</span></h2>
             <div class="carta-item carta-item--img">
@@ -970,7 +993,7 @@
             </div>
         </div>
 
-        <!-- TORTAS -->
+        <!-- TORTAS — actualizar sabores según temporada -->
         <div id="tortas" class="carta-box carta-box--full">
             <h2>TORTAS</h2>
             <div class="carta-item carta-item--img">
@@ -1012,7 +1035,7 @@
             </div>
         </div>
 
-        <!-- CAFETERÍA -->
+        <!-- CAFETERÍA (almuerzo/cena) -->
         <div id="cafeteria-a&c" class="carta-box carta-box--full">
             <h2>CAFETERÍA</h2>
             <div class="carta-grid">
@@ -1038,11 +1061,15 @@
         </div>
     </section>
 
-    <!-- BEBIDAS -->
+    <!-- ==========================================
+         SECCIÓN BEBIDAS — Tragos y Cervezas
+         ========================================== -->
     <section id="bebidas-section" class="carta cuervo-bebidas">
         <div class="logo-section">
             <img src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="logo-img">
         </div>
+
+        <!-- Carrusel de categorías bebidas -->
         <div class="categorias-wrapper">
             <button class="carrusel-btn" id="btn-prev">&#171;</button>
             <div class="categorias-carrusel">
@@ -1101,6 +1128,7 @@
                         </div><span class="item-precio">$6.500</span>
                     </div>
                     <div class="img-bebidas">
+                        <!-- Imagen decorativa de los baldes de cerveza -->
                         <img src="../img/bebidas/cervesas.png" alt="Balde de cervezas Corona y Stella Artois">
                     </div>
                     <div class="logos-marcas">
@@ -1170,6 +1198,7 @@
                     <div class="carta-item"><span class="item-nombre">POMELO</span><span
                             class="item-precio">$5.500</span></div>
                     <div class="img-bebidas">
+                        <!-- Imagen decorativa de jugos naturales -->
                         <img src="../img/bebidas/mucktail.png" alt="Vaso de maracuyá y licuados naturales">
                     </div>
                 </div>
@@ -1377,6 +1406,7 @@
                     </div>
                 </div>
             </div>
+            <!-- DE LA CASA — tragos signature del local -->
             <h3 class="menu-seccion-titulo" style="margin-top:1.5rem; margin-bottom:1rem">DE LA CASA</h3>
             <div class="carta-grid">
                 <div>
@@ -1525,6 +1555,7 @@
                     </div><span class="item-precio">$11.000</span>
                 </div>
             </div>
+            <!-- Logos de marcas premium -->
             <div class="logos-marcas">
                 <img src="../img/logos/beefeater.png" alt="Beefeater">
                 <img src="../img/logos/bombay.png" alt="Bombay Sapphire">
@@ -1571,7 +1602,7 @@
             </div>
         </div>
 
-        <!-- DESTILADOS -->
+        <!-- DESTILADOS — solo lista, sin fotos, consultar precios -->
         <div id="desti" class="carta-box carta-box--full">
             <h2>DESTILADOS <span class="carta-subtitle">CONSULTAR PRECIOS</span></h2>
             <div class="destilados-grid">
@@ -1615,6 +1646,7 @@
                     <div class="destilado-item"><span class="destilado-nombre">JACK DANIEL'S</span></div>
                     <div class="destilado-item"><span class="destilado-nombre">BULLEIT BOURBON</span></div>
                     <div class="destilado-item"><span class="destilado-nombre">BUCHANNAN'S DELUXE 12 Años</span></div>
+                    <!-- Logos de marcas de whisky -->
                     <div class="destilado-logos">
                         <img src="../img/logos/chivas.png" alt="Chivas Regal">
                         <img src="../img/logos/walker.png" alt="Johnnie Walker">
@@ -1632,6 +1664,7 @@
         <!-- VINOS & ESPUMANTES -->
         <div id="vinos" class="carta-box carta-box--full">
             <h2>VINOS & ESPUMANTES</h2>
+            <!-- Logos de bodegas -->
             <div class="logos-marcas">
                 <img src="../img/logos/perdices.png" alt="Viña Las Perdices">
                 <img src="../img/logos/chandon.png" alt="Chandon">
@@ -1753,47 +1786,143 @@
         </div>
     </section>
 
-    <!-- EVENTOS -->
+    <!-- ==========================================
+         SECCIÓN EVENTOS
+         ⚠️ ZONA DE CAMBIOS FRECUENTES:
+         - Los slides del carrusel cambian según los
+           eventos del momento. Para agregar un nuevo
+           evento: copiar un <div class="slider-slide">
+           entero, cambiar la clase (ej: slide-nuevo),
+           agregar la imagen en /img/dias/ y el CSS
+           correspondiente en style.css
+         - Recordar actualizar los slider-dots también
+         ========================================== -->
     <main class="eventos">
         <section id="eventos-section" class="eventos-section">
             <h2 class="eventos-titulo">EVENTOS</h2>
             <div class="slider-container">
                 <button class="slider-btn slider-btn--prev" id="slider-prev">&#8249;</button>
                 <button class="slider-btn slider-btn--next" id="slider-next">&#8250;</button>
+
                 <div class="slider-track" id="slider-track">
+
+                    <!-- ── SLIDE 1: MIÉRCOLES DE PASTA ──
+                         Para modificar: cambiar slide-dia, slide-nombre, slide-desc
+                         y el primer parámetro de abrirModalEvento()
+                         Para cambiar imagen: modificar .slide-pasta en style.css -->
                     <div class="slider-slide slide-pasta">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
                             <span class="slide-dia">MIÉRCOLES</span>
                             <h3 class="slide-nombre">Noche de Pasta</h3>
                             <p class="slide-desc">Pastas artesanales con las mejores salsas de la casa</p>
-                            <a href="https://api.whatsapp.com/send?phone=543413742910&text=Hola!%20quiero%20reservar%20para%20el%20Mi%C3%A9rcoles%20de%20Pasta"
-                                target="_blank" class="slide-btn"><i class="ti ti-calendar"></i> RESERVAR</a>
+                            <button onclick="abrirModalEvento('Miércoles de Pasta', 'miercoles')" class="slide-btn">
+                                <i class="ti ti-calendar"></i> RESERVAR
+                            </button>
                         </div>
                     </div>
+
+                    <!-- ── SLIDE 2: JUEVES DE PIZZA & BURGER ──
+                         Para modificar: cambiar slide-dia, slide-nombre, slide-desc
+                         y el primer parámetro de abrirModalEvento()
+                         Para cambiar imagen: modificar .slide-pizza en style.css -->
                     <div class="slider-slide slide-pizza">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
                             <span class="slide-dia">JUEVES</span>
                             <h3 class="slide-nombre">Pizza & Burger</h3>
                             <p class="slide-desc">Las mejores pizzas y burgers de autor con ingredientes frescos</p>
-                            <a href="https://api.whatsapp.com/send?phone=543413742910&text=Hola!%20quiero%20reservar%20para%20el%20Jueves%20de%20Pizza%20%26%20Burger"
-                                target="_blank" class="slide-btn"><i class="ti ti-calendar"></i> RESERVAR</a>
+                            <button onclick="abrirModalEvento('Jueves de Pizza & Burger', 'jueves')" class="slide-btn">
+                                <i class="ti ti-calendar"></i> RESERVAR
+                            </button>
                         </div>
                     </div>
+
+                    <!-- ── PARA AGREGAR UN NUEVO EVENTO ──
+                    <div class="slider-slide slide-nuevo">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <span class="slide-dia">DÍA</span>
+                            <h3 class="slide-nombre">Nombre del Evento</h3>
+                            <p class="slide-desc">Descripción del evento</p>
+                            <button onclick="abrirModalEvento('Nombre del Evento', 'dia')" class="slide-btn">
+                                <i class="ti ti-calendar"></i> RESERVAR
+                            </button>
+                        </div>
+                    </div>
+                    Acordate de: 1) agregar un <span class="slider-dot"></span> abajo
+                                 2) agregar .slide-nuevo { background-image: url(...) } en style.css
+                                 3) actualizar sliderTotal en script.js si es necesario -->
+
                 </div>
+
+                <!-- Dots del slider — agregar uno por cada slide nuevo -->
                 <div class="slider-dots">
                     <span class="slider-dot active"></span>
                     <span class="slider-dot"></span>
                 </div>
             </div>
+
+            <!-- MODAL RESERVA DE EVENTOS (pasta/pizza/etc) -->
+            <div class="modal-overlay" id="modal-evento-overlay" onclick="cerrarModalEvento()">
+                <div class="modal" onclick="event.stopPropagation()">
+                    <button class="modal-close" onclick="cerrarModalEvento()">✕</button>
+                    <h2 class="modal-titulo">RESERVAR</h2>
+                    <p class="modal-subtitulo" id="modal-evento-tipo"></p>
+                    <div class="modal-form">
+                        <div class="form-group">
+                            <label>Tu nombre</label>
+                            <input type="text" id="evento-nombre" placeholder="Nombre y apellido">
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha <span style="font-size:0.6rem; opacity:0.6">solo <span
+                                        id="evento-dia-label"></span></span></label>
+                            <input type="date" id="evento-fecha">
+                        </div>
+                        <div class="form-group">
+                            <label>Hora <span style="font-size:0.6rem; opacity:0.6">desde las 20:00</span></label>
+                            <input type="time" id="evento-hora" min="20:00" max="23:59">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Adultos</label>
+                                <input type="number" id="evento-adultos" placeholder="0" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label>Niños</label>
+                                <input type="number" id="evento-ninos" placeholder="0" min="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Sector</label>
+                            <div class="sector-btns">
+                                <button class="sector-btn activo" onclick="elegirSectorEvento('Adentro', this)">
+                                    <i class="ti ti-building"></i> Adentro
+                                </button>
+                                <button class="sector-btn" onclick="elegirSectorEvento('Afuera', this)">
+                                    <i class="ti ti-tree"></i> Afuera
+                                </button>
+                            </div>
+                        </div>
+                        <button class="modal-btn" onclick="enviarReservaEvento()">
+                            <i class="ti ti-brand-whatsapp"></i> CONFIRMAR RESERVA
+                        </button>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- EVENTOS PRIVADOS -->
+        <!-- ==========================================
+             EVENTOS PRIVADOS
+             Las cards son fijas (cumple, casamiento, etc)
+             Solo cambia el texto del modal si es necesario
+             ========================================== -->
         <section class="eventos-privados-section">
             <h2 class="eventos-titulo">EVENTOS PRIVADOS</h2>
             <div class="box-intro">
-            <p class="eventos-intro">Reservá tu evento en una de las ubicaciones más exclusivas de Rosario. Gastronomía, atención personalizada y una vista privilegiada frente al río para crear una experiencia verdaderamente inolvidable en Puerto Norte.</p>
+                <p class="eventos-intro">Reservá tu evento en una de las ubicaciones más exclusivas de Rosario.
+                    Gastronomía, atención personalizada y una vista privilegiada frente al río para crear una
+                    experiencia verdaderamente inolvidable en Puerto Norte.</p>
             </div>
             <div class="eventos-grid">
                 <div class="evento-privado-card" onclick="abrirModal('Cumpleaños')">
@@ -1823,7 +1952,7 @@
             </div>
         </section>
 
-        <!-- MODAL EVENTOS -->
+        <!-- MODAL CONSULTA EVENTOS PRIVADOS -->
         <div class="modal-overlay" id="modal-overlay" onclick="cerrarModal()">
             <div class="modal" onclick="event.stopPropagation()">
                 <button class="modal-close" onclick="cerrarModal()">✕</button>
@@ -1847,7 +1976,12 @@
             </div>
         </div>
 
-        <!-- CATERING -->
+        <!-- ==========================================
+             CATERING — identidad visual dorada
+             Las cards son iguales a eventos privados
+             pero con estilo diferente via CSS
+             Los paquetes se completan cuando estén definidos
+             ========================================== -->
         <section class="catering-section">
             <h2 class="eventos-titulo">CATERING</h2>
             <p class="catering-intro">Llevamos la experiencia Cuervo Blanco a tu evento</p>
@@ -1879,12 +2013,16 @@
             </div>
         </section>
 
-        <!-- MODAL CATERING -->
+        <!-- MODAL CATERING — 2 pasos: elegir paquete → formulario
+             Para agregar paquetes: copiar un catering-paquete-item
+             y cambiar el nombre en elegirPaquete() -->
         <div class="modal-overlay" id="modal-catering-overlay" onclick="cerrarModalCatering()">
             <div class="modal modal-catering" onclick="event.stopPropagation()">
                 <button class="modal-close" onclick="cerrarModalCatering()">✕</button>
                 <h2 class="modal-titulo">CATERING</h2>
                 <p class="modal-subtitulo" id="modal-catering-tipo"></p>
+
+                <!-- PASO 1: Elegir paquete — actualizar nombres y descripciones cuando estén definidos -->
                 <div id="catering-paso1">
                     <p class="catering-paso-label">Elegí tu paquete</p>
                     <div class="catering-paquetes-modal">
@@ -1908,6 +2046,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- PASO 2: Formulario — se muestra al elegir paquete -->
                 <div id="catering-paso2" style="display:none">
                     <button class="catering-volver" onclick="volverPaso1()"><i class="ti ti-arrow-left"></i>
                         Volver</button>
@@ -1933,6 +2073,9 @@
         </div>
     </main>
 
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">
@@ -1967,45 +2110,42 @@
         </div>
     </footer>
 
-    <!-- MODAL RESERVAS -->
-<div class="modal-overlay" id="modal-reserva-overlay" onclick="cerrarModalReserva()">
-    <div class="modal" onclick="event.stopPropagation()">
-        <button class="modal-close" onclick="cerrarModalReserva()">✕</button>
-        <h2 class="modal-titulo">RESERVAR</h2>
-        <p class="modal-subtitulo">Cuervo Blanco · Puerto Norte</p>
-        <div class="modal-form">
-            <div class="form-group">
-                <label>Tu nombre</label>
-                <input type="text" id="reserva-nombre" placeholder="Nombre y apellido">
-            </div>
-            <div class="form-group">
-                <label>Fecha</label>
-                <input type="date" id="reserva-fecha">
-            </div>
-            <div class="form-group">
-                <label>Hora</label>
-                <input type="time" id="reserva-hora">
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Adultos</label>
-                    <input type="number" id="reserva-adultos" placeholder="0" min="0">
+<!-- ==========================================
+        MODAL RESERVAS GENERAL
+        Se abre desde el botón RESERVAR del header
+========================================== -->
+    <div class="modal-overlay" id="modal-reserva-overlay" onclick="cerrarModalReserva()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="cerrarModalReserva()">✕</button>
+            <h2 class="modal-titulo">RESERVAR</h2>
+            <p class="modal-subtitulo">Cuervo Blanco · Puerto Norte</p>
+            <div class="modal-form">
+                <div class="form-group"><label>Tu nombre</label><input type="text" id="reserva-nombre"
+                        placeholder="Nombre y apellido"></div>
+                <div class="form-group"><label>Fecha</label><input type="date" id="reserva-fecha"></div>
+                <div class="form-group"><label>Hora</label><input type="time" id="reserva-hora"></div>
+                <div class="form-row">
+                    <div class="form-group"><label>Adultos</label><input type="number" id="reserva-adultos"
+                            placeholder="0" min="0"></div>
+                    <div class="form-group"><label>Niños</label><input type="number" id="reserva-ninos" placeholder="0"
+                            min="0"></div>
                 </div>
                 <div class="form-group">
-                    <label>Niños</label>
-                    <input type="number" id="reserva-ninos" placeholder="0" min="0">
+                    <label>Sector</label>
+                    <div class="sector-btns">
+                        <button class="sector-btn activo" onclick="elegirSectorReserva('Adentro', this)">
+                            <i class="ti ti-building"></i> Adentro
+                        </button>
+                        <button class="sector-btn" onclick="elegirSectorReserva('Afuera', this)">
+                            <i class="ti ti-tree"></i> Afuera
+                        </button>
+                    </div>
                 </div>
+                <button class="modal-btn" onclick="enviarReserva()"><i class="ti ti-brand-whatsapp"></i> CONFIRMAR
+                    RESERVA</button>
             </div>
-            <div class="form-group">
-                <label>Mensaje (opcional)</label>
-                <input type="text" id="reserva-mensaje" placeholder="Alguna aclaración...">
-            </div>
-            <button class="modal-btn" onclick="enviarReserva()">
-                <i class="ti ti-brand-whatsapp"></i> CONFIRMAR RESERVA
-            </button>
         </div>
     </div>
-</div>
 
     <script src="/js/script.js"></script>
 </body>
