@@ -880,14 +880,10 @@ body {
     justify-content: center;
 }
 
-.logo-section img {
-    width: 100px;
-    height: 100px;
-}
 
 .carta {
     min-height: fit-content;
-    padding-top: 5px;
+    padding-top: 1px;
     backdrop-filter: blur(10px);
     max-width: 700px;
     margin: 200px auto;
@@ -1058,19 +1054,20 @@ body {
 .logo-section {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
-.logo-section img {
-    width: 100px;
-    height: 100px;
+.logo-img {
+    width: 130px;
+    height: 80px;
 }
+
 
 .categorias-wrapper {
     position: sticky;
-    top: 120px;
     width: fit-content;
     max-width: 90%;
-    margin: 30px auto 20px;
+    margin: 20px auto 20px;
     z-index: 100;
     background: var(--color-traslucer);
     backdrop-filter: blur(10px);
