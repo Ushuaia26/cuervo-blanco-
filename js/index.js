@@ -1,0 +1,19 @@
+// ============================================================
+//  CUERVO BLANCO — index.js
+//  Lógica exclusiva de index.html (landing / splash)
+//  Requiere que common.js esté cargado antes
+// ============================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Acordeones del index: cerrar el anterior al abrir uno nuevo
+  const toggles = document.querySelectorAll(".checkbox__submenu");
+  toggles.forEach(toggle => {
+    toggle.addEventListener("change", () => {
+      if (toggle.checked) {
+        toggles.forEach(otro => { if (otro !== toggle) otro.checked = false; });
+      }
+    });
+  });
+
+});
