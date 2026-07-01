@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener('click', () => {
       const menuToggle = document.getElementById('menu-toggle');
       if (menuToggle) menuToggle.checked = false;
+
+      const toggleCartaNav = document.getElementById('toggle-carta-nav');
+      if (toggleCartaNav) toggleCartaNav.checked = false; 
     });
   });
 
