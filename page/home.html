@@ -5,21 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="icon" type="image/png" href="/img/android-chrome-512x512.png">
+    <link rel="preconnect" href="https://script.google.com">
     <title>Cuervo Blanco</title>
 </head>
 
 <body>
 
     <!-- ==========================================
-         VIDEOS DE FONDO — cambian según el horario
-         via script.js (mañana/tarde/noche)
-         ========================================== -->
+        VIDEOS DE FONDO — cambian según el horario
+        via script.js (mañana/tarde/noche)
+        ========================================== -->
     <video id="video-cafe" autoplay muted loop playsinline class="video-background">
         <source src="../video/cuervocafe.mp4" type="video/mp4">
     </video>
@@ -32,8 +34,8 @@
     <div class="video-overlay"></div>
 
     <!-- ==========================================
-         HEADER — logo cambia según horario via JS
-         ========================================== -->
+        HEADER — logo cambia según horario via JS
+        ========================================== -->
     <header class="header">
         <!-- Logo principal (noche/tarde) -->
         <img id="logo-nav-principal" src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="main-logo">
@@ -69,9 +71,9 @@
     </header>
 
     <!-- ==========================================
-         SECCIÓN CUERVO CAFÉ
-         Horario: 8:00 - 11:30 y 16:00 - 19:30
-         ========================================== -->
+        SECCIÓN CUERVO CAFÉ
+        Horario: 8:00 - 11:30 y 16:00 - 19:30
+        ========================================== -->
     <section id="cafe-section" class="carta cuervo-cafe">
         <div class="logo-section">
             <img src="../img/cuervocafe2.png" alt="Logo Cuervo Café" class="logo-img">
@@ -98,34 +100,38 @@
         <div id="cafeteria" class="carta-grid">
             <div class="carta-box">
                 <h2>CAFETERÍA CLÁSICA</h2>
-                <div class="carta-item"><span class="item-nombre">Chico</span><span class="item-precio">$3.500</span>
+                <div class="carta-item"><span class="item-nombre">Chico</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-01"></span>
                 </div>
-                <div class="carta-item"><span class="item-nombre">Mediano</span><span class="item-precio">$4.000</span>
+                <div class="carta-item"><span class="item-nombre">Mediano</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-02"></span>
                 </div>
-                <div class="carta-item"><span class="item-nombre">Grande</span><span class="item-precio">$4.300</span>
+                <div class="carta-item"><span class="item-nombre">Grande</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-03"></span>
                 </div>
-                <div class="carta-item"><span class="item-nombre">Té</span><span class="item-precio">$3.000</span></div>
-                <div class="carta-item"><span class="item-nombre">Té con leche</span><span
-                        class="item-precio">$3.500</span></div>
-                <div class="carta-item"><span class="item-nombre">Mate cocido</span><span
-                        class="item-precio">$3.000</span></div>
-                <div class="carta-item"><span class="item-nombre">Mate cocido con leche</span><span
-                        class="item-precio">$3.500</span></div>
+                <div class="carta-item"><span class="item-nombre">Té</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-04"></span></div>
+                <div class="carta-item"><span class="item-nombre">Té con leche</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-05"></span></div>
+                <div class="carta-item"><span class="item-nombre">Mate cocido</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-06"></span></div>
+                <div class="carta-item"><span class="item-nombre">Mate cocido con leche</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-07"></span></div>
             </div>
             <div class="carta-box">
                 <h2>CAFETERÍA ESPECIAL</h2>
-                <div class="carta-item"><span class="item-nombre">Cuervo vainilla latte</span><span
-                        class="item-precio">$7.000</span></div>
+                <div class="carta-item"><span class="item-nombre">Cuervo vainilla latte</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-01"></span></div>
                 <div class="carta-item"><span class="item-nombre">Cuervo caramel macchiato</span><span
-                        class="item-precio">$7.000</span></div>
-                <div class="carta-item"><span class="item-nombre">Cuervo oreo latte</span><span
-                        class="item-precio">$7.000</span></div>
-                <div class="carta-item"><span class="item-nombre">Chocolatada</span><span
-                        class="item-precio">$3.800</span></div>
-                <div class="carta-item"><span class="item-nombre">Submarino</span><span
-                        class="item-precio">$4.000</span></div>
-                <div class="carta-item"><span class="item-nombre">Capuccino</span><span
-                        class="item-precio">$5.500</span></div>
+                        class="item-precio" id="CUERVOCAFE-CAFESPECIAL-02"></span></div>
+                <div class="carta-item"><span class="item-nombre">Cuervo oreo latte</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-03"></span></div>
+                <div class="carta-item"><span class="item-nombre">Chocolatada</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-04"></span></div>
+                <div class="carta-item"><span class="item-nombre">Submarino</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-05"></span></div>
+                <div class="carta-item"><span class="item-nombre">Capuccino</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-06"></span></div>
             </div>
         </div>
 
@@ -137,20 +143,20 @@
                 <div><span class="item-nombre">OFFICE</span>
                     <p class="item-desc">Infusión clásica + 2 medialunas</p>
                 </div>
-                <span class="item-precio">$6.000</span>
+                <span class="item-precio" id="CUERVOCAFE-PROMOS-01"></span>
             </div>
             <div class="carta-item">
                 <div><span class="item-nombre">DE CAMPO</span>
                     <p class="item-desc">Infusión clásica + tostadas de pan de campo + queso y mermelada casera — Opción
                         con tostadas de pan keto</p>
                 </div>
-                <span class="item-precio">$8.000</span>
+                <span class="item-precio" id="CUERVOCAFE-PROMOS-02"></span>
             </div>
             <div class="carta-item">
                 <div><span class="item-nombre">DE LA CASA</span>
                     <p class="item-desc">Infusión clásica + medio tostado de jyq en pan de campo</p>
                 </div>
-                <span class="item-precio">$9.500</span>
+                <span class="item-precio" id="CUERVOCAFE-PROMOS-03"></span>
             </div>
             <div class="carta-item">
                 <div><span class="item-nombre">BRUNCH P/2 PERSONAS</span>
@@ -158,7 +164,7 @@
                         pan de campo integral + palta y queso untable + huevo revuelto + 2 fotas de jamón + 2 fotas de
                         queso + 2 medialunas con jamón y queso (dulces o saladas)</p>
                 </div>
-                <span class="item-precio">$28.500</span>
+                <span class="item-precio" id="CUERVOCAFE-PROMOS-04"></span>
             </div>
         </div>
 
@@ -166,25 +172,26 @@
         <div class="carta-grid">
             <div id="licuados" class="carta-box">
                 <h2>LICUADOS</h2>
-                <div class="carta-item"><span class="item-nombre">Con agua</span><span class="item-precio">$5.000</span>
+                <div class="carta-item"><span class="item-nombre">Con agua</span><span class="item-precio"
+                        id="CUERVOCAFE-LICUADOS-01"></span>
                 </div>
-                <div class="carta-item"><span class="item-nombre">Con leche</span><span
-                        class="item-precio">$6.000</span></div>
+                <div class="carta-item"><span class="item-nombre">Con leche</span><span class="item-precio"
+                        id="CUERVOCAFE-LICUADOS-02"></span></div>
                 <div class="carta-item"><span class="item-nombre">Exprimido de naranja XXL</span><span
-                        class="item-precio">$6.000</span></div>
+                        class="item-precio" id="CUERVOCAFE-LICUADOS-03"></span></div>
                 <div class="carta-item"><span class="item-nombre">Milkshake (consultar sabores)</span><span
-                        class="item-precio">$6.500</span></div>
+                        class="item-precio" id="CUERVOCAFE-LICUADOS-04"></span></div>
             </div>
             <div id="limonadas" class="carta-box">
                 <h2>LIMONADAS <span class="carta-subtitle">VASO</span></h2>
                 <div class="carta-item"><span class="item-nombre">De la casa (con menta y jengibre)</span><span
-                        class="item-precio">$5.000</span></div>
-                <div class="carta-item"><span class="item-nombre">Frutos Rojos</span><span
-                        class="item-precio">$5.500</span></div>
+                        class="item-precio" id="CUERVOCAFE-LIMONADAS-01"></span></div>
+                <div class="carta-item"><span class="item-nombre">Frutos Rojos</span><span class="item-precio"
+                        id="CUERVOCAFE-LIMONADAS-02"></span></div>
                 <div class="carta-item"><span class="item-nombre">Maracuyá con frutos rojos</span><span
-                        class="item-precio">$5.500</span></div>
-                <div class="carta-item"><span class="item-nombre">Pormelada</span><span
-                        class="item-precio">$5.500</span></div>
+                        class="item-precio" id="CUERVOCAFE-LIMONADAS-03"></span></div>
+                <div class="carta-item"><span class="item-nombre">Pormelada</span><span class="item-precio"
+                        id="CUERVOCAFE-LIMONADAS-04"></span></div>
             </div>
         </div>
 
@@ -195,29 +202,30 @@
                 <div class="carta-item">
                     <div><span class="item-nombre">Amarillo</span>
                         <p class="item-desc">Banana, leche de almendras, jengibre y canela</p>
-                    </div><span class="item-precio">$6.000</span>
+                    </div><span class="item-precio" id="CUERVOCAFE-DETOX-01"></span>
                 </div>
                 <div class="carta-item">
                     <div><span class="item-nombre">Verde</span>
                         <p class="item-desc">Banana, manzana, zanahoria y espinaca</p>
-                    </div><span class="item-precio">$6.000</span>
+                    </div><span class="item-precio" id="CUERVOCAFE-DETOX-02"></span>
                 </div>
                 <div class="carta-item">
                     <div><span class="item-nombre">Naranja</span>
                         <p class="item-desc">Naranja, limón, manzana y pera</p>
-                    </div><span class="item-precio">$6.000</span>
+                    </div><span class="item-precio" id="CUERVOCAFE-DETOX-03"></span>
                 </div>
             </div>
             <div id="croissant" class="carta-box">
                 <h2>CROISSANT</h2>
                 <div class="carta-item"><span class="item-nombre">Dulce de leche o pastelera</span><span
-                        class="item-precio">$8.000</span></div>
-                <div class="carta-item"><span class="item-nombre">Nutella</span><span class="item-precio">$9.000</span>
+                        class="item-precio" id="CUERVOCAFE-CROISSANT-01"></span></div>
+                <div class="carta-item"><span class="item-nombre">Nutella</span><span class="item-precio"
+                        id="CUERVOCAFE-CROISSANT-02"></span>
                 </div>
-                <div class="carta-item"><span class="item-nombre">Pistacho</span><span
-                        class="item-precio">$10.000</span></div>
+                <div class="carta-item"><span class="item-nombre">Pistacho</span><span class="item-precio"
+                        id="CUERVOCAFE-CROISSANT-03"></span></div>
                 <div class="carta-item"><span class="item-nombre">Jamón crudo, sour y rúcula</span><span
-                        class="item-precio">$12.500</span></div>
+                        class="item-precio" id="CUERVOCAFE-CROISSANT-04"></span></div>
             </div>
         </div>
 
@@ -225,10 +233,11 @@
         <div class="carta-grid">
             <div id="sintacc" class="carta-box">
                 <h2>SIN TACC</h2>
-                <div class="carta-item"><span class="item-nombre">Brownie</span><span class="item-precio">$5.500</span>
+                <div class="carta-item"><span class="item-nombre">Brownie</span><span class="item-precio"
+                        id="CUERVOCAFE-SINTACC-01"></span>
                 </div>
                 <div class="carta-item"><span class="item-nombre">Tostadas de arroz con queso y mermelada</span><span
-                        class="item-precio">$4.500</span></div>
+                        class="item-precio" id="CUERVOCAFE-SINTACC-02"></span></div>
             </div>
             <div id="adicionales" class="carta-box">
                 <h2>ADICIONALES</h2>
@@ -236,24 +245,24 @@
                     <div><span class="item-nombre">Bruschetta de palta</span>
                         <p class="item-desc">Tostada de pan de campo, queso crema, huevos revueltos, tomate cherry,
                             palta natural y semillas</p>
-                    </div><span class="item-precio">$9.800</span>
+                    </div><span class="item-precio" id="CUERVOCAFE-ADICIONALES-01"></span>
                 </div>
                 <div class="carta-item"><span class="item-nombre">Bruschetta opción pan keto</span><span
-                        class="item-precio">$11.500</span></div>
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-02"></span></div>
                 <div class="carta-item"><span class="item-nombre">Huevos revueltos con panceta crocante</span><span
-                        class="item-precio">$7.900</span></div>
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-03"></span></div>
                 <div class="carta-item"><span class="item-nombre">Tostadas con queso y mermelada</span><span
-                        class="item-precio">$5.000</span></div>
-                <div class="carta-item"><span class="item-nombre">Medialunas</span><span
-                        class="item-precio">$1.300</span></div>
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-04"></span></div>
+                <div class="carta-item"><span class="item-nombre">Medialunas</span><span class="item-precio"
+                        id="CUERVOCAFE-ADICIONALES-05"></span></div>
                 <div class="carta-item"><span class="item-nombre">Medialunas con jamón y queso</span><span
-                        class="item-precio">$3.300</span></div>
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-06"></span></div>
                 <div class="carta-item"><span class="item-nombre">Exprimido de naranja chico</span><span
-                        class="item-precio">$4.500</span></div>
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-07"></span></div>
                 <div class="carta-item"><span class="item-nombre">Bowl de yogurt natural con granola, miel y frutas de
-                        estación</span><span class="item-precio">$12.500</span></div>
-                <div class="carta-item"><span class="item-nombre">Medio tostado</span><span
-                        class="item-precio">$8.000</span></div>
+                        estación</span><span class="item-precio" id="CUERVOCAFE-ADICIONALES-08"></span></div>
+                <div class="carta-item"><span class="item-nombre">Medio tostado</span><span class="item-precio"
+                        id="CUERVOCAFE-ADICIONALES-09"></span></div>
             </div>
         </div>
 
@@ -262,29 +271,31 @@
             <h2>ADICIONALES ESPECIALES</h2>
             <div class="carta-grid-inner">
                 <div class="carta-item">
-                    <div><span class="item-nombre">Budín Chocolate</span></div><span class="item-precio">$5.000</span>
+                    <div><span class="item-nombre">Budín Chocolate</span></div><span class="item-precio"
+                        id="CUERVOCAFE-ADICESPECIALES-01"></span>
                 </div>
                 <div class="carta-item">
                     <div><span class="item-nombre">Budín Limón con semillas de amapola</span></div><span
-                        class="item-precio">$4.500</span>
+                        class="item-precio" id="CUERVOCAFE-ADICESPECIALES-02"></span>
                 </div>
                 <div class="carta-item">
                     <div><span class="item-nombre">Porción de torta de estación</span>
                         <p class="item-desc">Matilda / Red velvet / Vainilla y maracuyá</p>
-                    </div><span class="item-precio">$12.000</span>
+                    </div><span class="item-precio" id="CUERVOCAFE-ADICESPECIALES-03"></span>
                 </div>
-                <div class="carta-item"><span class="item-nombre">Porción de brownie</span><span
-                        class="item-precio">$5.000</span></div>
-                <div class="carta-item"><span class="item-nombre">Espumita de limón</span><span
-                        class="item-precio">$4.500</span></div>
+                <div class="carta-item"><span class="item-nombre">Porción de brownie</span><span class="item-precio"
+                        id="CUERVOCAFE-ADICESPECIALES-04"></span></div>
+                <div class="carta-item"><span class="item-nombre">Espumita de limón</span><span class="item-precio"
+                        id="CUERVOCAFE-ADICESPECIALES-05"></span></div>
             </div>
         </div>
+
     </section>
 
     <!-- ==========================================
-         SECCIÓN MENÚ EJECUTIVO
-         Horario: mediodía (lunes a viernes)
-         ========================================== -->
+        SECCIÓN MENÚ EJECUTIVO
+        Horario: mediodía (lunes a viernes)
+        ========================================== -->
     <section id="ejecutivo-section" class="carta cuervo-ejecutivo">
         <div class="logo-section">
             <img src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="logo-img-cuervo">
@@ -300,7 +311,7 @@
         <div id="ejecutivo" class="carta-box carta-box--full">
             <div class="menu-precio-header">
                 <h2>MENÚ EJECUTIVO</h2>
-                <span class="menu-precio-badge">$15.000</span>
+                <span class="menu-precio-badge" id="MENUEJECUTIVO-PRECIO-01"></span>
             </div>
             <div class="menu-seccion">
                 <h3 class="menu-seccion-titulo">PRINCIPAL</h3>
@@ -329,7 +340,7 @@
             <div class="carta-box">
                 <div class="menu-precio-header">
                     <h2>MENÚ PREMIUM</h2>
-                    <span class="menu-precio-badge">$20.000</span>
+                    <span class="menu-precio-badge" id="MENUPREMIUM-PRECIO-01"></span>
                 </div>
                 <div class="menu-opcion-badge">OPCIÓN 1</div>
                 <div class="menu-seccion">
@@ -363,12 +374,13 @@
                 <p class="menu-texto">Café · Bebida</p>
             </div>
         </div>
+
     </section>
 
     <!-- ==========================================
-         SECCIÓN CARTA DE COMIDA
-         Almuerzo y cena
-         ========================================== -->
+        SECCIÓN CARTA DE COMIDA
+        Almuerzo y cena
+        ========================================== -->
     <section id="almuerzo-cena-section" class="carta cuervo-bebidas">
         <div class="logo-section">
             <img src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="logo-img-cuervo">
@@ -401,13 +413,13 @@
 
         <!-- SUGERENCIAS — estos platos rotan, actualizar foto y descripción según temporada -->
         <div id="suge" class="carta-box carta-box--full">
-            <h2>SUGERENCIAS <span class="carta-subtitle">CUBIERTO $3000</span></h2>
+            <h2>SUGERENCIAS <span class="carta-subtitle">CUBIERTO <span class="item-precio" id="COMIDA-CUBIERTO-01"></span></span></h2>
             <div class="carta-item carta-item--img">
                 <img src="../img/comida/surubi.png" alt="Surubi crocante con papas rejilla y alioli">
                 <div class="item-info">
                     <div><span class="item-nombre">SURUBI CROCANTE</span>
                         <p class="item-desc">Acompaña de papas rejilla a la provenzal, salsa de lima alioli</p>
-                    </div><span class="item-precio">$23.500</span>
+                    </div><span class="item-precio" id="COMIDA-SUGERENCIAS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -416,7 +428,7 @@
                     <div><span class="item-nombre">ENTRECOT</span>
                         <p class="item-desc">Relleno con provolone y jamón crudo grillado. Acompañado con puré en
                             reducción de vino</p>
-                    </div><span class="item-precio">$23.500</span>
+                    </div><span class="item-precio" id="COMIDA-SUGERENCIAS-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -425,7 +437,7 @@
                     <div><span class="item-nombre">CIABATTA</span>
                         <p class="item-desc">Casera de cerdo a la BBQ con rúcula y alioli. Acompañada de papas rústicas
                         </p>
-                    </div><span class="item-precio">$17.000</span>
+                    </div><span class="item-precio" id="COMIDA-SUGERENCIAS-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -433,21 +445,21 @@
                 <div class="item-info">
                     <div><span class="item-nombre">CRISPY</span>
                         <p class="item-desc">Sandwich de pechuga crispy. Acompañado de papas & salsa de autor</p>
-                    </div><span class="item-precio">$14.500</span>
+                    </div><span class="item-precio" id="COMIDA-SUGERENCIAS-04"></span>
                 </div>
             </div>
         </div>
 
         <!-- TAPAS & REBOZADOS -->
         <div id="tapas" class="carta-box carta-box--full">
-            <h2>TAPAS & REBOZADOS <span class="carta-subtitle">CUBIERTO $3000</span></h2>
+            <h2>TAPAS & REBOZADOS <span class="carta-subtitle">CUBIERTO <span class="item-precio" id="COMIDA-CUBIERTO-01"></span></span></h2>
             <div class="carta-item carta-item--img">
                 <img src="../img/comida/provo.png" alt="Provoleta fundida con rúcula y champignon">
                 <div class="item-info">
                     <div><span class="item-nombre">PROVOLETA FUNDIDA</span>
                         <p class="item-desc">Acompañada con ensalada de rúcula, tomate confitado, champignon y panceta
                         </p>
-                    </div><span class="item-precio">$15.500</span>
+                    </div><span class="item-precio" id="COMIDA-TAPASREBOZADOS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -461,7 +473,7 @@
                         </ul>
                         </p>
                     </div>
-                    <span class="item-precio">$4.000 <span class="item-unidad">POR UNIDAD</span></span>
+                    <span class="item-precio" id="COMIDA-TAPASREBOZADOS-02"></span> <span class="item-unidad">POR UNIDAD</span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -470,7 +482,7 @@
                     <div><span class="item-nombre">BRUSCHETTA DE PALTA</span>
                         <p class="item-desc">Tostada de pan de campo, queso crema, huevo revueltos, tomates cherry y
                             palta</p>
-                    </div><span class="item-precio">$9.500</span>
+                    </div><span class="item-precio" id="COMIDA-TAPASREBOZADOS-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -478,7 +490,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">RABAS</span>
                         <p class="item-desc">Salsa tártara</p>
-                    </div><span class="item-precio">$18.500 <span class="item-unidad">5 UNIDADES</span></span>
+                    </div><span class="item-precio" id="COMIDA-TAPASREBOZADOS-04"></span> <span class="item-unidad">5 UNIDADES</span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -486,7 +498,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">TIRAS DE POLLO REBOZADO</span>
                         <p class="item-desc">Con salsa BBQ</p>
-                    </div><span class="item-precio">$13.500 <span class="item-unidad">5 UNIDADES</span></span>
+                    </div><span class="item-precio" id="COMIDA-TAPASREBOZADOS-05"></span> <span class="item-unidad">5 UNIDADES</span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -494,20 +506,20 @@
                 <div class="item-info">
                     <div><span class="item-nombre">BASTONES DE MUZZARELLA</span>
                         <p class="item-desc">Con salsa BBQ</p>
-                    </div><span class="item-precio">$14.000 <span class="item-unidad">5 UNIDADES</span></span>
+                    </div><span class="item-precio" id="COMIDA-TAPASREBOZADOS-06"></span> <span class="item-unidad">5 UNIDADES</span>
                 </div>
             </div>
         </div>
 
         <!-- TERNERA & CERDO -->
         <div id="tern&cerd" class="carta-box carta-box--full">
-            <h2>TERNERA & CERDO <span class="carta-subtitle">CUBIERTO $3000</span></h2>
+            <h2>TERNERA & CERDO <span class="carta-subtitle">CUBIERTO <span class="item-precio" id="COMIDA-CUBIERTO-01"></span></span></h2>
             <div class="carta-item carta-item--img">
                 <img src="../img/comida/OJODBIF.png" alt="Ojo de bife grillado con salsa criolla y papas rústicas">
                 <div class="item-info">
                     <div><span class="item-nombre">OJO DE BIFE GRILLADO</span>
                         <p class="item-desc">Acompañado salsa criolla y papas rústicas</p>
-                    </div><span class="item-precio">$26.000</span>
+                    </div><span class="item-precio" id="COMIDA-TERNERACERDO-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -515,7 +527,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">ENTRECOT EN REDUCCION</span>
                         <p class="item-desc">Acompañado de vegetales grillados y papas rústicas</p>
-                    </div><span class="item-precio">$25.200</span>
+                    </div><span class="item-precio" id="COMIDA-TERNERACERDO-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -524,7 +536,7 @@
                     <div><span class="item-nombre">QUESADILLA DE TERNERA</span>
                         <p class="item-desc">Tiras de ternera, muzzarella, cebolla de verdeo y cheddar. Acompañadas de
                             papas bastón</p>
-                    </div><span class="item-precio">$19.500</span>
+                    </div><span class="item-precio" id="COMIDA-TERNERACERDO-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -532,7 +544,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">MATAMBRE DE CERDO A LA PIZZA</span>
                         <p class="item-desc">En colchón de papas clásicas</p>
-                    </div><span class="item-precio">$33.000 <span class="item-unidad">PARA COMPARTIR</span></span>
+                    </div><span class="item-precio" id="COMIDA-TERNERACERDO-04"></span> <span class="item-unidad">PARA COMPARTIR</span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -540,21 +552,21 @@
                 <div class="item-info">
                     <div><span class="item-nombre">RIBBS DE CERDO XXL A LA BARBACOA</span>
                         <p class="item-desc">En colchón de papas clásicas</p>
-                    </div><span class="item-precio">$27.000 <span class="item-unidad">PARA COMPARTIR</span></span>
+                    </div><span class="item-precio" id="COMIDA-TERNERACERDO-05"></span> <span class="item-unidad">PARA COMPARTIR</span>
                 </div>
             </div>
         </div>
 
         <!-- POLLO & PESCADO -->
         <div id="pollo" class="carta-box carta-box--full">
-            <h2>POLLO & PESCADO <span class="carta-subtitle">CUBIERTO $3000</span></h2>
+            <h2>POLLO & PESCADO <span class="carta-subtitle">CUBIERTO <span class="item-precio" id="COMIDA-CUBIERTO-01"></span></span></h2>
             <div class="carta-item carta-item--img">
                 <img src="../img/comida/supremag.png" alt="Suprema al gratén con provolone y champignones">
                 <div class="item-info">
                     <div><span class="item-nombre">SUPREMA AL GRATEN</span>
                         <p class="item-desc">Queso provolone, muzzarella y champignones. Acompañada de papas rústicas
                         </p>
-                    </div><span class="item-precio">$18.000</span>
+                    </div><span class="item-precio" id="COMIDA-POLLOPESCADO-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -563,7 +575,7 @@
                     <div><span class="item-nombre">QUESADILLA DE POLLO</span>
                         <p class="item-desc">Tiras de pollo, muzzarella, queso, cheddar, y cebolla de verdeo. Acompañada
                             de papas bastón</p>
-                    </div><span class="item-precio">$17.500 <span class="item-unidad">PARA COMPARTIR</span></span>
+                    </div><span class="item-precio" id="COMIDA-POLLOPESCADO-02"></span> <span class="item-unidad">PARA COMPARTIR</span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -571,7 +583,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">FILET DE POLLO AL CHAMPIGNON</span>
                         <p class="item-desc">Grillado, con crema de champignon. Acompañado de papas rústicas</p>
-                    </div><span class="item-precio">$16.000</span>
+                    </div><span class="item-precio" id="COMIDA-POLLOPESCADO-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -579,7 +591,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">PACU GRILLADO</span>
                         <p class="item-desc">Al limón acompañado de arroz blanco o papas rústicas y salsa criolla</p>
-                    </div><span class="item-precio">$25.500</span>
+                    </div><span class="item-precio" id="COMIDA-POLLOPESCADO-04"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -587,7 +599,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">BOGA GRILLADA</span>
                         <p class="item-desc">Al roquefort o al limón acompañada de papas rústicas</p>
-                    </div><span class="item-precio">$24.500 <span class="item-unidad">PARA COMPARTIR</span></span>
+                    </div><span class="item-precio" id="COMIDA-POLLOPESCADO-05"></span> <span class="item-unidad">PARA COMPARTIR</span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -595,7 +607,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">MERLUZA A LA ROMANA</span>
                         <p class="item-desc">Con cobertura crujiente y dorada acompañado de puré de papas</p>
-                    </div><span class="item-precio">$16.000</span>
+                    </div><span class="item-precio" id="COMIDA-POLLOPESCADO-06"></span>
                 </div>
             </div>
             <span class="carta-subtitle">EL CONSUMO EXCESIVO DE SAL ES PERJUDICIAL PARA LA SALUD</span>
@@ -609,7 +621,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">MALFATTI DE ESPINACA</span>
                         <p class="item-desc">Con queso parmesano con crema de hongos</p>
-                    </div><span class="item-precio">$16.500</span>
+                    </div><span class="item-precio" id="COMIDA-PASTAS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -617,7 +629,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">ÑOQUIS DE PAPA</span>
                         <p class="item-desc">Salsa a elección: tuco, crema o mixta</p>
-                    </div><span class="item-precio">$13.000</span>
+                    </div><span class="item-precio" id="COMIDA-PASTAS-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -625,7 +637,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">ÑOQUIS RELLENOS DE QUESO BRIE</span>
                         <p class="item-desc">Con crema de roquefort, panceta y brócoli</p>
-                    </div><span class="item-precio">$17.000</span>
+                    </div><span class="item-precio" id="COMIDA-PASTAS-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -633,7 +645,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">SORRENTINOS DE CALABAZA Y MUZZARELLA</span>
                         <p class="item-desc">Salsa a elección: tuco, crema o mixta</p>
-                    </div><span class="item-precio">$16.000</span>
+                    </div><span class="item-precio" id="COMIDA-PASTAS-04"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -641,7 +653,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">SORRENTINOS DE JAMÓN Y MUZZARELLA</span>
                         <p class="item-desc">Salsa a elección: tuco, crema o mixta</p>
-                    </div><span class="item-precio">$16.000</span>
+                    </div><span class="item-precio" id="COMIDA-PASTAS-05"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -649,7 +661,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">RAVIOLONES DE CARNE Y VERDURA</span>
                         <p class="item-desc">Salsa a elección: tuco, crema o mixta</p>
-                    </div><span class="item-precio">$16.000</span>
+                    </div><span class="item-precio" id="COMIDA-PASTAS-06"></span>
                 </div>
             </div>
         </div>
@@ -672,7 +684,7 @@
                         </ul>
                         </p><span class="item-unidad">COMEN 2/3 PERSONAS</span>
                     </div>
-                    <span class="item-precio">$36.500</span>
+                    <span class="item-precio" id="COMIDA-TABLASMILANESITASWRAPS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -681,7 +693,7 @@
                     <div><span class="item-nombre">MILANESITAS NAPOLITANAS</span>
                         <p class="item-desc">De peceto con muzarella y rodajas de tomate. Acompañadas de papas clásicas
                         </p><span class="item-unidad">PARA COMPARTIR</span>
-                    </div><span class="item-precio">$21.000</span>
+                    </div><span class="item-precio" id="COMIDA-TABLASMILANESITASWRAPS-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -690,7 +702,7 @@
                     <div><span class="item-nombre">WRAP DE POLLO GRILLADO</span>
                         <p class="item-desc">Pollo grillado, cebollas asadas, rúcula, confit de tomates y queso
                             parmesano. Acompañados de papas bastón</p>
-                    </div><span class="item-precio">$14.500</span>
+                    </div><span class="item-precio" id="COMIDA-TABLASMILANESITASWRAPS-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -699,7 +711,7 @@
                     <div><span class="item-nombre">WRAP DE VEGETALES</span>
                         <p class="item-desc">Vegetales asados, queso fundido, confit de tomates y rúcula. Acompañados de
                             papas bastón</p>
-                    </div><span class="item-precio">$12.500</span>
+                    </div><span class="item-precio" id="COMIDA-TABLASMILANESITASWRAPS-04"></span>
                 </div>
             </div>
         </div>
@@ -712,8 +724,8 @@
                 <div class="item-info">
                     <div><span class="item-nombre">NAPOLITANA</span>
                         <p class="item-desc">Muzarella, tomate fresco, albahaca y aceite de oliva</p>
-                    </div><span class="item-precio">$14.000 <span class="item-unidad">AL MOLDE</span> $20.000 <span
-                            class="item-unidad">A LA PIEDRA</span></span>
+                    </div><span class="item-precio" id="COMIDA-PIZZAS-01"></span> <span class="item-unidad">AL MOLDE</span>
+                    <span class="item-precio" id="COMIDA-PIZZAS-02"></span> <span class="item-unidad">A LA PIEDRA</span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -721,8 +733,8 @@
                 <div class="item-info">
                     <div><span class="item-nombre">MUZZARELLA</span>
                         <p class="item-desc">Muzarella, olivas verdes y orégano</p>
-                    </div><span class="item-precio">$13.000 <span class="item-unidad">AL MOLDE</span> $19.000 <span
-                            class="item-unidad">A LA PIEDRA</span></span>
+                    </div><span class="item-precio" id="COMIDA-PIZZAS-03"></span> <span class="item-unidad">AL MOLDE</span>
+                    <span class="item-precio" id="COMIDA-PIZZAS-04"></span> <span class="item-unidad">A LA PIEDRA</span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -730,8 +742,8 @@
                 <div class="item-info">
                     <div><span class="item-nombre">ESPECIAL</span>
                         <p class="item-desc">Muzarella, jamón cocido, morrones, huevo y olivas verdes</p>
-                    </div><span class="item-precio">$14.000 <span class="item-unidad">AL MOLDE</span> $20.000 <span
-                            class="item-unidad">A LA PIEDRA</span></span>
+                    </div><span class="item-precio" id="COMIDA-PIZZAS-05"></span> <span class="item-unidad">AL MOLDE</span>
+                    <span class="item-precio" id="COMIDA-PIZZAS-06"></span> <span class="item-unidad">A LA PIEDRA</span>
                 </div>
             </div>
         </div>
@@ -744,13 +756,13 @@
                 <div class="item-info">
                     <div><span class="item-nombre">DE LA CASA</span>
                         <p class="item-desc">Papas bastón, cheddar fundido, crocantes de panceta y cebolla de verdeo</p>
-                    </div><span class="item-precio">$14.500</span>
+                    </div><span class="item-precio" id="COMIDA-PAPAS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
                 <img src="../img/comida/papas.png" alt="Papas fritas clásicas">
                 <div class="item-info">
-                    <div><span class="item-nombre">FRITAS CLÁSICAS</span></div><span class="item-precio">$10.500</span>
+                    <div><span class="item-nombre">FRITAS CLÁSICAS</span></div><span class="item-precio" id="COMIDA-PAPAS-02"></span>
                 </div>
             </div>
         </div>
@@ -764,7 +776,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">ESPECIAL</span>
                         <p class="item-desc">Medallón de ternera con jamón, queso, lechuga, tomate y huevo</p>
-                    </div><span class="item-precio">$14.800</span>
+                    </div><span class="item-precio" id="COMIDA-HAMBURGUESAS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -772,7 +784,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">CASERA</span>
                         <p class="item-desc">Medallón de ternera con cheddar, panceta crocante, tomate y lechuga</p>
-                    </div><span class="item-precio">$14.800</span>
+                    </div><span class="item-precio" id="COMIDA-HAMBURGUESAS-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -781,7 +793,7 @@
                     <div><span class="item-nombre">VEGETARIANA</span>
                         <p class="item-desc">Clásica hamburguesa vegetariana, lechuga, tomate, cebolla morada y
                             muzzarella</p>
-                    </div><span class="item-precio">$12.500</span>
+                    </div><span class="item-precio" id="COMIDA-HAMBURGUESAS-03"></span>
                 </div>
             </div>
         </div>
@@ -795,7 +807,7 @@
                     <div><span class="item-nombre">TOSTADO CUERVO BLANCO XXL</span>
                         <p class="item-desc">En pan casero con queso muzzarella y jamón cocido de selección</p><span
                             class="item-unidad">DOS UNIDADES · PARA COMPARTIR</span>
-                    </div><span class="item-precio">$12.000</span>
+                    </div><span class="item-precio" id="COMIDA-SANDWICHES-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -804,7 +816,7 @@
                     <div><span class="item-nombre">BAGUETTE DE TERNERA</span>
                         <p class="item-desc">Con muzzarella fundida y cheddar. Acompañado de papas bastón</p><span
                             class="item-unidad">PARA COMPARTIR</span>
-                    </div><span class="item-precio">$18.000</span>
+                    </div><span class="item-precio" id="COMIDA-SANDWICHES-02"></span>
                 </div>
             </div>
         </div>
@@ -818,7 +830,7 @@
                     <div><span class="item-nombre">CAESAR DE POLLO</span>
                         <p class="item-desc">Mix de hojas verdes, croutons, tiras de pollo grillado y queso parmesano
                         </p>
-                    </div><span class="item-precio">$16.000</span>
+                    </div><span class="item-precio" id="COMIDA-ENSALADAS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -827,13 +839,13 @@
                     <div><span class="item-nombre">CUERVO BLANCO</span>
                         <p class="item-desc">Mix de hojas verdes, tomates confitados, palta, tiras de pollo y queso brie
                         </p>
-                    </div><span class="item-precio">$18.000</span>
+                    </div><span class="item-precio" id="COMIDA-ENSALADAS-02"></span>
                 </div>
             </div>
             <div class="carta-item">
                 <div><span class="item-nombre">A ELECCIÓN</span>
                     <p class="item-desc">4 ingredientes a elección</p>
-                </div><span class="item-precio">$9.000</span>
+                </div><span class="item-precio" id="COMIDA-ENSALADAS-03"></span>
             </div>
         </div>
 
@@ -846,7 +858,7 @@
                     <div><span class="item-nombre">QUESADILLAS DE VEGETALES</span>
                         <p class="item-desc">Vegetales grillados, muzzarella, queso cheddar fundido. Acompañadas de
                             papas bastón</p><span class="item-unidad">PARA COMPARTIR</span>
-                    </div><span class="item-precio">$15.000</span>
+                    </div><span class="item-precio" id="COMIDA-VEGGIES-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -854,7 +866,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">ESPINACAS AL GRATÉN</span>
                         <p class="item-desc">Espinaca salteada, queso crema, muzzarella fundida y crocante de pan</p>
-                    </div><span class="item-precio">$13.500</span>
+                    </div><span class="item-precio" id="COMIDA-VEGGIES-02"></span>
                 </div>
             </div>
         </div>
@@ -868,7 +880,7 @@
                     <div><span class="item-nombre">ENTRECOT GRILLADO</span>
                         <p class="item-desc">Acompañado de mix de hojas verdes, tomate fresco y lascas de queso
                             parmesano</p>
-                    </div><span class="item-precio">$25.000</span>
+                    </div><span class="item-precio" id="COMIDA-CELIACOS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -876,7 +888,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">FILET DE POLLO GRILLADO</span>
                         <p class="item-desc">Con ensalada de 3 ingredientes a elección</p>
-                    </div><span class="item-precio">$16.000</span>
+                    </div><span class="item-precio" id="COMIDA-CELIACOS-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -886,7 +898,7 @@
                             <li class="desc-li">Jamón y queso</li>
                             <li class="desc-li">Cebolla</li>
                         </ul><span class="item-unidad">CUATRO PORCIONES</span>
-                    </div><span class="item-precio">$17.000</span>
+                    </div><span class="item-precio" id="COMIDA-CELIACOS-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -896,7 +908,7 @@
                             <li class="desc-li">Jamón y queso</li>
                             <li class="desc-li">Carne</li>
                         </ul><span class="item-unidad">TRES UNIDADES</span>
-                    </div><span class="item-precio">$13.000</span>
+                    </div><span class="item-precio" id="COMIDA-CELIACOS-04"></span>
                 </div>
             </div>
         </div>
@@ -909,7 +921,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">MILANESA DE TERNERA</span>
                         <p class="item-desc">Acompañado de papas clásicas</p>
-                    </div><span class="item-precio">$12.000</span>
+                    </div><span class="item-precio" id="COMIDA-INFANTIL-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -917,7 +929,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">SUPREMA</span>
                         <p class="item-desc">Acompañado de papas clásicas</p>
-                    </div><span class="item-precio">$12.000</span>
+                    </div><span class="item-precio" id="COMIDA-INFANTIL-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -925,7 +937,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">TIRITAS DE POLLO</span>
                         <p class="item-desc">Acompañado de papas clásicas</p>
-                    </div><span class="item-precio">$11.000</span>
+                    </div><span class="item-precio" id="COMIDA-INFANTIL-03"></span>
                 </div>
             </div>
         </div>
@@ -938,7 +950,7 @@
                 <div class="item-info">
                     <div><span class="item-nombre">FLAN CASERO</span>
                         <p class="item-desc">Con dulce de leche y crema</p>
-                    </div><span class="item-precio">$6.800</span>
+                    </div><span class="item-precio" id="COMIDA-POSTRES-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -946,28 +958,28 @@
                 <div class="item-info">
                     <div><span class="item-nombre">BUDÍN DE PAN</span>
                         <p class="item-desc">Con dulce de leche y crema</p>
-                    </div><span class="item-precio">$6.000</span>
+                    </div><span class="item-precio" id="COMIDA-POSTRES-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
                 <img src="../img/comida/cfr.png" alt="Cheesecake de frutos rojos XXL para compartir">
                 <div class="item-info">
                     <div><span class="item-nombre">CHEESECAKE DE FRUTOS ROJOS XXL</span><span class="item-unidad">PARA
-                            COMPARTIR</span></div><span class="item-precio">$12.200</span>
+                            COMPARTIR</span></div><span class="item-precio" id="COMIDA-POSTRES-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
                 <img src="../img/comida/chessma.png" alt="Cheesecake de maracuyá XXL para compartir">
                 <div class="item-info">
                     <div><span class="item-nombre">CHEESECAKE DE MARACUYÁ XXL</span><span class="item-unidad">PARA
-                            COMPARTIR</span></div><span class="item-precio">$12.200</span>
+                            COMPARTIR</span></div><span class="item-precio" id="COMIDA-POSTRES-04"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
                 <img src="../img/comida/brow-hela.png" alt="Brownie con helado de americana para compartir">
                 <div class="item-info">
                     <div><span class="item-nombre">BROWNIE CON HELADO DE AMERICANA</span><span class="item-unidad">PARA
-                            COMPARTIR</span></div><span class="item-precio">$12.200</span>
+                            COMPARTIR</span></div><span class="item-precio" id="COMIDA-POSTRES-05"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -975,21 +987,21 @@
                 <div class="item-info">
                     <div><span class="item-nombre">PANQUEQUES CON DULCE DE LECHE</span>
                         <p class="item-desc">(Consultar)</p><span class="item-unidad">SIN CHOCO · DOS UNIDADES</span>
-                    </div><span class="item-precio">$10.500</span>
+                    </div><span class="item-precio" id="COMIDA-POSTRES-06"></span>
                 </div>
             </div>
             <div class="carta-item"><span class="item-nombre">ENSALADA DE FRUTAS</span><span
-                    class="item-precio">$6.500</span></div>
+                    class="item-precio" id="COMIDA-POSTRES-07"></span></div>
             <div class="carta-item">
                 <div><span class="item-nombre">MACEDONIA</span>
                     <p class="item-desc">Ensalada de frutas con bocha de helado</p>
-                </div><span class="item-precio">$9.000</span>
+                </div><span class="item-precio" id="COMIDA-POSTRES-08"></span>
             </div>
             <div class="carta-item">
                 <div><span class="item-nombre">HELADO BAJO CERO</span>
                     <p class="item-desc">Adicional dulce de leche o crema $5.000</p>
-                </div><span class="item-precio">$5.000 <span class="item-unidad">1 BOCHA</span> $8.500 <span
-                        class="item-unidad">2 BOCHAS</span></span>
+                </div><span class="item-precio" id="COMIDA-POSTRES-09"></span> <span class="item-unidad">1 BOCHA</span>
+                <span class="item-precio" id="COMIDA-POSTRES-10"></span> <span class="item-unidad">2 BOCHAS</span>
             </div>
         </div>
 
@@ -1002,21 +1014,21 @@
                     <div><span class="item-nombre">KEY LIME PIE</span>
                         <p class="item-desc">Base de galletitas trituradas, lima en su jugo, ralladura y leche
                             condensada, decorada con copos de crema de la casa</p>
-                    </div><span class="item-precio">$12.000</span>
+                    </div><span class="item-precio" id="COMIDA-TORTAS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
                 <img src="../img/comida/oreo.png" alt="Torta Oreo con crema y dulce de leche XXL">
                 <div class="item-info">
                     <div><span class="item-nombre">TORTA OREO CON CREMA Y DDL XXL</span><span class="item-unidad">PARA
-                            COMPARTIR</span></div><span class="item-precio">$12.200</span>
+                            COMPARTIR</span></div><span class="item-precio" id="COMIDA-TORTAS-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
                 <img src="../img/comida/brown-mere.png" alt="Torta brownie con dulce de leche y merengue">
                 <div class="item-info">
                     <div><span class="item-nombre">TORTA BROWNIE CON DDL Y MERENGUE/CHANTILLY</span><span
-                            class="item-unidad">PARA COMPARTIR</span></div><span class="item-precio">$12.200</span>
+                            class="item-unidad">PARA COMPARTIR</span></div><span class="item-precio" id="COMIDA-TORTAS-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -1025,13 +1037,13 @@
                     <div><span class="item-nombre">CHOCOTORTA XXL</span>
                         <p class="item-desc">Capas de galletitas mojadas en café y licor con crema de dulce de leche</p>
                         <span class="item-unidad">PARA COMPARTIR</span>
-                    </div><span class="item-precio">$12.000</span>
+                    </div><span class="item-precio" id="COMIDA-TORTAS-04"></span>
                 </div>
             </div>
             <div class="carta-item">
                 <div><img src="../img/comida/rogel.png" alt="Rogel para compartir"><span
                         class="item-nombre">ROGEL</span><span class="item-unidad">PARA COMPARTIR</span></div>
-                <span class="item-precio">$12.200</span>
+                <span class="item-precio" id="COMIDA-TORTAS-05"></span>
             </div>
         </div>
 
@@ -1042,28 +1054,30 @@
                 <div>
                     <h3 class="menu-seccion-titulo">CAFÉ</h3>
                     <div class="carta-item"><span class="item-nombre">Chico</span><span
-                            class="item-precio">$3.000</span></div>
+                            class="item-precio" id="COMIDA-CAFETERIA-CAFE-01"></span></div>
                     <div class="carta-item"><span class="item-nombre">En jarrita</span><span
-                            class="item-precio">$3.500</span></div>
+                            class="item-precio" id="COMIDA-CAFETERIA-CAFE-02"></span></div>
                     <div class="carta-item"><span class="item-nombre">Doble</span><span
-                            class="item-precio">$3.800</span></div>
+                            class="item-precio" id="COMIDA-CAFETERIA-CAFE-03"></span></div>
                 </div>
                 <div>
                     <h3 class="menu-seccion-titulo">TÉ</h3>
-                    <div class="carta-item"><span class="item-nombre">Té</span><span class="item-precio">$3.000</span>
+                    <div class="carta-item"><span class="item-nombre">Té</span><span class="item-precio" id="COMIDA-CAFETERIA-TE-01"></span>
                     </div>
                     <div class="carta-item"><span class="item-nombre">Té con leche</span><span
-                            class="item-precio">$3.500</span></div>
+                            class="item-precio" id="COMIDA-CAFETERIA-TE-02"></span></div>
                     <div class="carta-item"><span class="item-nombre">Té Twinings</span><span
-                            class="item-precio">$3.800</span></div>
+                            class="item-precio" id="COMIDA-CAFETERIA-TE-03"></span></div>
                 </div>
             </div>
         </div>
+
+
     </section>
 
     <!-- ==========================================
-         SECCIÓN BEBIDAS — Tragos y Cervezas
-         ========================================== -->
+        SECCIÓN BEBIDAS — Tragos y Cervezas
+        ========================================== -->
     <section id="bebidas-section" class="carta cuervo-bebidas">
         <div class="logo-section">
             <img src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="logo-img-cuervo">
@@ -1093,7 +1107,7 @@
         </div>
 
         <!-- CERVEZAS -->
-        <div id="cervezas" class="carta-box carta-box--full">
+        <div class="carta-box carta-box--full" id="cervezas">
             <h2>CERVEZAS</h2>
             <div class="carta-grid">
                 <div>
@@ -1101,172 +1115,172 @@
                     <div class="carta-item">
                         <div><span class="item-nombre">PATAGONIA</span>
                             <p class="item-desc">Amber Lager | Lager Del Sur | Ipa 24/7</p>
-                        </div><span class="item-precio">$5.500</span>
+                        </div><span class="item-precio" id="CERVEZAS-ENBOTELLA-01"></span>
                     </div>
                     <div class="carta-item">
                         <div><span class="item-nombre">ANDES ORIGEN</span>
                             <p class="item-desc">Ipa 500 Cc.</p>
-                        </div><span class="item-precio">$5.500</span>
+                        </div><span class="item-precio" id="CERVEZAS-ENBOTELLA-02"></span>
                     </div>
                     <div class="carta-item"><span class="item-nombre">STELLA ARTOIS 330 Cc.</span><span
-                            class="item-precio">$5.500</span></div>
-                    <div class="carta-item"><span class="item-nombre">CORONA 330 Cc.</span><span
-                            class="item-precio">$6.000</span></div>
+                            class="item-precio" id="CERVEZAS-ENBOTELLA-03"></span></div>
+                    <div class="carta-item"><span class="item-nombre">CORONA 330 Cc.</span><span class="item-precio"
+                            id="CERVEZAS-ENBOTELLA-04"></span></div>
                     <h3 class="menu-seccion-titulo" style="margin-top:1rem">BALDE</h3>
-                    <div class="carta-item"><span class="item-nombre">5 CORONAS 330 Cc.</span><span
-                            class="item-precio">$25.000</span></div>
+                    <div class="carta-item"><span class="item-nombre">5 CORONAS 330 Cc.</span><span class="item-precio"
+                            id="CERVEZAS-BALDE-01"></span></div>
                     <div class="carta-item"><span class="item-nombre">5 STELLA ARTOIS 330 Cc.</span><span
-                            class="item-precio">$27.000</span></div>
+                            class="item-precio" id="CERVEZAS-BALDE-02"></span></div>
                 </div>
                 <div>
                     <h3 class="menu-seccion-titulo">TIRADAS <span class="item-unidad">PINTA</span></h3>
-                    <div class="carta-item"><span class="item-nombre">STELLA ARTOIS</span><span
-                            class="item-precio">$6.500</span></div>
+                    <div class="carta-item"><span class="item-nombre">STELLA ARTOIS</span><span class="item-precio"
+                            id="CERVEZAS-TIRADAS-01"></span></div>
                     <div class="carta-item">
                         <div><span class="item-nombre">PATAGONIA</span>
                             <p class="item-desc">Amber Lager | Lager Del Sur | Ipa 24/7</p>
-                        </div><span class="item-precio">$6.500</span>
+                        </div><span class="item-precio" id="CERVEZAS-TIRADAS-02"></span>
                     </div>
                     <div class="img-bebidas">
                         <!-- Imagen decorativa de los baldes de cerveza -->
-                        <img src="../img/bebidas/cervesas.png" alt="Balde de cervezas Corona y Stella Artois">
+                        <img alt="Balde de cervezas Corona y Stella Artois" src="../img/bebidas/cervesas.png" />
                     </div>
                     <div class="logos-marcas">
-                        <img src="../img/logos/patagonia.png" alt="Patagonia">
-                        <img src="../img/logos/corona.png" alt="Corona">
-                        <img src="../img/logos/stella.png" alt="Stella Artois">
+                        <img alt="Patagonia" src="../img/logos/patagonia.png" />
+                        <img alt="Corona" src="../img/logos/corona.png" />
+                        <img alt="Stella Artois" src="../img/logos/stella.png" />
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- BEBIDAS SIN ALCOHOL -->
-        <div id="sinalcohol" class="carta-box carta-box--full">
+        <div class="carta-box carta-box--full" id="sinalcohol">
             <h2>BEBIDAS SIN ALCOHOL</h2>
             <div class="carta-grid">
                 <div>
                     <div class="carta-item">
                         <div><span class="item-nombre">COCA-COLA</span>
                             <p class="item-desc">Tradicional | Zero</p>
-                        </div><span class="item-precio">$4.500</span>
+                        </div><span class="item-precio" id="SINALCOHOL-GASEOSAS-01"></span>
                     </div>
-                    <div class="carta-item"><span class="item-nombre">MIRINDA</span><span
-                            class="item-precio">$4.500</span></div>
+                    <div class="carta-item"><span class="item-nombre">MIRINDA</span><span class="item-precio"
+                            id="SINALCOHOL-GASEOSAS-02"></span></div>
                     <div class="carta-item">
                         <div><span class="item-nombre">SEVEN UP</span>
                             <p class="item-desc">Tradicional | Free</p>
-                        </div><span class="item-precio">$4.500</span>
+                        </div><span class="item-precio" id="SINALCOHOL-GASEOSAS-03"></span>
                     </div>
-                    <div class="carta-item"><span class="item-nombre">SPEED</span><span
-                            class="item-precio">$5.500</span></div>
-                    <div class="carta-item"><span class="item-nombre">AQUARIUS</span><span
-                            class="item-precio">$4.500</span></div>
+                    <div class="carta-item"><span class="item-nombre">SPEED</span><span class="item-precio"
+                            id="SINALCOHOL-GASEOSAS-04"></span></div>
+                    <div class="carta-item"><span class="item-nombre">AQUARIUS</span><span class="item-precio"
+                            id="SINALCOHOL-GASEOSAS-05"></span></div>
                     <div class="carta-item">
                         <div><span class="item-nombre">PASO DE LOS TOROS</span>
                             <p class="item-desc">Pomelo | Tónica</p>
-                        </div><span class="item-precio">$4.500</span>
+                        </div><span class="item-precio" id="SINALCOHOL-GASEOSAS-06"></span>
                     </div>
                     <div class="carta-item">
                         <div><span class="item-nombre">AGUA MINERAL</span>
                             <p class="item-desc">Sin gas | Con gas</p>
-                        </div><span class="item-precio">$4.500</span>
+                        </div><span class="item-precio" id="SINALCOHOL-GASEOSAS-07"></span>
                     </div>
                     <div class="carta-item">
                         <div><span class="item-nombre">SMOOTHIES</span>
                             <p class="item-desc">Con agua</p>
-                        </div><span class="item-precio">$5.000</span>
+                        </div><span class="item-precio" id="SINALCOHOL-GASEOSAS-08"></span>
                     </div>
                     <div class="carta-item">
                         <div><span class="item-nombre">SMOOTHIES</span>
                             <p class="item-desc">Con leche</p>
-                        </div><span class="item-precio">$6.000</span>
+                        </div><span class="item-precio" id="SINALCOHOL-GASEOSAS-09"></span>
                     </div>
                     <div class="carta-item"><span class="item-nombre">JUGO EXPRIMIDO NATURAL XXL 500 Cc.</span><span
-                            class="item-precio">$6.000</span></div>
+                            class="item-precio" id="SINALCOHOL-GASEOSAS-10"></span></div>
                 </div>
                 <div>
                     <h3 class="menu-seccion-titulo">JUGOS NATURALES <span class="item-unidad">VASO 500 Cc.</span></h3>
                     <div class="carta-item"><span class="item-nombre">LIMONADA DE LA CASA</span><span
-                            class="item-precio">$5.000</span></div>
+                            class="item-precio" id="SINALCOHOL-JUGOSNATURALES-01"></span></div>
                     <div class="carta-item">
                         <div><span class="item-nombre">LIMONADA ESPECIAL</span>
                             <p class="item-desc">Con frutos rojos</p>
-                        </div><span class="item-precio">$5.500</span>
+                        </div><span class="item-precio" id="SINALCOHOL-JUGOSNATURALES-02"></span>
                     </div>
-                    <div class="carta-item"><span class="item-nombre">MARACUYÁ</span><span
-                            class="item-precio">$5.500</span></div>
-                    <div class="carta-item"><span class="item-nombre">POMELO</span><span
-                            class="item-precio">$5.500</span></div>
+                    <div class="carta-item"><span class="item-nombre">MARACUYÁ</span><span class="item-precio"
+                            id="SINALCOHOL-JUGOSNATURALES-03"></span></div>
+                    <div class="carta-item"><span class="item-nombre">POMELO</span><span class="item-precio"
+                            id="SINALCOHOL-JUGOSNATURALES-04"></span></div>
                     <div class="img-bebidas">
                         <!-- Imagen decorativa de jugos naturales -->
-                        <img src="../img/bebidas/mucktail.png" alt="Vaso de maracuyá y licuados naturales">
+                        <img alt="Vaso de maracuyá y licuados naturales" src="../img/bebidas/mucktail.png" />
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- JARRAS -->
-        <div id="jarras" class="carta-box carta-box--full">
+        <div class="carta-box carta-box--full" id="jarras">
             <h2>JARRAS <span class="carta-subtitle">1.7 LITROS</span></h2>
             <div class="carta-grid">
                 <div>
                     <h3 class="menu-seccion-titulo">SIN ALCOHOL</h3>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/jarra-limo.png" alt="Jarra limonada de la casa con menta y jengibre">
+                        <img alt="Jarra limonada de la casa con menta y jengibre" src="../img/bebidas/jarra-limo.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">LIMONADA DE LA CASA</span>
                                 <p class="item-desc">Jugo de lima, almíbar simple, menta y jengibre</p>
-                            </div><span class="item-precio">$15.500</span>
+                            </div><span class="item-precio" id="JARRAS-SINALCOHOL-01"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/frutos-rojos.png" alt="Jarra limonada especial con frutos rojos">
+                        <img alt="Jarra limonada especial con frutos rojos" src="../img/bebidas/frutos-rojos.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">LIMONADA ESPECIAL CON FRUTOS ROJOS</span>
                                 <p class="item-desc">Jugo de lima, almíbar simple, menta, pepino y frutos rojos</p>
-                            </div><span class="item-precio">$17.000</span>
+                            </div><span class="item-precio" id="JARRAS-SINALCOHOL-02"></span>
                         </div>
                     </div>
                     <div class="carta-item">
                         <div><span class="item-nombre">POMELADA</span>
                             <p class="item-desc">Jugo natural de pomelo, almíbar simple y soda</p>
-                        </div><span class="item-precio">$15.000</span>
+                        </div><span class="item-precio" id="JARRAS-SINALCOHOL-03"></span>
                     </div>
                     <div class="carta-item">
                         <div><span class="item-nombre">CUERVO-MARACUYÁ</span>
                             <p class="item-desc">Maracuyá, almíbar simple, frutos rojos y jugo de naranja natural</p>
-                        </div><span class="item-precio">$17.000</span>
+                        </div><span class="item-precio" id="JARRAS-SINALCOHOL-04"></span>
                     </div>
                 </div>
                 <div>
                     <h3 class="menu-seccion-titulo">CON ALCOHOL</h3>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/sagria.png" alt="Jarra sangría de la casa con frutos rojos">
+                        <img alt="Jarra sangría de la casa con frutos rojos" src="../img/bebidas/sagria.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">SANGRIA DE LA CASA</span>
                                 <p class="item-desc">Vino tinto, jugo de limón, almíbar simple, frutos rojos y frutas de
                                     estación</p>
-                            </div><span class="item-precio">$18.500</span>
+                            </div><span class="item-precio" id="JARRAS-CONALCOHOL-01"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/cynar+.png" alt="Jarra Cynar con pomelo y menta">
+                        <img alt="Jarra Cynar con pomelo y menta" src="../img/bebidas/cynar+.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">CYNAR</span>
                                 <p class="item-desc">Cynar, jugo de limón, menta, gaseosa de pomelo y rodajas de pomelo
                                 </p>
-                            </div><span class="item-precio">$18.500</span>
+                            </div><span class="item-precio" id="JARRAS-CONALCOHOL-02"></span>
                         </div>
                     </div>
                     <div class="carta-item">
                         <div><span class="item-nombre">CAMPARI</span>
                             <p class="item-desc">Campari, jugo de naranja y garnish de naranja</p>
-                        </div><span class="item-precio">$20.000</span>
+                        </div><span class="item-precio" id="JARRAS-CONALCOHOL-03"></span>
                     </div>
                     <div class="carta-item">
                         <div><span class="item-nombre">FERNET BRANCA</span>
                             <p class="item-desc">Fernet Branca con Coca-Cola</p>
-                        </div><span class="item-precio">$24.500</span>
+                        </div><span class="item-precio" id="JARRAS-CONALCOHOL-04"></span>
                     </div>
                 </div>
             </div>
@@ -1274,58 +1288,58 @@
 
         <!-- APERITIVOS & VERMOUTH -->
         <div class="carta-box carta-box--full">
-            <h2>APERITIVOS & VERMOUTH</h2>
+            <h2>APERITIVOS &amp; VERMOUTH</h2>
             <div class="carta-grid">
                 <div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/fernet.png" alt="Fernet Branca con gaseosa a elección">
+                        <img alt="Fernet Branca con gaseosa a elección" src="../img/bebidas/fernet.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">FERNET BRANCA</span>
                                 <p class="item-desc">Fernet Branca + gaseosa 330 cc. a elección</p>
-                            </div><span class="item-precio">$6.500</span>
+                            </div><span class="item-precio" id="APERITIVOS-CLASICOS-01"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/julep.png" alt="Cynar Julep con pomelo y menta">
+                        <img alt="Cynar Julep con pomelo y menta" src="../img/bebidas/julep.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">CYNAR JULEP</span>
                                 <p class="item-desc">Cynar 70, almíbar, jugo de lima, gaseosa de pomelo y menta</p>
-                            </div><span class="item-precio">$6.000</span>
+                            </div><span class="item-precio" id="APERITIVOS-CLASICOS-02"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/garibaldi.png" alt="Garibaldi con Campari y jugo de naranja">
+                        <img alt="Garibaldi con Campari y jugo de naranja" src="../img/bebidas/garibaldi.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">GARIBALDI</span>
                                 <p class="item-desc">Campari, jugo de naranja y rodaja de naranja</p>
-                            </div><span class="item-precio">$6.000</span>
+                            </div><span class="item-precio" id="APERITIVOS-CLASICOS-03"></span>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/aperol.png" alt="Aperol Spritz con soda y espumante">
+                        <img alt="Aperol Spritz con soda y espumante" src="../img/bebidas/aperol.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">APEROL SPRITZ</span>
                                 <p class="item-desc">Aperol, soda, espumante y rodaja de naranja</p>
-                            </div><span class="item-precio">$7.500</span>
+                            </div><span class="item-precio" id="APERITIVOS-CLASICOS-04"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/carpano-orange.png" alt="Carpano Orange con soda y naranja">
+                        <img alt="Carpano Orange con soda y naranja" src="../img/bebidas/carpano-orange.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">CARPANO ORANGE</span>
                                 <p class="item-desc">Carpano rosso, soda y rodajas de naranja</p>
-                            </div><span class="item-precio">$6.000</span>
+                            </div><span class="item-precio" id="APERITIVOS-CLASICOS-05"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/rosato.png" alt="Rossato con Martini Aperol y frutos rojos">
+                        <img alt="Rossato con Martini Aperol y frutos rojos" src="../img/bebidas/rosato.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">ROSSATO</span>
                                 <p class="item-desc">Martini Extra Dry, Aperol, jugo de pomelo, almíbar y frutos rojos
                                 </p>
-                            </div><span class="item-precio">$6.000</span>
+                            </div><span class="item-precio" id="APERITIVOS-CLASICOS-06"></span>
                         </div>
                     </div>
                 </div>
@@ -1333,75 +1347,75 @@
         </div>
 
         <!-- CLÁSICOS, INTERNACIONALES & DE AUTOR -->
-        <div id="class&autor" class="carta-box carta-box--full">
-            <h2>CLÁSICOS, INTERNACIONALES & DE AUTOR</h2>
+        <div class="carta-box carta-box--full" id="class&amp;autor">
+            <h2>CLÁSICOS, INTERNACIONALES &amp; DE AUTOR</h2>
             <div class="carta-grid">
                 <div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/cuba.png" alt="Cuba Libre con Ron Havana y Coca Cola">
+                        <img alt="Cuba Libre con Ron Havana y Coca Cola" src="../img/bebidas/cuba.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">CUBA LIBRE</span>
                                 <p class="item-desc">Ron Havana, limón y Coca Cola</p>
-                            </div><span class="item-precio">$6.000</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-CLASICOSEINTERNACIONALES-01"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/daiquiri.png" alt="Daikiri con Ron Havana y frutas de estación">
+                        <img alt="Daikiri con Ron Havana y frutas de estación" src="../img/bebidas/daiquiri.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">DAIKIRI</span>
                                 <p class="item-desc">Ron Havana, frutas de estación y azúcar</p>
-                            </div><span class="item-precio">$6.000</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-CLASICOSEINTERNACIONALES-02"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/widl.png"
-                            alt="Wild Caipiroska con Sernova Wild Berries y frutos rojos">
+                        <img alt="Wild Caipiroska con Sernova Wild Berries y frutos rojos"
+                            src="../img/bebidas/widl.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">WILD CAIPIROSKA</span>
                                 <p class="item-desc">Sernova Wild Berries, lima, azúcar y frutos rojos</p>
-                            </div><span class="item-precio">$7.500</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-CLASICOSEINTERNACIONALES-03"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/caipi.png" alt="Caipirinha y Caipiroska con lima y cachaza">
+                        <img alt="Caipirinha y Caipiroska con lima y cachaza" src="../img/bebidas/caipi.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">CAIPIRINHA / CAIPIROSKA</span>
                                 <p class="item-desc">Lima, azúcar y cachaza o vodka Sernova</p>
-                            </div><span class="item-precio">$7.500</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-CLASICOSEINTERNACIONALES-04"></span>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/pisco.png" alt="Pisco Sour con clara de huevo y lima">
+                        <img alt="Pisco Sour con clara de huevo y lima" src="../img/bebidas/pisco.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">PISCO SOUR</span>
                                 <p class="item-desc">Pisco, clara de huevo, almíbar y jugo de lima</p>
-                            </div><span class="item-precio">$7.000</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-CLASICOSEINTERNACIONALES-05"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/limo.png" alt="Mojito con lima menta y Havana">
+                        <img alt="Mojito con lima menta y Havana" src="../img/bebidas/limo.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">MOJITO</span>
                                 <p class="item-desc">Lima, azúcar, menta, Havana y soda</p>
-                            </div><span class="item-precio">$7.000</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-CLASICOSEINTERNACIONALES-06"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/negroni.png" alt="Negroni con Campari Gin y Carpano Rosso">
+                        <img alt="Negroni con Campari Gin y Carpano Rosso" src="../img/bebidas/negroni.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">NEGRONI</span>
                                 <p class="item-desc">Campari, Gin Spirito Blu, Carpano Rosso y garnish de naranja</p>
-                            </div><span class="item-precio">$7.000</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-CLASICOSEINTERNACIONALES-07"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/whiscola.png" alt="Jack and Coke con Jack Daniels y Coca Cola">
+                        <img alt="Jack and Coke con Jack Daniels y Coca Cola" src="../img/bebidas/whiscola.png" />
                         <div class="item-info">
-                            <div><span class="item-nombre">JACK & COKE</span>
+                            <div><span class="item-nombre">JACK &amp; COKE</span>
                                 <p class="item-desc">Jack Daniels y Coca Cola</p>
-                            </div><span class="item-precio">$11.000</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-CLASICOSEINTERNACIONALES-08"></span>
                         </div>
                     </div>
                 </div>
@@ -1411,39 +1425,40 @@
             <div class="carta-grid">
                 <div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/maracuyavel.png" alt="Maracuya Velvet con frutillas y Havana">
+                        <img alt="Maracuya Velvet con frutillas y Havana" src="../img/bebidas/maracuyavel.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">MARACUYA VELVET</span>
                                 <p class="item-desc">Maracuyá, frutillas, Havana y almíbar</p>
-                            </div><span class="item-precio">$7.000</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-DELACASA-01"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/berrysprit.png" alt="Barry Spritz con Aperol espumante y frutos rojos">
+                        <img alt="Barry Spritz con Aperol espumante y frutos rojos"
+                            src="../img/bebidas/berrysprit.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">BARRY SPRITZ</span>
                                 <p class="item-desc">Aperol, espumante, tónica, frutos rojos y jengibre</p><span
                                     class="item-unidad">COPÓN 615 ML</span>
-                            </div><span class="item-precio">$8.000</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-DELACASA-02"></span>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/irish.png" alt="Irish Crow con helado de americana Baileys y vodka">
+                        <img alt="Irish Crow con helado de americana Baileys y vodka" src="../img/bebidas/irish.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">IRISH CROW</span>
                                 <p class="item-desc">Helado de americana, Baileys, vodka y Borghetti</p>
-                            </div><span class="item-precio">$7.500</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-DELACASA-03"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/copon.png" alt="Sangría de la casa con frutos rojos y vino tinto">
+                        <img alt="Sangría de la casa con frutos rojos y vino tinto" src="../img/bebidas/copon.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">SANGRIA DE LA CASA</span>
                                 <p class="item-desc">Frutos rojos, jugo de limón, almíbar, frutas de estación y vino
                                     tinto</p><span class="item-unidad">COPÓN 615 ML</span>
-                            </div><span class="item-precio">$7.000</span>
+                            </div><span class="item-precio" id="CLASICOSAUTOR-DELACASA-04"></span>
                         </div>
                     </div>
                 </div>
@@ -1451,69 +1466,69 @@
         </div>
 
         <!-- CHANDON COCKTAILS -->
-        <div id="CHANDON" class="carta-box carta-box--full">
+        <div class="carta-box carta-box--full" id="CHANDON">
             <h2>CHANDON COCKTAILS</h2>
             <div class="carta-grid">
                 <div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/ginger.png" alt="Ginger Delice con Chandon Délice y ananá">
+                        <img alt="Ginger Delice con Chandon Délice y ananá" src="../img/bebidas/ginger.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">GINGER DELICE</span>
                                 <p class="item-desc">Chandon Délice 187 cc, almíbar de jengibre y cubos de ananá y
                                     frutillas</p>
-                            </div><span class="item-precio">$10.500</span>
+                            </div><span class="item-precio" id="CHANDONCOCKTAILS-COCKTAILS-01"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/grentabo.png" alt="Green Taboo con Chandon Extra Brut y pepino">
+                        <img alt="Green Taboo con Chandon Extra Brut y pepino" src="../img/bebidas/grentabo.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">GREEN TABOO</span>
                                 <p class="item-desc">Chandon Extra Brut 187 cc, vodka, almíbar y pepino</p>
-                            </div><span class="item-precio">$10.500</span>
+                            </div><span class="item-precio" id="CHANDONCOCKTAILS-COCKTAILS-02"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/blueberry.png" alt="Blueberry Spritz con Chandon Délice y arándanos">
+                        <img alt="Blueberry Spritz con Chandon Délice y arándanos" src="../img/bebidas/blueberry.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">BLUEBERRY SPRITZ</span>
                                 <p class="item-desc">Chandon Délice 187 cc, arándanos, pepino, gin Spirito Blu y bitter
                                     angostura</p>
-                            </div><span class="item-precio">$10.500</span>
+                            </div><span class="item-precio" id="CHANDONCOCKTAILS-COCKTAILS-03"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/honey.png" alt="Citric Honey con Chandon Délice pomelo y miel">
+                        <img alt="Citric Honey con Chandon Délice pomelo y miel" src="../img/bebidas/honey.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">CITRIC HONEY</span>
                                 <p class="item-desc">Chandon Délice 187 cc, jugo de pomelo, miel y romero</p>
-                            </div><span class="item-precio">$10.500</span>
+                            </div><span class="item-precio" id="CHANDONCOCKTAILS-COCKTAILS-04"></span>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/bubble-love.png" alt="Bubble Love con Chandon Rosé y frutillas">
+                        <img alt="Bubble Love con Chandon Rosé y frutillas" src="../img/bebidas/bubble-love.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">BUBBLE LOVE</span>
                                 <p class="item-desc">Chandon Rosé 187 cc, frutillas, pimienta negra y jugo de naranja
                                 </p>
-                            </div><span class="item-precio">$10.500</span>
+                            </div><span class="item-precio" id="CHANDONCOCKTAILS-COCKTAILS-05"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img carta-item--img-right">
-                        <img src="../img/bebidas/sour.png" alt="Sour Girl con Chandon Rosé y pomelo">
+                        <img alt="Sour Girl con Chandon Rosé y pomelo" src="../img/bebidas/sour.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">SOUR GIRL</span>
                                 <p class="item-desc">Chandon Rosé 187 cc, jugo de pomelo y bitter angostura</p>
-                            </div><span class="item-precio">$10.500</span>
+                            </div><span class="item-precio" id="CHANDONCOCKTAILS-COCKTAILS-06"></span>
                         </div>
                     </div>
                     <div class="carta-item carta-item--img">
-                        <img src="../img/bebidas/tropical.png" alt="Cuervo Tropical con Chandon Aperitif y maracuyá">
+                        <img alt="Cuervo Tropical con Chandon Aperitif y maracuyá" src="../img/bebidas/tropical.png" />
                         <div class="item-info">
                             <div><span class="item-nombre">CUERVO TROPICAL</span>
                                 <p class="item-desc">Chandon Aperitif 187 cc, vodka Sernova, maracuyá y mango</p>
-                            </div><span class="item-precio">$10.500</span>
+                            </div><span class="item-precio" id="CHANDONCOCKTAILS-COCKTAILS-07"></span>
                         </div>
                     </div>
                 </div>
@@ -1521,89 +1536,89 @@
         </div>
 
         <!-- TÓNICOS PREMIUM -->
-        <div id="tonicosp" class="carta-box carta-box--full">
+        <div class="carta-box carta-box--full" id="tonicosp">
             <h2>TÓNICOS PREMIUM</h2>
             <div class="carta-item carta-item--img">
-                <img src="../img/bebidas/beefeater.png" alt="Gin Tonic Beefeater con tónica y limón">
+                <img alt="Gin Tonic Beefeater con tónica y limón" src="../img/bebidas/beefeater.png" />
                 <div class="item-info">
                     <div><span class="item-nombre">GIN TONIC BEEFEATER</span>
                         <p class="item-desc">Gin Beefeater, tónica y limón</p>
-                    </div><span class="item-precio">$8.500</span>
+                    </div><span class="item-precio" id="TONICOSPREMIUM-PREMIUM-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
-                <img src="../img/bebidas/bombay.png" alt="Gin Tonic Bombay con tónica y frutos rojos">
+                <img alt="Gin Tonic Bombay con tónica y frutos rojos" src="../img/bebidas/bombay.png" />
                 <div class="item-info">
                     <div><span class="item-nombre">GIN TONIC BOMBAY</span>
                         <p class="item-desc">Gin Bombay, tónica y frutos rojos</p>
-                    </div><span class="item-precio">$10.500</span>
+                    </div><span class="item-precio" id="TONICOSPREMIUM-PREMIUM-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
-                <img src="../img/bebidas/pink.png" alt="Gin Tonic Beefeater Pink con tónica y frutos rojos">
+                <img alt="Gin Tonic Beefeater Pink con tónica y frutos rojos" src="../img/bebidas/pink.png" />
                 <div class="item-info">
                     <div><span class="item-nombre">GIN TONIC BEEFEATER PINK</span>
                         <p class="item-desc">Gin Beefeater Pink, tónica y frutos rojos</p>
-                    </div><span class="item-precio">$9.500</span>
+                    </div><span class="item-precio" id="TONICOSPREMIUM-PREMIUM-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
-                <img src="../img/bebidas/bombay-rasb.png" alt="Gin Tonic Bombay Raspberry con moras y menta">
+                <img alt="Gin Tonic Bombay Raspberry con moras y menta" src="../img/bebidas/bombay-rasb.png" />
                 <div class="item-info">
                     <div><span class="item-nombre">GIN TONIC BOMBAY RASPBERRY</span>
                         <p class="item-desc">Gin Bombay, tónica, moras y menta</p>
-                    </div><span class="item-precio">$11.000</span>
+                    </div><span class="item-precio" id="TONICOSPREMIUM-PREMIUM-04"></span>
                 </div>
             </div>
             <!-- Logos de marcas premium -->
             <div class="logos-marcas">
-                <img src="../img/logos/beefeater.png" alt="Beefeater">
-                <img src="../img/logos/bombay.png" alt="Bombay Sapphire">
+                <img alt="Beefeater" src="../img/logos/beefeater.png" />
+                <img alt="Bombay Sapphire" src="../img/logos/bombay.png" />
             </div>
         </div>
 
         <!-- TÓNICOS CLÁSICOS -->
-        <div id="tonicosc" class="carta-box carta-box--full">
+        <div class="carta-box carta-box--full" id="tonicosc">
             <h2>TÓNICOS CLÁSICOS</h2>
             <div class="carta-item carta-item--img">
-                <img src="../img/bebidas/blue.png" alt="Blu Gin Tonic con Spirito Blu y piel de limón">
+                <img alt="Blu Gin Tonic con Spirito Blu y piel de limón" src="../img/bebidas/blue.png" />
                 <div class="item-info">
                     <div><span class="item-nombre">BLU GIN TONIC</span>
                         <p class="item-desc">Gin Spirito Blu, tónica y piel de limón</p>
-                    </div><span class="item-precio">$7.050</span>
+                    </div><span class="item-precio" id="TONICOSCLASICOS-CLASICOS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
-                <img src="../img/bebidas/blutonic.png" alt="Blue Berries Tonic con Spirito Blu y frutos rojos">
+                <img alt="Blue Berries Tonic con Spirito Blu y frutos rojos" src="../img/bebidas/blutonic.png" />
                 <div class="item-info">
                     <div><span class="item-nombre">BLUE BERRIES TONIC</span>
                         <p class="item-desc">Gin Spirito Blu, tónica y frutos rojos</p>
-                    </div><span class="item-precio">$8.500</span>
+                    </div><span class="item-precio" id="TONICOSCLASICOS-CLASICOS-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
-                <img src="../img/bebidas/pinkpanther.png" alt="Pink Panther con Spirito Blu y gaseosa de pomelo">
+                <img alt="Pink Panther con Spirito Blu y gaseosa de pomelo" src="../img/bebidas/pinkpanther.png" />
                 <div class="item-info">
                     <div><span class="item-nombre">PINK PANTHER</span>
                         <p class="item-desc">Gin Spirito Blu, gaseosa pomelo, pimienta y garnish de pomelo</p>
-                    </div><span class="item-precio">$8.500</span>
+                    </div><span class="item-precio" id="TONICOSCLASICOS-CLASICOS-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
-                <img src="../img/bebidas/wildtonic.png" alt="Wild Tonic con Sernova Wild Berries y limón">
+                <img alt="Wild Tonic con Sernova Wild Berries y limón" src="../img/bebidas/wildtonic.png" />
                 <div class="item-info">
                     <div><span class="item-nombre">WILD TONIC</span>
                         <p class="item-desc">Sernova Wild Berries, tónica y limón</p>
-                    </div><span class="item-precio">$8.500</span>
+                    </div><span class="item-precio" id="TONICOSCLASICOS-CLASICOS-04"></span>
                 </div>
             </div>
             <div class="logos-marcas">
-                <img src="../img/logos/spirito-blu.png" alt="Spirito Blu">
+                <img alt="Spirito Blu" src="../img/logos/spirito-blu.png" />
             </div>
         </div>
 
         <!-- DESTILADOS — solo lista, sin fotos, consultar precios -->
-        <div id="desti" class="carta-box carta-box--full">
+        <div class="carta-box carta-box--full" id="desti">
             <h2>DESTILADOS <span class="carta-subtitle">CONSULTAR PRECIOS</span></h2>
             <div class="destilados-grid">
                 <div class="destilados-col">
@@ -1627,7 +1642,7 @@
                     <h3>TEQUILA</h3>
                     <div class="destilado-item">
                         <span class="destilado-nombre">JOSE CUERVO SILVER</span>
-                        <img src="../img/logos/cuervo.png" alt="Jose Cuervo">
+                        <img alt="Jose Cuervo" src="../img/logos/cuervo.png" />
                     </div>
                 </div>
                 <div class="destilados-col">
@@ -1648,27 +1663,27 @@
                     <div class="destilado-item"><span class="destilado-nombre">BUCHANNAN'S DELUXE 12 Años</span></div>
                     <!-- Logos de marcas de whisky -->
                     <div class="destilado-logos">
-                        <img src="../img/logos/chivas.png" alt="Chivas Regal">
-                        <img src="../img/logos/walker.png" alt="Johnnie Walker">
-                        <img src="../img/logos/jack.png" alt="Jack Daniel's">
-                        <img src="../img/logos/jim.png" alt="Jim Beam">
-                        <img src="../img/logos/bucha.png" alt="Buchanan's">
-                        <img src="../img/logos/bulleit.png" alt="Bulleit Bourbon">
-                        <img src="../img/logos/jame.png" alt="Jameson">
-                        <img src="../img/logos/birg.png" alt="Borghetti">
+                        <img alt="Chivas Regal" src="../img/logos/chivas.png" />
+                        <img alt="Johnnie Walker" src="../img/logos/walker.png" />
+                        <img alt="Jack Daniel's" src="../img/logos/jack.png" />
+                        <img alt="Jim Beam" src="../img/logos/jim.png" />
+                        <img alt="Buchanan's" src="../img/logos/bucha.png" />
+                        <img alt="Bulleit Bourbon" src="../img/logos/bulleit.png" />
+                        <img alt="Jameson" src="../img/logos/jame.png" />
+                        <img alt="Borghetti" src="../img/logos/birg.png" />
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- VINOS & ESPUMANTES -->
-        <div id="vinos" class="carta-box carta-box--full">
-            <h2>VINOS & ESPUMANTES</h2>
+        <div class="carta-box carta-box--full" id="vinos">
+            <h2>VINOS &amp; ESPUMANTES</h2>
             <!-- Logos de bodegas -->
             <div class="logos-marcas">
-                <img src="../img/logos/perdices.png" alt="Viña Las Perdices">
-                <img src="../img/logos/chandon.png" alt="Chandon">
-                <img src="../img/logos/salentein.png" alt="Salentein">
+                <img alt="Viña Las Perdices" src="../img/logos/perdices.png" />
+                <img alt="Chandon" src="../img/logos/chandon.png" />
+                <img alt="Salentein" src="../img/logos/salentein.png" />
             </div>
             <div class="vinos-grid">
                 <div>
@@ -1677,54 +1692,54 @@
                         <div class="carta-item">
                             <div><span class="item-nombre">LAS PERDICES</span>
                                 <p class="item-desc">Malbec | Sauvignon Blanc</p>
-                            </div><span class="item-precio">$16.000</span>
+                            </div><span class="item-precio" id="VINOS-VINALASPERDICES-01"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">CHAC CHAC</span>
                                 <p class="item-desc">Cabernet Franc | Malbec Rosé</p>
-                            </div><span class="item-precio">$16.500</span>
+                            </div><span class="item-precio" id="VINOS-VINALASPERDICES-02"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">LAS PERDICES Reserva</span>
                                 <p class="item-desc">Malbec | Pinot Noire | Chardonnay</p>
-                            </div><span class="item-precio">$20.500</span>
+                            </div><span class="item-precio" id="VINOS-VINALASPERDICES-03"></span>
                         </div>
                         <div class="carta-item"><span class="item-nombre">LAS PERDICES Extra Brut</span><span
-                                class="item-precio">$17.000</span></div>
-                        <div class="carta-item"><span class="item-nombre">COPA DE VINO</span><span
-                                class="item-precio">$4.500</span></div>
+                                class="item-precio" id="VINOS-VINALASPERDICES-04"></span></div>
+                        <div class="carta-item"><span class="item-nombre">COPA DE VINO</span><span class="item-precio"
+                                id="VINOS-VINALASPERDICES-05"></span></div>
                     </div>
                     <div class="vinos-marca">
                         <h3>SALENTEIN</h3>
                         <div class="carta-item">
                             <div><span class="item-nombre">PORTILLO</span>
                                 <p class="item-desc">Malbec | Sauvignon Blanc</p>
-                            </div><span class="item-precio">$15.000</span>
+                            </div><span class="item-precio" id="VINOS-SALENTEIN-01"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">SALENTEIN Reserva</span>
                                 <p class="item-desc">Malbec | Merlot</p>
-                            </div><span class="item-precio">$20.500</span>
+                            </div><span class="item-precio" id="VINOS-SALENTEIN-02"></span>
                         </div>
                         <div class="carta-item"><span class="item-nombre">SALENTEIN Brut Nature</span><span
-                                class="item-precio">$21.000</span></div>
+                                class="item-precio" id="VINOS-SALENTEIN-03"></span></div>
                     </div>
                     <div class="vinos-marca">
                         <h3>OTRAS ETIQUETAS</h3>
-                        <div class="carta-item"><span class="item-nombre">RUTINI Malbec</span><span
-                                class="item-precio">$50.000</span></div>
+                        <div class="carta-item"><span class="item-nombre">RUTINI Malbec</span><span class="item-precio"
+                                id="VINOS-OTRASETIQUETAS-01"></span></div>
                         <div class="carta-item">
                             <div><span class="item-nombre">TRUMPETER</span>
                                 <p class="item-desc">Malbec | Sauvignon Blanc</p>
-                            </div><span class="item-precio">$20.000</span>
+                            </div><span class="item-precio" id="VINOS-OTRASETIQUETAS-02"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">CAFAYATE</span>
                                 <p class="item-desc">Reserva Torrontés</p>
-                            </div><span class="item-precio">$16.000</span>
+                            </div><span class="item-precio" id="VINOS-OTRASETIQUETAS-03"></span>
                         </div>
                         <div class="carta-item"><span class="item-nombre">SANTA JULIA Chenin Dulce</span><span
-                                class="item-precio">$16.000</span></div>
+                                class="item-precio" id="VINOS-OTRASETIQUETAS-04"></span></div>
                     </div>
                 </div>
                 <div>
@@ -1733,39 +1748,39 @@
                         <div class="carta-item">
                             <div><span class="item-nombre">LATITUD 33°</span>
                                 <p class="item-desc">Malbec | Sauvignon Blanc</p>
-                            </div><span class="item-precio">$15.000</span>
+                            </div><span class="item-precio" id="VINOS-CHANDON-01"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">ALTOS DEL PLATA</span>
                                 <p class="item-desc">Malbec | Cabernet Sauvignon | Chardonnay</p>
-                            </div><span class="item-precio">$16.500</span>
+                            </div><span class="item-precio" id="VINOS-CHANDON-02"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">TERRAZAS DE LOS ANDES RESERVA</span>
                                 <p class="item-desc">Malbec</p>
-                            </div><span class="item-precio">$25.000</span>
+                            </div><span class="item-precio" id="VINOS-CHANDON-03"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">CHANDON</span>
                                 <p class="item-desc">Extra Brut | Délice</p>
-                            </div><span class="item-precio">$30.000</span>
+                            </div><span class="item-precio" id="VINOS-CHANDON-04"></span>
                         </div>
                         <div class="carta-item"><span class="item-nombre">CHANDON Brut Nature</span><span
-                                class="item-precio">$35.000</span></div>
+                                class="item-precio" id="VINOS-CHANDON-05"></span></div>
                         <div class="carta-item">
                             <div><span class="item-nombre">BARON B</span>
                                 <p class="item-desc">Extra Brut - cuvée Spéciale</p>
-                            </div><span class="item-precio">$48.000</span>
+                            </div><span class="item-precio" id="VINOS-CHANDON-06"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">BARON B</span>
                                 <p class="item-desc">Cuvée Millésimée Brut Nature</p>
-                            </div><span class="item-precio">$56.000</span>
+                            </div><span class="item-precio" id="VINOS-CHANDON-07"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">CHANDON 187 CL</span>
                                 <p class="item-desc">Extra Brut | Délice | Rosé | Aperitif</p>
-                            </div><span class="item-precio">$8.000</span>
+                            </div><span class="item-precio" id="VINOS-CHANDON-08"></span>
                         </div>
                     </div>
                     <div class="vinos-marca">
@@ -1773,30 +1788,31 @@
                         <div class="carta-item">
                             <div><span class="item-nombre">1888</span>
                                 <p class="item-desc">Cosecha Especial</p>
-                            </div><span class="item-precio">$14.500</span>
+                            </div><span class="item-precio" id="VINOS-SIDRA-01"></span>
                         </div>
                         <div class="carta-item">
                             <div><span class="item-nombre">1888</span>
                                 <p class="item-desc">Cosecha Especial Rosé</p>
-                            </div><span class="item-precio">$14.500</span>
+                            </div><span class="item-precio" id="VINOS-SIDRA-02"></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- ==========================================
-         SECCIÓN EVENTOS
-         ⚠️ ZONA DE CAMBIOS FRECUENTES:
-         - Los slides del carrusel cambian según los
-           eventos del momento. Para agregar un nuevo
-           evento: copiar un <div class="slider-slide">
-           entero, cambiar la clase (ej: slide-nuevo),
-           agregar la imagen en /img/dias/ y el CSS
-           correspondiente en style.css
-         - Recordar actualizar los slider-dots también
-         ========================================== -->
+        SECCIÓN EVENTOS
+        ⚠️ ZONA DE CAMBIOS FRECUENTES:
+        - Los slides del carrusel cambian según los
+        eventos del momento. Para agregar un nuevo
+        evento: copiar un <div class="slider-slide">
+        entero, cambiar la clase (ej: slide-nuevo),
+        agregar la imagen en /img/dias/ y el CSS
+        correspondiente en style.css
+        - Recordar actualizar los slider-dots también
+        ========================================== -->
     <main class="eventos">
         <section id="eventos-section" class="eventos-section">
             <h2 class="eventos-titulo">EVENTOS</h2>
@@ -2074,8 +2090,8 @@
     </main>
 
     <!-- ==========================================
-         FOOTER
-         ========================================== -->
+        FOOTER
+        ========================================== -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">
@@ -2110,7 +2126,7 @@
         </div>
     </footer>
 
-<!-- ==========================================
+    <!-- ==========================================
         MODAL RESERVAS GENERAL
         Se abre desde el botón RESERVAR del header
 ========================================== -->
@@ -2141,12 +2157,12 @@
                         </button>
                     </div>
                 </div>
-                <button class="modal-btn" onclick="enviarReserva()"><i class="ti ti-brand-whatsapp"></i> CONFIRMAR
-                    RESERVA</button>
+                <button class="modal-btn" onclick="enviarReserva()"><i class="ti ti-brand-whatsapp"></i> CONFIRMAR RESERVA</button>
             </div>
         </div>
     </div>
-
+    <script src="/js/home.js"></script>
+    <script src="/js/precios.js" defer></script>
     <script src="/js/script.js"></script>
 </body>
 
