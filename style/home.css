@@ -10,6 +10,298 @@
    regla con los valores que ya se ven hoy en la página.
    ============================================================ */
 
+
+   /*--- HEADER — nav de home.html (el logo splash de index está en index.css) ---*/
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(900px, 92%);
+    z-index: 1000;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--color-principaln);
+    backdrop-filter: blur(10px);
+    border: 1px solid #ffffff1a;
+    padding: 0 30px;
+    height: 65px;
+    border-radius: 16px;
+
+    /*--- animation ---*/
+
+    container-type: inline-size;
+    container-name: header;
+    animation: header-movement both;
+    animation-timeline: scroll();
+    animation-range: 10px 80px;
+}
+
+#logo-nav-cafe {
+    display: none;
+}
+
+.nav-list {
+    display: flex;
+    overflow: visible;
+    list-style: none;
+    margin: 0;
+    gap: 20px;
+    padding: 8px 10px 0;
+}
+
+.header .main-logo {
+    width: 100px;
+    padding: 0px;
+    margin: 0;
+}
+
+.nav-list li {
+    flex: 0 0 auto;
+}
+
+.nav-list a {
+    display: block;
+    padding: 14px 5px;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    border-radius: 8px;
+    background: var(--color-primary-hover);
+    color: #7b7b7b;
+    transition: all 0.25s ease;
+}
+
+.nav-reserva {
+    background: var(--color-secundary);
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: background 0.25s;
+    white-space: nowrap;
+}
+
+.nav-reserva:hover {
+    background: transparent;
+    color: var(--color-blanco);
+}
+
+/* DROPDOWN NAV */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown__label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 14px 5px;
+    color: var(--color-text);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+}
+
+.nav-dropdown__label:hover {
+    color: var(--color-secundary);
+}
+
+.nav-dropdown__label i {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+}
+
+#toggle-carta-nav {
+    display: none;
+}
+
+#toggle-carta-nav:checked~.nav-dropdown__label i {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown__menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: -50%;
+    transform: translateX(-50%);
+    border: 1px solid #ffffff1a;
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 200px;
+    list-style: none;
+    z-index: 1100;
+    box-shadow: 0 8px 25px #00000066;
+}
+
+#toggle-carta-nav:checked~.nav-dropdown__menu {
+    display: block;
+    animation: menu-open 0.25s ease forwards;
+}
+
+.nav-dropdown__menu li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.nav-dropdown__menu li a:hover {
+    background: var(--color-secundary);
+    color: var(--color-blanco);
+}
+
+.nav-dropdown__menu li a i {
+    color: var(--color-secundary);
+    font-size: 1rem;
+}
+
+@keyframes header-movement {
+    from {
+        background: var(--color-principal);
+    }
+
+    to {
+        background: #1112273c;
+        box-shadow: 0 8px 25px #00000066;
+        backdrop-filter: blur(8px);
+        color: #fff;
+    }
+}
+
+/*----- RESPONSIVE HEADER / NAV -----*/
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    padding: 0 15px;
+    transition: color 0.25s ease;
+}
+
+.menu-icon:hover {
+    color: var(--color-primary);
+}
+
+.menu-toggle:checked~.nav {
+    display: block;
+    animation: menu-open 0.3s ease forwards;
+}
+
+@keyframes menu-open {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-wrap: nowrap;
+        width: 90%;
+        height: 55px;
+        overflow: visible;
+        padding: 10px 20px;
+        border-radius: 12px;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: auto;
+        width: 220px;
+        background: #050000f7;
+        border-radius: 12px;
+        border: 1px solid var(--color-border);
+        padding: 5px 0;
+        box-shadow: 0 8px 25px #00000066;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    .nav-list a {
+        padding: 14px 10px;
+        border-bottom: 1px solid var(--color-border);
+        text-align: left;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+    }
+
+    .nav-list li:last-child a {
+        border-bottom: none;
+    }
+
+    .menu-toggle:checked~.nav {
+        display: block;
+        width: 220px;
+    }
+
+    .nav-dropdown {
+        position: static;
+    }
+
+    .nav-dropdown__menu {
+        position: static;
+        transform: none;
+        left: auto;
+        border-radius: 8px;
+        margin: 0 10px;
+        box-shadow: none;
+        border: none;
+        background: var(--bg-scroll);
+    }
+
+    .nav-reserva {
+        font-size: 0.8rem;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+
 /*---- botón carrusel ----*/
 
 .carrusel-btn {
@@ -174,7 +466,7 @@
 }
 
 .carta-box {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(34, 22, 22, 0.473);
     backdrop-filter: blur(10px);
     border: 1.5px solid var(--color-secundary);
     border-radius: 16px;
@@ -229,8 +521,8 @@
 }
 
 .carta-subtitle {
-    font-size: 0.6rem;
-    font-weight: 400;
+    font-size: 0.8rem;
+    font-weight: 600;
     opacity: 0.7;
     color: var(--color-hover);
     letter-spacing: 1px;
@@ -247,6 +539,7 @@
 @media (max-width: 768px) {
     .carta-grid-inner {
         grid-template-columns: 1fr;
+        gap: 2rem 0;
     }
 
     .carta-grid {
@@ -266,7 +559,7 @@
 }
 
 .menu-precio-badge {
-    background: var(--color-hover);
+    background: var(--color-secundary);
     color: var(--color-blanco);
     font-size: 0.85rem;
     font-weight: 700;
@@ -529,7 +822,7 @@
 }
 
 
-/*--- EVENTOS ---*/
+/*--- DIAS ESPECIALES ---*/
 
 main.eventos {
     position: relative;
@@ -636,8 +929,8 @@ main.eventos {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--color-hover);
-    border: 1px solid var(--color-hover);
+    color: var(--color-primary);
+    border: 1px solid var(--color-secundary);
     padding: 12px 24px;
     border-radius: 50px;
     text-decoration: none;
@@ -718,7 +1011,7 @@ main.eventos {
 }
 
 
-/*--- EVENTOS PRIVADOS ---*/
+/*--- EVENTOS ---*/
 
 .evento-privado-card:nth-child(1) {
     background: url('/img/eventos/casamiento.png') center/cover no-repeat;
@@ -735,6 +1028,7 @@ main.eventos {
 .evento-privado-card:nth-child(4) {
     background: url('/img/eventos/images.0jpg.jpg') center/cover no-repeat;
 }
+
 
 .eventos-privados-section {
     position: relative;
@@ -876,6 +1170,25 @@ main.eventos {
     max-width: 900px;
     margin: 0 auto 3rem;
 }
+
+
+/*---- CATERING — card única centrada ----*/
+
+.catering-card-single .evento-privado-card.fondo-caterin{
+    background: url('/img/eventos/foto_de_eventos.avif') center/cover no-repeat;
+}
+
+.catering-card-single {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+.catering-card-single .evento-privado-card {
+    width: 200px;
+    height: 300px;
+} 
 
 .catering-section .evento-privado-card {
     border-color: var(--color-gold);
