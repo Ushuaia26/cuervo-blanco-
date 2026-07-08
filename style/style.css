@@ -44,6 +44,8 @@ body {
     --color-negro: #000;
     --color-blanco: #fff;
 
+    --bg-scroll:#ffffff26;
+
 
 
     /*--- caterin ---*/
@@ -80,302 +82,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.365);
     z-index: 1;
 }
 
 
-/*--- HEADER — nav de home.html (el logo splash de index está en index.css) ---*/
-
-.header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(900px, 92%);
-    z-index: 1000;
-    font-size: 0.9rem;
-    font-weight: 600;
-    background: var(--color-principaln);
-    backdrop-filter: blur(10px);
-    border: 1px solid #ffffff1a;
-    padding: 0 30px;
-    height: 65px;
-    border-radius: 16px;
-
-    /*--- animation ---*/
-
-    container-type: inline-size;
-    container-name: header;
-    animation: header-movement both;
-    animation-timeline: scroll();
-    animation-range: 10px 80px;
-}
-
-#logo-nav-cafe {
-    display: none;
-}
-
-.nav-list {
-    display: flex;
-    overflow: visible;
-    list-style: none;
-    margin: 0;
-    gap: 20px;
-    padding: 8px 10px 0;
-}
-
-.header .main-logo {
-    width: 100px;
-    padding: 0px;
-    margin: 0;
-}
-
-.nav-list li {
-    flex: 0 0 auto;
-}
-
-.nav-list a {
-    display: block;
-    padding: 14px 5px;
-    color: var(--color-text);
-    text-decoration: none;
-}
-
-.nav-list a:hover {
-    border-radius: 8px;
-    background: var(--color-primary-hover);
-    color: #7b7b7b;
-    transition: all 0.25s ease;
-}
-
-.nav-reserva {
-    background: var(--color-secundary);
-    color: var(--text-color);
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-    transition: background 0.25s;
-    white-space: nowrap;
-}
-
-.nav-reserva:hover {
-    background: transparent;
-    color: var(--color-blanco);
-}
-
-/* DROPDOWN NAV */
-.nav-dropdown {
-    position: relative;
-}
-
-.nav-dropdown__label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 14px 5px;
-    color: var(--color-text);
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.3px;
-    transition: color 0.2s;
-}
-
-.nav-dropdown__label:hover {
-    color: var(--color-secundary);
-}
-
-.nav-dropdown__label i {
-    transition: transform 0.3s ease;
-    font-size: 0.8rem;
-}
-
-#toggle-carta-nav {
-    display: none;
-}
-
-#toggle-carta-nav:checked~.nav-dropdown__label i {
-    transform: rotate(180deg);
-}
-
-.nav-dropdown__menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 5px);
-    left: -50%;
-    transform: translateX(-50%);
-    background: #1112273c;
-    border: 1px solid #ffffff1a;
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 200px;
-    list-style: none;
-    z-index: 1100;
-    box-shadow: 0 8px 25px #00000066;
-}
-
-#toggle-carta-nav:checked~.nav-dropdown__menu {
-    display: block;
-    animation: menu-open 0.25s ease forwards;
-}
-
-.nav-dropdown__menu li a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 20px;
-    color: var(--color-text);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: background 0.2s;
-}
-
-.nav-dropdown__menu li a:hover {
-    background: var(--color-secundary);
-    color: var(--color-blanco);
-}
-
-.nav-dropdown__menu li a i {
-    color: var(--color-secundary);
-    font-size: 1rem;
-}
-
-@keyframes header-movement {
-    from {
-        background: var(--color-principal);
-    }
-
-    to {
-        background: #1112273c;
-        box-shadow: 0 8px 25px #00000066;
-        backdrop-filter: blur(8px);
-        color: #fff;
-    }
-}
-
-/*----- RESPONSIVE HEADER / NAV -----*/
-
-.menu-toggle {
-    display: none;
-}
-
-.menu-icon {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
-    padding: 0 15px;
-    transition: color 0.25s ease;
-}
-
-.menu-icon:hover {
-    color: var(--color-primary);
-}
-
-.menu-toggle:checked~.nav {
-    display: block;
-    animation: menu-open 0.3s ease forwards;
-}
-
-@keyframes menu-open {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-
-    .header {
-        flex-wrap: nowrap;
-        width: 90%;
-        height: 55px;
-        overflow: visible;
-        padding: 10px 20px;
-        border-radius: 12px;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    .nav {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        left: auto;
-        width: 220px;
-        background: #050000f7;
-        border-radius: 12px;
-        border: 1px solid var(--color-border);
-        padding: 5px 0;
-        box-shadow: 0 8px 25px #00000066;
-    }
-
-    .nav-list {
-        flex-direction: column;
-        gap: 0;
-        padding: 10px 0;
-    }
-
-    .nav-list a {
-        padding: 14px 10px;
-        border-bottom: 1px solid var(--color-border);
-        text-align: left;
-        font-size: 0.95rem;
-        letter-spacing: 1px;
-    }
-
-    .nav-list li:last-child a {
-        border-bottom: none;
-    }
-
-    .menu-toggle:checked~.nav {
-        display: block;
-        width: 220px;
-    }
-
-    .nav-dropdown {
-        position: static;
-    }
-
-    .nav-dropdown__menu {
-        position: static;
-        transform: none;
-        left: auto;
-        min-width: 100%;
-        border-radius: 8px;
-        margin: 0 10px;
-        box-shadow: none;
-        border: none;
-        background: rgba(255, 255, 255, 0.05);
-    }
-
-    .nav-reserva {
-        font-size: 0.8rem;
-    }
-
-    .header-right {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-}
 
 
 /*--- MODAL RESERVA GENERAL — usado en index.html y home.html ---*/
@@ -525,4 +235,26 @@ body {
     border-color: var(--color-hover);
     color: var(--color-hover);
     background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: var(--color-blanco);
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.form-group select:focus {
+    border-color: var(--color-hover);
+}
+
+.form-group select option {
+    background: var(--color-principal);
+    color: var(--color-blanco);
 }
