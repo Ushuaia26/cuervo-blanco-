@@ -47,13 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ============================================================
 //  CARRUSEL DE CATEGORÍAS — Botones anterior/siguiente
+//  Recorre cada .categorias-wrapper por separado (café, comida
+//  y bebidas tienen su propio carrusel independiente)
 // ============================================================
-const carrusel = document.querySelector('.categorias-carrusel');
-const btnPrev  = document.getElementById('btn-prev');
-const btnNext  = document.getElementById('btn-next');
-if (btnNext) btnNext.addEventListener('click', () => carrusel.scrollBy({ left:  150, behavior: 'smooth' }));
-if (btnPrev) btnPrev.addEventListener('click', () => carrusel.scrollBy({ left: -150, behavior: 'smooth' }));
+document.querySelectorAll('.categorias-wrapper').forEach(wrapper => {
+    const carrusel = wrapper.querySelector('.categorias-carrusel');
+    const btnPrev  = wrapper.querySelector('.carrusel-btn:first-child');
+    const btnNext  = wrapper.querySelector('.carrusel-btn:last-child');
 
+    if (btnNext) btnNext.addEventListener('click', () => carrusel.scrollBy({ left:  150, behavior: 'smooth' }));
+    if (btnPrev) btnPrev.addEventListener('click', () => carrusel.scrollBy({ left: -150, behavior: 'smooth' }));
+});
 
 // ============================================================
 //  SLIDER DE EVENTOS — Flechas y dots del slider de días especiales
