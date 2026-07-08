@@ -1,5 +1,5 @@
 const URL =
-  "https://script.google.com/macros/s/AKfycbxHG7ah0hZ87DMEWFUPygaFpESumAhkAqTDCId4yIgkZZpu_pqiasErvHQX9_sGRZMK/exec"; // termina en /exec
+  "https://script.google.com/macros/s/AKfycbz9dzemXcnrHQCPfKIMIDW7RWzRf8uDAQCBZfv_HvGUOxtnBRTEhxLyNG2sn1R10Ei8/exec"; // termina en /exec
 
 async function cargarPrecios() {
     try {
@@ -8,7 +8,7 @@ async function cargarPrecios() {
             aplicarPrecios(JSON.parse(cache));
         }
 
-        const respuesta = await fetch(URL);
+        const respuesta = await fetch(URL + "?t=" + Date.now());
         const precios = await respuesta.json();
         localStorage.setItem("precios", JSON.stringify(precios));
         aplicarPrecios(precios);
