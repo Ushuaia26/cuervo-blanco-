@@ -6,13 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></noscript>
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+    </noscript>
     <link rel="icon" type="image/png" href="/img/android-chrome-512x512.png">
     <title>CUERVO BLANCO</title>
 </head>
@@ -20,35 +26,15 @@
 <body>
 
     <!-- El video que queda de fondo para siempre -->
-    <!-- Video mañana/tarde -->
-    <video id="video-cafe" autoplay muted loop playsinline class="video-background">
-        <source src="/video/cuervocafe.mp4" type="video/mp4">
-    </video>
 
-    <!-- Video mediodía -->
-    <video id="video-mediodia" autoplay muted loop playsinline class="video-background">
-        <source src="../video/cuervo-mediodia2.mp4" type="video/mp4">
-    </video>
-
-    <!-- Video cena/noche -->
-    <video id="video-cena" autoplay muted loop playsinline class="video-background">
+    <video id="video-cena" autoplay muted loop playsinline class="video-background activo">
         <source src="/video/cuervo-cena.mp4" type="video/mp4">
     </video>
 
-    <!-- Overlay oscuro -->
-    <div class="video-overlay"></div>
-
     <main class="content-wrapper">
         <section class="splash">
-
-            <!-- logo principal mediodia 12 a 15:59 y noche apartir 20  -->
             <div class="splash__logo">
                 <img id="logo-principal" src="/img/cuervolog2.jpg" alt="Logo cuervo blanco">
-            </div>
-
-            <!-- logo cafe mañana 7:30 a 11:59 y 16:00 a 19:59 -->
-            <div class="splash__logo">
-                <img id="logo-cafe" src="/img/cuervocafe.jpg" alt="Logo cuervo cafe">
             </div>
 
 
@@ -121,11 +107,35 @@
                 </a>
 
 
+
+
                 <!-- RESERVAS -->
-                <a class="splash__btn splash__btn--ins" onclick="abrirModalReserva()" style="cursor:pointer">
-                    <span class="splash__btn-icon"><i class="ti ti-calendar"></i></span>
-                    Reservas
-                </a>
+
+                <input type="checkbox" id="toggle-reservas" class="checkbox__submenu">
+                <label class="splash__btn splash__btn--menu" for="toggle-reservas">
+                    <span class="splash__btn-left">
+                        <span class="splash__btn-icon"><i class="ti ti-calendar"></i></span>
+                        RESERVAS
+                    </span>
+                    <i class="ti ti-chevron-down splash__arrow"></i>
+                </label>
+
+                <div class="splash__acordeon-inner">
+                    <div class="splash__acordeon-wrap">
+                        <a class="splash__acordeon-item" onclick="abrirModalReserva()" style="cursor:pointer">
+                            <i class="ti ti-table"></i> Reservar mesa
+                        </a>
+                        <a class="splash__acordeon-item" href="/page/home.html#eventos-section">
+                            <i class="ti ti-flame"></i> Día especial
+                        </a>
+                        <a class="splash__acordeon-item" href="/page/home.html#eventos-privados-section">
+                            <i class="ti ti-users"></i> Tu evento
+                        </a>
+                        <a class="splash__acordeon-item" href="/page/home.html#catering-section">
+                            <i class="ti ti-tools-kitchen-2"></i> Catering
+                        </a>
+                    </div>
+                </div>
 
                 <!-- UBICACION -->
                 <a class="splash__btn splash__btn--ubi"
@@ -143,7 +153,7 @@
     <script src="/js/index.js"></script>
     <script src="/js/script.js"></script>
 
-<!-- ==========================================
+    <!-- ==========================================
         MODAL RESERVAS GENERAL
         Se abre desde el botón RESERVAR del header
 ========================================== -->
@@ -156,7 +166,16 @@
                 <div class="form-group"><label>Tu nombre</label><input type="text" id="reserva-nombre"
                         placeholder="Nombre y apellido"></div>
                 <div class="form-group"><label>Fecha</label><input type="date" id="reserva-fecha"></div>
-                <div class="form-group"><label>Hora</label><input type="time" id="reserva-hora"></div>
+                <div class="form-group">
+                    <label>Turno</label>
+                    <select id="reserva-turno">
+                        <option value="" disabled selected>Elegí un turno</option>
+                        <option value="Desayuno">Desayuno</option>
+                        <option value="Almuerzo">Almuerzo</option>
+                        <option value="Merienda">Merienda</option>
+                        <option value="Cena">Cena</option>
+                    </select>
+                </div>
                 <div class="form-row">
                     <div class="form-group"><label>Adultos</label><input type="number" id="reserva-adultos"
                             placeholder="0" min="0"></div>
@@ -178,7 +197,6 @@
                     RESERVA</button>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
