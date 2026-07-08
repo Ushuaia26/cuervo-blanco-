@@ -367,6 +367,387 @@
                 </div>
                 <div class="menu-seccion">
                     <h3 class="menu-seccion-titulo">PRINCIPAL</h3>
+                    <p class="menu-texto">Ñoquis de papa con ragout de terner<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></noscript>
+    <link rel="icon" type="image/png" href="/img/android-chrome-512x512.png">
+    <link rel="preconnect" href="https://script.google.com">
+    <title>Cuervo Blanco</title>
+</head>
+
+<body>
+
+    <!-- ==========================================
+        VIDEOS DE FONDO — cambian según el horario
+        via script.js (mañana/tarde/noche)
+        ========================================== -->
+    <video id="video-cena" autoplay muted loop playsinline class="video-background activo">
+    <source src="/video/cuervo-cena.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
+    <!-- ==========================================
+        HEADER — logo cambia según horario via JS
+        ========================================== -->
+    <header class="header">
+        <!-- Logo principal (noche/tarde) -->
+        <img id="logo-nav-principal" src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="main-logo">
+        <!-- Logo café (mañana) -->
+        <img id="logo-nav-cafe" src="../img/cuervocafe2.png" alt="Logo Cuervo Café" class="main-logo">
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="/index.html">INICIO</a></li>
+                <li class="nav-dropdown">
+                    <input type="checkbox" id="toggle-carta-nav" class="menu-toggle">
+                    <label for="toggle-carta-nav" class="nav-dropdown__label">
+                        CARTA <i class="ti ti-chevron-down"></i>
+                    </label>
+                    <ul class="nav-dropdown__menu">
+                        <li><a href="#cafe-section"><i class="ti ti-coffee"></i>Desayuno & Merienda</a></li>
+                        <li><a href="#ejecutivo-section"><i class="ti ti-bowl-spoon"></i> Menú Ejecutivo</a></li>
+                        <li><a href="#almuerzo-cena-section"><i class="ti ti-tools-kitchen-2"></i>Restaurant</a>
+                        </li>
+                        <li><a href="#bebidas-section"><i class="ti ti-glass-full"></i>Bebidas</a></li>
+                    </ul>
+                </li>
+                <li><a href="#eventos-section">EVENTOS</a></li>
+                <li><a href="/page/cv.html">ENVIÁ TU CV</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <label for="menu-toggle" class="menu-icon">☰</label>
+            <!-- Botón reservar — abre modal-reserva-overlay -->
+            <a onclick="abrirModalReserva()" class="nav-reserva" style="cursor:pointer">RESERVAR</a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+        SECCIÓN CUERVO CAFÉ
+        Horario: 8:00 - 11:30 y 16:00 - 19:30
+        ========================================== -->
+    <section id="cafe-section" class="carta cuervo-cafe">
+        <div class="logo-section">
+            <img src="../img/cuervocafe2.png" alt="Logo Cuervo Café" class="logo-img">
+        </div>
+
+        <!-- Carrusel de categorías — agregar/quitar <a> para nuevas categorías -->
+        <div class="categorias-wrapper">
+            <button class="carrusel-btn" id="btn-prev">&#171;</button>
+            <div class="categorias-carrusel">
+                <a href="#cafeteria" class="categoria-card"><i class="ti ti-coffee"></i><span>CAFETERÍA</span></a>
+                <a href="#especial" class="categoria-card"><i class="ti ti-star"></i><span>ESPECIAL</span></a>
+                <a href="#promos" class="categoria-card"><i class="ti ti-tag"></i><span>PROMOS</span></a>
+                <a href="#licuados" class="categoria-card"><i class="ti ti-glass-full"></i><span>LICUADOS</span></a>
+                <a href="#detox" class="categoria-card"><i class="ti ti-leaf"></i><span>DETOX</span></a>
+                <a href="#limonadas" class="categoria-card"><i class="ti ti-lemon"></i><span>LIMONADAS</span></a>
+                <a href="#croissant" class="categoria-card"><i class="ti ti-bread"></i><span>CROISSANT</span></a>
+                <a href="#sintacc" class="categoria-card"><i class="ti ti-ban"></i><span>SIN TACC</span></a>
+                <a href="#adicionales" class="categoria-card"><i class="ti ti-plus"></i><span>ADICIONALES</span></a>
+            </div>
+            <button class="carrusel-btn" id="btn-next">&#187;</button>
+        </div>
+
+        <!-- CAFETERÍA CLÁSICA Y ESPECIAL -->
+        <div id="cafeteria" class="carta-grid">
+            <div class="carta-box">
+                <h2>CAFETERÍA CLÁSICA</h2>
+                <div class="carta-item"><span class="item-nombre">Chico</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-01"></span>
+                </div>
+                <div class="carta-item"><span class="item-nombre">Mediano</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-02"></span>
+                </div>
+                <div class="carta-item"><span class="item-nombre">Grande</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-03"></span>
+                </div>
+                <div class="carta-item"><span class="item-nombre">Té</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-04"></span></div>
+                <div class="carta-item"><span class="item-nombre">Té con leche</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-05"></span></div>
+                <div class="carta-item"><span class="item-nombre">Mate cocido</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-06"></span></div>
+                <div class="carta-item"><span class="item-nombre">Mate cocido con leche</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFCLASICA-07"></span></div>
+            </div>
+            <div class="carta-box">
+                <h2>CAFETERÍA ESPECIAL</h2>
+                <div class="carta-item"><span class="item-nombre">Cuervo vainilla latte</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-01"></span></div>
+                <div class="carta-item"><span class="item-nombre">Cuervo caramel macchiato</span><span
+                        class="item-precio" id="CUERVOCAFE-CAFESPECIAL-02"></span></div>
+                <div class="carta-item"><span class="item-nombre">Cuervo oreo latte</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-03"></span></div>
+                <div class="carta-item"><span class="item-nombre">Chocolatada</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-04"></span></div>
+                <div class="carta-item"><span class="item-nombre">Submarino</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-05"></span></div>
+                <div class="carta-item"><span class="item-nombre">Capuccino</span><span class="item-precio"
+                        id="CUERVOCAFE-CAFESPECIAL-06"></span></div>
+            </div>
+        </div>
+
+        <!-- PROMOS — actualizar horarios y precios cuando cambien -->
+        <div id="promos" class="carta-box carta-box--full">
+            <h2>PROMOS <span class="carta-subtitle">LUNES A DOMINGOS DE 8:00HS A 11:30HS Y DE 16:00HS A 19:30HS</span>
+            </h2>
+            <div class="carta-item">
+                <div><span class="item-nombre">OFFICE</span>
+                    <p class="item-desc">Infusión clásica + 2 medialunas</p>
+                </div>
+                <span class="item-precio" id="CUERVOCAFE-PROMOS-01"></span>
+            </div>
+            <div class="carta-item">
+                <div><span class="item-nombre">DE CAMPO</span>
+                    <p class="item-desc">Infusión clásica + tostadas de pan de campo + queso y mermelada casera — Opción
+                        con tostadas de pan keto</p>
+                </div>
+                <span class="item-precio" id="CUERVOCAFE-PROMOS-02"></span>
+            </div>
+            <div class="carta-item">
+                <div><span class="item-nombre">DE LA CASA</span>
+                    <p class="item-desc">Infusión clásica + medio tostado de jyq en pan de campo</p>
+                </div>
+                <span class="item-precio" id="CUERVOCAFE-PROMOS-03"></span>
+            </div>
+            <div class="carta-item">
+                <div><span class="item-nombre">BRUNCH P/2 PERSONAS</span>
+                    <p class="item-desc">Infusión clásica + frutas de estación + yogurt griego + granola + tostadas de
+                        pan de campo integral + palta y queso untable + huevo revuelto + 2 fotas de jamón + 2 fotas de
+                        queso + 2 medialunas con jamón y queso (dulces o saladas)</p>
+                </div>
+                <span class="item-precio" id="CUERVOCAFE-PROMOS-04"></span>
+            </div>
+        </div>
+
+        <!-- LICUADOS Y LIMONADAS -->
+        <div class="carta-grid">
+            <div id="licuados" class="carta-box">
+                <h2>LICUADOS</h2>
+                <div class="carta-item"><span class="item-nombre">Con agua</span><span class="item-precio"
+                        id="CUERVOCAFE-LICUADOS-01"></span>
+                </div>
+                <div class="carta-item"><span class="item-nombre">Con leche</span><span class="item-precio"
+                        id="CUERVOCAFE-LICUADOS-02"></span></div>
+                <div class="carta-item"><span class="item-nombre">Exprimido de naranja XXL</span><span
+                        class="item-precio" id="CUERVOCAFE-LICUADOS-03"></span></div>
+                <div class="carta-item"><span class="item-nombre">Milkshake (consultar sabores)</span><span
+                        class="item-precio" id="CUERVOCAFE-LICUADOS-04"></span></div>
+            </div>
+            <div id="limonadas" class="carta-box">
+                <h2>LIMONADAS <span class="carta-subtitle">VASO</span></h2>
+                <div class="carta-item"><span class="item-nombre">De la casa (con menta y jengibre)</span><span
+                        class="item-precio" id="CUERVOCAFE-LIMONADAS-01"></span></div>
+                <div class="carta-item"><span class="item-nombre">Frutos Rojos</span><span class="item-precio"
+                        id="CUERVOCAFE-LIMONADAS-02"></span></div>
+                <div class="carta-item"><span class="item-nombre">Maracuyá con frutos rojos</span><span
+                        class="item-precio" id="CUERVOCAFE-LIMONADAS-03"></span></div>
+                <div class="carta-item"><span class="item-nombre">Pormelada</span><span class="item-precio"
+                        id="CUERVOCAFE-LIMONADAS-04"></span></div>
+            </div>
+        </div>
+
+        <!-- DETOX Y CROISSANT -->
+        <div class="carta-grid">
+            <div id="detox" class="carta-box">
+                <h2>DETOX <span class="carta-subtitle">jugos naturales desintoxicantes</span></h2>
+                <div class="carta-item">
+                    <div><span class="item-nombre">Amarillo</span>
+                        <p class="item-desc">Banana, leche de almendras, jengibre y canela</p>
+                    </div><span class="item-precio" id="CUERVOCAFE-DETOX-01"></span>
+                </div>
+                <div class="carta-item">
+                    <div><span class="item-nombre">Verde</span>
+                        <p class="item-desc">Banana, manzana, zanahoria y espinaca</p>
+                    </div><span class="item-precio" id="CUERVOCAFE-DETOX-02"></span>
+                </div>
+                <div class="carta-item">
+                    <div><span class="item-nombre">Naranja</span>
+                        <p class="item-desc">Naranja, limón, manzana y pera</p>
+                    </div><span class="item-precio" id="CUERVOCAFE-DETOX-03"></span>
+                </div>
+            </div>
+            <div id="croissant" class="carta-box">
+                <h2>CROISSANT</h2>
+                <div class="carta-item"><span class="item-nombre">Dulce de leche o pastelera</span><span
+                        class="item-precio" id="CUERVOCAFE-CROISSANT-01"></span></div>
+                <div class="carta-item"><span class="item-nombre">Nutella</span><span class="item-precio"
+                        id="CUERVOCAFE-CROISSANT-02"></span>
+                </div>
+                <div class="carta-item"><span class="item-nombre">Pistacho</span><span class="item-precio"
+                        id="CUERVOCAFE-CROISSANT-03"></span></div>
+                <div class="carta-item"><span class="item-nombre">Jamón crudo, sour y rúcula</span><span
+                        class="item-precio" id="CUERVOCAFE-CROISSANT-04"></span></div>
+            </div>
+        </div>
+
+        <!-- SIN TACC Y ADICIONALES -->
+        <div class="carta-grid">
+            <div id="sintacc" class="carta-box">
+                <h2>SIN TACC</h2>
+                <div class="carta-item"><span class="item-nombre">Brownie</span><span class="item-precio"
+                        id="CUERVOCAFE-SINTACC-01"></span>
+                </div>
+                <div class="carta-item"><span class="item-nombre">Tostadas de arroz con queso y mermelada</span><span
+                        class="item-precio" id="CUERVOCAFE-SINTACC-02"></span></div>
+            </div>
+            <div id="adicionales" class="carta-box">
+                <h2>ADICIONALES</h2>
+                <div class="carta-item">
+                    <div><span class="item-nombre">Bruschetta de palta</span>
+                        <p class="item-desc">Tostada de pan de campo, queso crema, huevos revueltos, tomate cherry,
+                            palta natural y semillas</p>
+                    </div><span class="item-precio" id="CUERVOCAFE-ADICIONALES-01"></span>
+                </div>
+                <div class="carta-item"><span class="item-nombre">Bruschetta opción pan keto</span><span
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-02"></span></div>
+                <div class="carta-item"><span class="item-nombre">Huevos revueltos con panceta crocante</span><span
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-03"></span></div>
+                <div class="carta-item"><span class="item-nombre">Tostadas con queso y mermelada</span><span
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-04"></span></div>
+                <div class="carta-item"><span class="item-nombre">Medialunas</span><span class="item-precio"
+                        id="CUERVOCAFE-ADICIONALES-05"></span></div>
+                <div class="carta-item"><span class="item-nombre">Medialunas con jamón y queso</span><span
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-06"></span></div>
+                <div class="carta-item"><span class="item-nombre">Exprimido de naranja chico</span><span
+                        class="item-precio" id="CUERVOCAFE-ADICIONALES-07"></span></div>
+                <div class="carta-item"><span class="item-nombre">Bowl de yogurt natural con granola, miel y frutas de
+                        estación</span><span class="item-precio" id="CUERVOCAFE-ADICIONALES-08"></span></div>
+                <div class="carta-item"><span class="item-nombre">Medio tostado</span><span class="item-precio"
+                        id="CUERVOCAFE-ADICIONALES-09"></span></div>
+            </div>
+        </div>
+
+        <!-- ADICIONALES ESPECIALES — tortas de estación: actualizar sabores según temporada -->
+        <div id="adicionales-especiales" class="carta-box carta-box--full">
+            <h2>ADICIONALES ESPECIALES</h2>
+            <div class="carta-grid-inner">
+                <div class="carta-item">
+                    <div><span class="item-nombre">Budín Chocolate</span></div><span class="item-precio"
+                        id="CUERVOCAFE-ADICESPECIALES-01"></span>
+                </div>
+                <div class="carta-item">
+                    <div><span class="item-nombre">Budín Limón con semillas de amapola</span></div><span
+                        class="item-precio" id="CUERVOCAFE-ADICESPECIALES-02"></span>
+                </div>
+                <div class="carta-item">
+                    <div><span class="item-nombre">Porción de torta de estación</span>
+                        <p class="item-desc">Matilda / Red velvet / Vainilla y maracuyá</p>
+                    </div><span class="item-precio" id="CUERVOCAFE-ADICESPECIALES-03"></span>
+                </div>
+                <div class="carta-item"><span class="item-nombre">Porción de brownie</span><span class="item-precio"
+                        id="CUERVOCAFE-ADICESPECIALES-04"></span></div>
+                <div class="carta-item"><span class="item-nombre">Espumita de limón</span><span class="item-precio"
+                        id="CUERVOCAFE-ADICESPECIALES-05"></span></div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+        SECCIÓN MENÚ EJECUTIVO
+        Horario: mediodía (lunes a viernes)
+        ========================================== -->
+    <section id="ejecutivo-section" class="carta cuervo-ejecutivo">
+        <div class="logo-section">
+            <img src="../img/cuervo2.png" alt="Logo Cuervo Blanco" class="logo-img-cuervo">
+        </div>
+        <div class="categorias-wrapper">
+            <div class="categorias-carrusel">
+                <a href="#dia" class="categoria-card"><i class="ti ti-bowl-spoon"></i><span>MENU DEL DIA </span></a>
+                <a href="#ejecutivo" class="categoria-card"><i class="ti ti-bowl-spoon"></i><span>FIJOS</span></a>
+                <a href="#premium" class="categoria-card"><i class="ti ti-star"></i><span>PREMIUM</span></a>
+            </div>
+        </div>
+
+
+        <!-- MENÚ DEL DÍA — descripción y precio de cada opción se editan desde la planilla -->
+        <div id="dia" class="carta-box carta-box--full">
+            <h2>MENÚ DEL DÍA</h2>
+            <div class="carta-grid-inner">
+                <div>
+                    <div class="menu-opcion-badge">OPCIÓN 1</div>
+                    <p class="menu-texto" id="MENUDELDIA-OPCION1-DESC-01"></p>
+                    <span class="menu-precio-badge" id="MENUDELDIA-OPCION1-PRECIO-01"></span>
+                </div>
+                <div>
+                    <div class="menu-opcion-badge">OPCIÓN 2</div>
+                    <p class="menu-texto" id="MENUDELDIA-OPCION2-DESC-01"></p>
+                    <span class="menu-precio-badge" id="MENUDELDIA-OPCION2-PRECIO-01"></span>
+                </div>
+            </div>
+        </div>
+        <!-- MENÚ EJECUTIVO — actualizar precio y opciones cuando cambien -->
+        <div id="ejecutivo" class="carta-box carta-box--full">
+            <div class="menu-precio-header">
+                <h2>EJECUTIVOS</h2>
+                <span class="menu-precio-badge" id="MENUEJECUTIVO-PRECIO-01"></span>
+            </div>
+            <div class="menu-seccion">
+                <h3 class="menu-seccion-titulo">PRINCIPAL</h3>
+                <ul class="menu-lista">
+                    <li>Milanesa o suprema con guarnición</li>
+                    <li>Quesadillas de ternera o pollo con guarnición</li>
+                    <li>Filet de pollo con guarnición</li>
+                    <li>Ensalada Caesar</li>
+                    <li>Pastas con salsa (tallarines o ñoquis)</li>
+                    <li>Sugerencia del día</li>
+                </ul>
+            </div>
+            <div class="menu-seccion">
+                <h3 class="menu-seccion-titulo">BEBIDA</h3>
+                <p class="menu-texto">Gaseosa / Agua saborizada / Agua con gas / Agua sin gas / Copa de vino / Media
+                    pinta</p>
+            </div>
+            <div class="menu-seccion">
+                <h3 class="menu-seccion-titulo">POSTRE</h3>
+                <p class="menu-texto">Cafetería, ensalada de fruta o budín de pan</p>
+            </div>
+        </div>
+
+        <!-- MENÚ PREMIUM — actualizar precio y opciones cuando cambien -->
+        <div id="premium" class="carta-grid">
+            <div class="carta-box">
+                <div class="menu-precio-header">
+                    <h2>MENÚ PREMIUM</h2>
+                    <span class="menu-precio-badge" id="MENUPREMIUM-PRECIO-01"></span>
+                </div>
+                <div class="menu-opcion-badge">OPCIÓN 1</div>
+                <div class="menu-seccion">
+                    <h3 class="menu-seccion-titulo">ENTRADA</h3>
+                    <p class="menu-texto">Empanada de jamón y queso</p>
+                </div>
+                <div class="menu-seccion">
+                    <h3 class="menu-seccion-titulo">PRINCIPAL</h3>
+                    <p class="menu-texto">Ojo de bife grillado acompañado de papas rústicas y salsa criolla</p>
+                </div>
+                <div class="menu-seccion">
+                    <h3 class="menu-seccion-titulo">POSTRE</h3>
+                    <p class="menu-texto">Flan con dulce o crema o helado</p>
+                </div>
+                <p class="menu-texto">Café · Bebida</p>
+            </div>
+            <div class="carta-box">
+                <div class="menu-opcion-badge">OPCIÓN 2</div>
+                <div class="menu-seccion">
+                    <h3 class="menu-seccion-titulo">ENTRADA</h3>
+                    <p class="menu-texto">Empanada de jamón y queso</p>
+                </div>
+                <div class="menu-seccion">
+                    <h3 class="menu-seccion-titulo">PRINCIPAL</h3>
                     <p class="menu-texto">Ñoquis de papa con ragout de ternera en pan de campo</p>
                 </div>
                 <div class="menu-seccion">
@@ -393,6 +774,7 @@
             <button class="carrusel-btn" id="btn-prev">&#171;</button>
             <div class="categorias-carrusel">
                 <a href="#suge" class="categoria-card"><i class="ti ti-chef-hat"></i><span>SUGERENCIAS</span></a>
+                <a href="#sugerencias-postres" class="categoria-card"><i class="ti ti-star"></i><span>SUGERENCIAS POSTRES</span></a>
                 <a href="#tapas" class="categoria-card"><i class="ti ti-flame"></i><span>TAPAS Y REBOZADOS</span></a>
                 <a href="#tern&cerd" class="categoria-card"><i class="ti ti-meat"></i><span>TERNERA & CERDO</span></a>
                 <a href="#pollo" class="categoria-card"><i class="ti ti-fish"></i><span>POLLO Y PESCADOS</span></a>
@@ -417,38 +799,71 @@
         <div id="suge" class="carta-box carta-box--full">
             <h2>SUGERENCIAS <span class="carta-subtitle">CUBIERTO <span class="item-precio" id="COMIDA-CUBIERTO-01"></span></span></h2>
             <div class="carta-item carta-item--img">
-                <img src="../img/comida/surubi.png" alt="Surubi crocante con papas rejilla y alioli">
+                <img src="../img/comida/tabla-de-carne.png" alt="Surubi crocante con papas rejilla y alioli">
                 <div class="item-info">
-                    <div><span class="item-nombre">SURUBI CROCANTE</span>
-                        <p class="item-desc">Acompaña de papas rejilla a la provenzal, salsa de lima alioli</p>
+                    <div><span class="item-nombre">TABLA DE CARNE GRILLADA</span>
+                        <p class="item-desc">Acompaña de papas rejilla</p>
                     </div><span class="item-precio" id="COMIDA-SUGERENCIAS-01"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
-                <img src="../img/comida/entrecot.png" alt="Entrecot relleno con provolone y jamón crudo">
+                <img src="../img/comida/brochette.png" alt="BROCHETE DE POLLO ACOMPAÑADA CON PAPAS CUBOS">
                 <div class="item-info">
-                    <div><span class="item-nombre">ENTRECOT</span>
-                        <p class="item-desc">Relleno con provolone y jamón crudo grillado. Acompañado con puré en
-                            reducción de vino</p>
+                    <div><span class="item-nombre">BROCHETE DE POLLO</span>
+                        <p class="item-desc">Acompañada con papas cubos</p>
                     </div><span class="item-precio" id="COMIDA-SUGERENCIAS-02"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
-                <img src="../img/comida/ciabata.png" alt="Ciabatta de cerdo a la BBQ con rúcula y alioli">
+                <img src="../img/comida/bondiola-cerdo.png" alt="BONDIOLA DE CERDO LAQUEDA CON RISOTTO DE HONGOS">
                 <div class="item-info">
-                    <div><span class="item-nombre">CIABATTA</span>
-                        <p class="item-desc">Casera de cerdo a la BBQ con rúcula y alioli. Acompañada de papas rústicas
+                    <div><span class="item-nombre">BONDIOLA DE CERDO</span>
+                        <p class="item-desc">Laqueada con risotto de hongos
                         </p>
                     </div><span class="item-precio" id="COMIDA-SUGERENCIAS-03"></span>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
-                <img src="../img/comida/crisoy.png" alt="Sandwich crispy de pechuga con papas">
+                <img src="../img/comida/papardelle.png" alt="PAPARDELLE CON RAGÚ DE TERNERA Y PORTOBELLOS">
                 <div class="item-info">
-                    <div><span class="item-nombre">CRISPY</span>
-                        <p class="item-desc">Sandwich de pechuga crispy. Acompañado de papas & salsa de autor</p>
+                    <div><span class="item-nombre">PAPARDELLE</span>
+                        <p class="item-desc">Con ragú de ternera y portobellos</p>
                     </div><span class="item-precio" id="COMIDA-SUGERENCIAS-04"></span>
                 </div>
+            </div>
+        </div>
+
+        <div id="sugerencias-postres" class="carta-box carta-box--full">
+            <h2>SUGERENCIAS POSTRE</h2>
+            <div class="carta-item carta-item--img">
+                <img src="../img/comida/queso-dulce.png" alt="QUESO Y DULCE MEMBRILLO O BATATA">
+                <div class="item-info">
+                    <div><span class="item-nombre">QUESO & DULCE</span>
+                        <p class="item-desc">Membrillo o batata</p>
+                    </div><span class="item-precio" id="COMIDA-SUGERENCIAS-POSTRE-01"></span>
+                </div>
+            </div>
+            <div class="carta-item carta-item--img carta-item--img-right">
+                <img src="../img/comida/peras.png" alt="PERAS AL BORGOÑA CON HELADO DE VAINILLA>
+                <div class="item-info">
+                    <div><span class="item-nombre">PERAS AL BORGOÑA</span>
+                        <p class="item-desc">Con helado de vainilla</p>
+                    </div><span class="item-precio" id="COMIDA-SUGERENCIAS-POSTRE-02"></span>
+                </div>
+                <div class="carta-item carta-item--img">
+                <img src="../img/comida/mousse.png" alt="MOUSSE">
+                <div class="item-info">
+                    <div><span class="item-nombre">MOUSSE DE CHOCOLATE</span>
+                    </div><span class="item-precio" id="COMIDA-SUGERENCIAS-POSTRE-03"></span>
+                </div>
+            </div>
+            <div class="carta-item carta-item--img carta-item--img-right">
+                <img src="../img/comida/tiramisu.png" alt="TIRAMISÚ">
+                <div class="item-info">
+                    <div><span class="item-nombre">TIRAMISÚ</span>
+                    </div><span class="item-precio" id="COMIDA-SUGERENCIAS-POSTRE-04"></span>
+                </div>
+            </div>
             </div>
         </div>
 
@@ -488,7 +903,7 @@
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
-                <img src="../img/comida/crisoy.png" alt="Rabas con salsa tártara">
+                <img src="../img/comida/rabas.png" alt="Rabas con salsa tártara">
                 <div class="item-info">
                     <div><span class="item-nombre">RABAS</span>
                         <p class="item-desc">Salsa tártara</p>
@@ -504,7 +919,7 @@
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
-                <img src="../img/comida/crisoy.png" alt="Bastones de muzzarella con salsa BBQ">
+                <img src="../img/comida/bastones.png" alt="Bastones de muzzarella con salsa BBQ">
                 <div class="item-info">
                     <div><span class="item-nombre">BASTONES DE MUZZARELLA</span>
                         <p class="item-desc">Con salsa BBQ</p>
@@ -619,10 +1034,10 @@
         <div id="pastas" class="carta-box carta-box--full">
             <h2>PASTAS <span class="carta-subtitle">ELABORACIÓN ARTESANAL · CONSULTAR SUGERENCIA DEL CHEF</span></h2>
             <div class="carta-item carta-item--img">
-                <img src="../img/comida/espinaca.png" alt="Malfatti de espinaca con parmesano y crema de hongos">
+                <img src="../img/comida/lasagna.png" alt="Lasagna de verdura y carne">
                 <div class="item-info">
-                    <div><span class="item-nombre">MALFATTI DE ESPINACA</span>
-                        <p class="item-desc">Con queso parmesano con crema de hongos</p>
+                    <div><span class="item-nombre">LASAGNA DE CARNE Y VERDURA</span>
+                        <p class="item-desc">Con salsa mixta</p>
                     </div><span class="item-precio" id="COMIDA-PASTAS-01"></span>
                 </div>
             </div>
@@ -1089,6 +1504,7 @@
         <div class="categorias-wrapper">
             <button class="carrusel-btn" id="btn-prev">&#171;</button>
             <div class="categorias-carrusel">
+                <a href="#vinos" class="categoria-card"><i class="ti ti-bottle"></i><span>VINOS</span></a>
                 <a href="#cervezas" class="categoria-card"><i class="ti ti-beer"></i><span>CERVEZAS</span></a>
                 <a href="#sinalcohol" class="categoria-card"><i class="ti ti-lemon"></i><span>BEBIDAS SIN
                         ALCOHOL</span></a>
@@ -1103,9 +1519,133 @@
                 <a href="#tonicosc" class="categoria-card"><i class="ti ti-glass-full"></i><span>TONICOS
                         CLASICOS</span></a>
                 <a href="#desti" class="categoria-card"><i class="ti ti-glass"></i><span>DESTILADOS</span></a>
-                <a href="#vinos" class="categoria-card"><i class="ti ti-bottle"></i><span>VINOS</span></a>
+                
             </div>
             <button class="carrusel-btn" id="btn-next">&#187;</button>
+        </div>
+
+        <!-- VINOS & ESPUMANTES -->
+        <div class="carta-box carta-box--full" id="vinos">
+            <h2>VINOS &amp; ESPUMANTES</h2>
+            <!-- Logos de bodegas -->
+            <div class="logos-marcas">
+                <img alt="Viña Las Perdices" src="../img/logos/perdices.png" />
+                <img alt="Chandon" src="../img/logos/chandon.png" />
+                <img alt="Salentein" src="../img/logos/salentein.png" />
+            </div>
+            <div class="vinos-grid">
+                <div>
+                    <div class="vinos-marca">
+                        <h3>VIÑA LAS PERDICES</h3>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">LAS PERDICES</span>
+                                <p class="item-desc">Malbec | Sauvignon Blanc</p>
+                            </div><span class="item-precio" id="VINOS-VINALASPERDICES-01"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">CHAC CHAC</span>
+                                <p class="item-desc">Cabernet Franc | Malbec Rosé</p>
+                            </div><span class="item-precio" id="VINOS-VINALASPERDICES-02"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">LAS PERDICES Reserva</span>
+                                <p class="item-desc">Malbec | Pinot Noire | Chardonnay</p>
+                            </div><span class="item-precio" id="VINOS-VINALASPERDICES-03"></span>
+                        </div>
+                        <div class="carta-item"><span class="item-nombre">LAS PERDICES Extra Brut</span><span
+                                class="item-precio" id="VINOS-VINALASPERDICES-04"></span></div>
+                        <div class="carta-item"><span class="item-nombre">COPA DE VINO</span><span class="item-precio"
+                                id="VINOS-VINALASPERDICES-05"></span></div>
+                    </div>
+                    <div class="vinos-marca">
+                        <h3>SALENTEIN</h3>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">PORTILLO</span>
+                                <p class="item-desc">Malbec | Sauvignon Blanc</p>
+                            </div><span class="item-precio" id="VINOS-SALENTEIN-01"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">SALENTEIN Reserva</span>
+                                <p class="item-desc">Malbec | Merlot</p>
+                            </div><span class="item-precio" id="VINOS-SALENTEIN-02"></span>
+                        </div>
+                        <div class="carta-item"><span class="item-nombre">SALENTEIN Brut Nature</span><span
+                                class="item-precio" id="VINOS-SALENTEIN-03"></span></div>
+                    </div>
+                    <div class="vinos-marca">
+                        <h3>OTRAS ETIQUETAS</h3>
+                        <div class="carta-item"><span class="item-nombre">RUTINI Malbec</span><span class="item-precio"
+                                id="VINOS-OTRASETIQUETAS-01"></span></div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">TRUMPETER</span>
+                                <p class="item-desc">Malbec | Sauvignon Blanc</p>
+                            </div><span class="item-precio" id="VINOS-OTRASETIQUETAS-02"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">CAFAYATE</span>
+                                <p class="item-desc">Reserva Torrontés</p>
+                            </div><span class="item-precio" id="VINOS-OTRASETIQUETAS-03"></span>
+                        </div>
+                        <div class="carta-item"><span class="item-nombre">SANTA JULIA Chenin Dulce</span><span
+                                class="item-precio" id="VINOS-OTRASETIQUETAS-04"></span></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="vinos-marca">
+                        <h3>CHANDON</h3>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">LATITUD 33°</span>
+                                <p class="item-desc">Malbec | Sauvignon Blanc</p>
+                            </div><span class="item-precio" id="VINOS-CHANDON-01"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">ALTOS DEL PLATA</span>
+                                <p class="item-desc">Malbec | Cabernet Sauvignon | Chardonnay</p>
+                            </div><span class="item-precio" id="VINOS-CHANDON-02"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">TERRAZAS DE LOS ANDES RESERVA</span>
+                                <p class="item-desc">Malbec</p>
+                            </div><span class="item-precio" id="VINOS-CHANDON-03"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">CHANDON</span>
+                                <p class="item-desc">Extra Brut | Délice</p>
+                            </div><span class="item-precio" id="VINOS-CHANDON-04"></span>
+                        </div>
+                        <div class="carta-item"><span class="item-nombre">CHANDON Brut Nature</span><span
+                                class="item-precio" id="VINOS-CHANDON-05"></span></div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">BARON B</span>
+                                <p class="item-desc">Extra Brut - cuvée Spéciale</p>
+                            </div><span class="item-precio" id="VINOS-CHANDON-06"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">BARON B</span>
+                                <p class="item-desc">Cuvée Millésimée Brut Nature</p>
+                            </div><span class="item-precio" id="VINOS-CHANDON-07"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">CHANDON 187 CL</span>
+                                <p class="item-desc">Extra Brut | Délice | Rosé | Aperitif</p>
+                            </div><span class="item-precio" id="VINOS-CHANDON-08"></span>
+                        </div>
+                    </div>
+                    <div class="vinos-marca">
+                        <h3>SIDRA</h3>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">1888</span>
+                                <p class="item-desc">Cosecha Especial</p>
+                            </div><span class="item-precio" id="VINOS-SIDRA-01"></span>
+                        </div>
+                        <div class="carta-item">
+                            <div><span class="item-nombre">1888</span>
+                                <p class="item-desc">Cosecha Especial Rosé</p>
+                            </div><span class="item-precio" id="VINOS-SIDRA-02"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- CERVEZAS -->
@@ -1678,129 +2218,7 @@
             </div>
         </div>
 
-        <!-- VINOS & ESPUMANTES -->
-        <div class="carta-box carta-box--full" id="vinos">
-            <h2>VINOS &amp; ESPUMANTES</h2>
-            <!-- Logos de bodegas -->
-            <div class="logos-marcas">
-                <img alt="Viña Las Perdices" src="../img/logos/perdices.png" />
-                <img alt="Chandon" src="../img/logos/chandon.png" />
-                <img alt="Salentein" src="../img/logos/salentein.png" />
-            </div>
-            <div class="vinos-grid">
-                <div>
-                    <div class="vinos-marca">
-                        <h3>VIÑA LAS PERDICES</h3>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">LAS PERDICES</span>
-                                <p class="item-desc">Malbec | Sauvignon Blanc</p>
-                            </div><span class="item-precio" id="VINOS-VINALASPERDICES-01"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">CHAC CHAC</span>
-                                <p class="item-desc">Cabernet Franc | Malbec Rosé</p>
-                            </div><span class="item-precio" id="VINOS-VINALASPERDICES-02"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">LAS PERDICES Reserva</span>
-                                <p class="item-desc">Malbec | Pinot Noire | Chardonnay</p>
-                            </div><span class="item-precio" id="VINOS-VINALASPERDICES-03"></span>
-                        </div>
-                        <div class="carta-item"><span class="item-nombre">LAS PERDICES Extra Brut</span><span
-                                class="item-precio" id="VINOS-VINALASPERDICES-04"></span></div>
-                        <div class="carta-item"><span class="item-nombre">COPA DE VINO</span><span class="item-precio"
-                                id="VINOS-VINALASPERDICES-05"></span></div>
-                    </div>
-                    <div class="vinos-marca">
-                        <h3>SALENTEIN</h3>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">PORTILLO</span>
-                                <p class="item-desc">Malbec | Sauvignon Blanc</p>
-                            </div><span class="item-precio" id="VINOS-SALENTEIN-01"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">SALENTEIN Reserva</span>
-                                <p class="item-desc">Malbec | Merlot</p>
-                            </div><span class="item-precio" id="VINOS-SALENTEIN-02"></span>
-                        </div>
-                        <div class="carta-item"><span class="item-nombre">SALENTEIN Brut Nature</span><span
-                                class="item-precio" id="VINOS-SALENTEIN-03"></span></div>
-                    </div>
-                    <div class="vinos-marca">
-                        <h3>OTRAS ETIQUETAS</h3>
-                        <div class="carta-item"><span class="item-nombre">RUTINI Malbec</span><span class="item-precio"
-                                id="VINOS-OTRASETIQUETAS-01"></span></div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">TRUMPETER</span>
-                                <p class="item-desc">Malbec | Sauvignon Blanc</p>
-                            </div><span class="item-precio" id="VINOS-OTRASETIQUETAS-02"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">CAFAYATE</span>
-                                <p class="item-desc">Reserva Torrontés</p>
-                            </div><span class="item-precio" id="VINOS-OTRASETIQUETAS-03"></span>
-                        </div>
-                        <div class="carta-item"><span class="item-nombre">SANTA JULIA Chenin Dulce</span><span
-                                class="item-precio" id="VINOS-OTRASETIQUETAS-04"></span></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="vinos-marca">
-                        <h3>CHANDON</h3>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">LATITUD 33°</span>
-                                <p class="item-desc">Malbec | Sauvignon Blanc</p>
-                            </div><span class="item-precio" id="VINOS-CHANDON-01"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">ALTOS DEL PLATA</span>
-                                <p class="item-desc">Malbec | Cabernet Sauvignon | Chardonnay</p>
-                            </div><span class="item-precio" id="VINOS-CHANDON-02"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">TERRAZAS DE LOS ANDES RESERVA</span>
-                                <p class="item-desc">Malbec</p>
-                            </div><span class="item-precio" id="VINOS-CHANDON-03"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">CHANDON</span>
-                                <p class="item-desc">Extra Brut | Délice</p>
-                            </div><span class="item-precio" id="VINOS-CHANDON-04"></span>
-                        </div>
-                        <div class="carta-item"><span class="item-nombre">CHANDON Brut Nature</span><span
-                                class="item-precio" id="VINOS-CHANDON-05"></span></div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">BARON B</span>
-                                <p class="item-desc">Extra Brut - cuvée Spéciale</p>
-                            </div><span class="item-precio" id="VINOS-CHANDON-06"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">BARON B</span>
-                                <p class="item-desc">Cuvée Millésimée Brut Nature</p>
-                            </div><span class="item-precio" id="VINOS-CHANDON-07"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">CHANDON 187 CL</span>
-                                <p class="item-desc">Extra Brut | Délice | Rosé | Aperitif</p>
-                            </div><span class="item-precio" id="VINOS-CHANDON-08"></span>
-                        </div>
-                    </div>
-                    <div class="vinos-marca">
-                        <h3>SIDRA</h3>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">1888</span>
-                                <p class="item-desc">Cosecha Especial</p>
-                            </div><span class="item-precio" id="VINOS-SIDRA-01"></span>
-                        </div>
-                        <div class="carta-item">
-                            <div><span class="item-nombre">1888</span>
-                                <p class="item-desc">Cosecha Especial Rosé</p>
-                            </div><span class="item-precio" id="VINOS-SIDRA-02"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
     </section>
 
@@ -1817,7 +2235,7 @@
         ========================================== -->
     <main class="eventos">
         <section id="eventos-section" class="eventos-section">
-            <h2 class="eventos-titulo">EVENTOS</h2>
+            <h2 class="eventos-titulo">NOCHES ESPECIALES</h2>
             <div class="slider-container">
                 <button class="slider-btn slider-btn--prev" id="slider-prev">&#8249;</button>
                 <button class="slider-btn slider-btn--next" id="slider-next">&#8250;</button>
@@ -1825,9 +2243,9 @@
                 <div class="slider-track" id="slider-track">
 
                     <!-- ── SLIDE 1: MIÉRCOLES DE PASTA ──
-                         Para modificar: cambiar slide-dia, slide-nombre, slide-desc
-                         y el primer parámetro de abrirModalEvento()
-                         Para cambiar imagen: modificar .slide-pasta en style.css -->
+                        Para modificar: cambiar slide-dia, slide-nombre, slide-desc
+                        y el primer parámetro de abrirModalEvento()
+                        Para cambiar imagen: modificar .slide-pasta en style.css -->
                     <div class="slider-slide slide-pasta">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
@@ -1931,12 +2349,12 @@
         </section>
 
         <!-- ==========================================
-             EVENTOS PRIVADOS
-             Las cards son fijas (cumple, casamiento, etc)
-             Solo cambia el texto del modal si es necesario
-             ========================================== -->
+            EVENTOS PRIVADOS
+            Las cards son fijas (cumple, casamiento, etc)
+            Solo cambia el texto del modal si es necesario
+            ========================================== -->
         <section class="eventos-privados-section">
-            <h2 class="eventos-titulo">EVENTOS PRIVADOS</h2>
+            <h2 class="eventos-titulo">EVENTOS</h2>
             <div class="box-intro">
                 <p class="eventos-intro">Reservá tu evento en una de las ubicaciones más exclusivas de Rosario.
                     Gastronomía, atención personalizada y una vista privilegiada frente al río para crear una
@@ -1964,13 +2382,13 @@
                 <div class="evento-privado-card" onclick="abrirModal('Evento Privado')">
                     <div class="evento-privado-overlay"></div>
                     <div class="evento-privado-content"><i class="ti ti-users"></i>
-                        <h3>Privados</h3><span class="evento-privado-btn">CONSULTAR</span>
+                        <h3>Corporativos</h3><span class="evento-privado-btn">CONSULTAR</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MODAL CONSULTA EVENTOS PRIVADOS -->
+        <!-- MODAL CONSULTA EVENTOS CORPORATIVOS -->
         <div class="modal-overlay" id="modal-overlay" onclick="cerrarModal()">
             <div class="modal" onclick="event.stopPropagation()">
                 <button class="modal-close" onclick="cerrarModal()">✕</button>
@@ -1994,42 +2412,25 @@
             </div>
         </div>
 
-        <!-- ==========================================
-             CATERING — identidad visual dorada
-             Las cards son iguales a eventos privados
-             pero con estilo diferente via CSS
-             Los paquetes se completan cuando estén definidos
-             ========================================== -->
-        <section class="catering-section">
-            <h2 class="eventos-titulo">CATERING</h2>
-            <p class="catering-intro">Llevamos la experiencia Cuervo Blanco a tu evento</p>
-            <div class="eventos-grid">
-                <div class="evento-privado-card" onclick="abrirModalCatering('Cumpleaños')">
-                    <div class="evento-privado-overlay"></div>
-                    <div class="evento-privado-content"><i class="ti ti-balloon"></i>
-                        <h3>Cumpleaños</h3><span class="evento-privado-btn">CONSULTAR</span>
-                    </div>
-                </div>
-                <div class="evento-privado-card" onclick="abrirModalCatering('Casamiento')">
-                    <div class="evento-privado-overlay"></div>
-                    <div class="evento-privado-content"><i class="ti ti-heart"></i>
-                        <h3>Casamientos</h3><span class="evento-privado-btn">CONSULTAR</span>
-                    </div>
-                </div>
-                <div class="evento-privado-card" onclick="abrirModalCatering('Bautismo')">
-                    <div class="evento-privado-overlay"></div>
-                    <div class="evento-privado-content"><i class="ti ti-star"></i>
-                        <h3>Bautismos</h3><span class="evento-privado-btn">CONSULTAR</span>
-                    </div>
-                </div>
-                <div class="evento-privado-card" onclick="abrirModalCatering('Evento Privado')">
-                    <div class="evento-privado-overlay"></div>
-                    <div class="evento-privado-content"><i class="ti ti-users"></i>
-                        <h3>Privados</h3><span class="evento-privado-btn">CONSULTAR</span>
-                    </div>
-                </div>
+    <!-- ==========================================
+    CATERING — identidad visual dorada
+    Una sola card genérica que lleva al modal
+    de selección de paquetes
+    ========================================== -->
+<section class="catering-section">
+    <h2 class="eventos-titulo">CATERING</h2>
+    <p class="catering-intro">Llevamos la experiencia Cuervo Blanco a tu evento</p>
+    <div class="catering-card-single">
+        <div class="evento-privado-card fondo-caterin" onclick="abrirModalCatering('Catering')">
+            <div class="evento-privado-overlay"></div>
+            <div class="evento-privado-content">
+                <i class="ti ti-tools-kitchen-2"></i>
+                <h3>Catering</h3>
+                <span class="evento-privado-btn">CONSULTAR</span>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- MODAL CATERING — 2 pasos: elegir paquete → formulario
              Para agregar paquetes: copiar un catering-paquete-item
@@ -2128,7 +2529,7 @@
         </div>
     </footer>
 
-    <!-- ==========================================
+<!-- ==========================================
         MODAL RESERVAS GENERAL
         Se abre desde el botón RESERVAR del header
 ========================================== -->
@@ -2141,7 +2542,16 @@
                 <div class="form-group"><label>Tu nombre</label><input type="text" id="reserva-nombre"
                         placeholder="Nombre y apellido"></div>
                 <div class="form-group"><label>Fecha</label><input type="date" id="reserva-fecha"></div>
-                <div class="form-group"><label>Hora</label><input type="time" id="reserva-hora"></div>
+                <div class="form-group">
+                    <label>Turno</label>
+                    <select id="reserva-turno">
+                        <option value="" disabled selected>Elegí un turno</option>
+                        <option value="Desayuno">Desayuno</option>
+                        <option value="Almuerzo">Almuerzo</option>
+                        <option value="Merienda">Merienda</option>
+                        <option value="Cena">Cena</option>
+                    </select>
+                </div>
                 <div class="form-row">
                     <div class="form-group"><label>Adultos</label><input type="number" id="reserva-adultos"
                             placeholder="0" min="0"></div>
@@ -2162,7 +2572,7 @@
                 <button class="modal-btn" onclick="enviarReserva()"><i class="ti ti-brand-whatsapp"></i> CONFIRMAR RESERVA</button>
             </div>
         </div>
-    </div>
+    </div>    
     <script src="/js/home.js"></script>
     <script src="/js/precios.js" defer></script>
     <script src="/js/script.js"></script>
