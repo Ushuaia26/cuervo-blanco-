@@ -67,7 +67,6 @@
 .splash__btns {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
     width: 100%;
     max-width: 320px;
 }
@@ -76,6 +75,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-bottom: 0.4rem;
     padding: 14px 20px;
     border-radius: 50px;
     text-decoration: none;
@@ -124,6 +124,7 @@
 .splash__btn--ins {
     background: var(--color-traslucer);
     color: var(--color-blanco);
+    margin-bottom: 0.4rem;
     border: 1.5px solid var(--color-blanco);
 }
 
@@ -136,6 +137,7 @@
     background: var(--color-traslucer);
     color: var(--color-blanco);
     border: 1.5px solid var(--color-blanco);
+    margin-top: 0.5rem;
     justify-content: space-between;
 }
 
@@ -167,12 +169,12 @@
 
 .splash__acordeon-item.activo {
     background: rgba(74, 103, 65, 0.6);
-    border-left: 3px solid #4a6741;
+    border-left: 3px solid #7a7a7ac3;
     color: var(--color-blanco);
 }
 
 .splash__acordeon-item.activo:hover {
-    background: #4a6741;
+    background: var(--color-principal);
     color: var(--color-blanco);
 }
 
@@ -201,6 +203,11 @@
 
 .splash__details[open] .splash__arrow {
     transform: rotate(180deg);
+}
+
+.splash__acordeon-inner{
+    overflow: hidden;
+    margin-bottom: 0;
 }
 
 .splash__details .splash__acordeon-inner {
@@ -274,19 +281,18 @@
     background: var(--color-primary);
     border-left: 3px solid var(--color-hover);
 }
-
 #toggle-redes {
     display: none;
 }
 
-#toggle-redes~.splash__acordeon-inner {
+#toggle-redes+label+.splash__acordeon-inner {
     display: grid;
     grid-template-rows: 0fr;
     opacity: 0;
     transition: grid-template-rows 0.4s ease, opacity 0.35s ease;
 }
 
-#toggle-redes:checked~.splash__acordeon-inner {
+#toggle-redes:checked+label+.splash__acordeon-inner {
     grid-template-rows: 1fr;
     opacity: 1;
 }
@@ -294,6 +300,27 @@
 #toggle-redes:checked~label .splash__arrow {
     transform: rotate(180deg);
 }
+
+#toggle-reservas {
+    display: none;
+}
+
+#toggle-reservas+label+.splash__acordeon-inner {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.4s ease, opacity 0.35s ease;
+}
+
+#toggle-reservas:checked+label+.splash__acordeon-inner {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+#toggle-reservas:checked~label .splash__arrow {
+    transform: rotate(180deg);
+}
+
 
 /*--- SKIP — link "Entrar a la página" ---*/
 
