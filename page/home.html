@@ -772,8 +772,10 @@
                 <div class="item-info">
                     <div><span class="item-nombre">NAPOLITANA</span>
                         <p class="item-desc">Muzarella, tomate fresco, albahaca y aceite de oliva</p>
-                    </div><span class="item-precio" id="COMIDA-PIZZAS-01"></span> <span class="item-unidad">AL MOLDE</span>
+                    </div>
+                    <div class="precio-doble"><span class="item-precio" id="COMIDA-PIZZAS-01"></span> <span class="item-unidad">AL MOLDE</span>
                     <span class="item-precio" id="COMIDA-PIZZAS-02"></span> <span class="item-unidad">A LA PIEDRA</span>
+                    </div>
                 </div>
             </div>
             <div class="carta-item carta-item--img carta-item--img-right">
@@ -781,8 +783,11 @@
                 <div class="item-info">
                     <div><span class="item-nombre">MUZZARELLA</span>
                         <p class="item-desc">Muzarella, olivas verdes y orégano</p>
-                    </div><span class="item-precio" id="COMIDA-PIZZAS-03"></span> <span class="item-unidad">AL MOLDE</span>
+                    </div>
+                    <div class="precio-doble">
+                    <span class="item-precio" id="COMIDA-PIZZAS-03"></span> <span class="item-unidad">AL MOLDE</span>
                     <span class="item-precio" id="COMIDA-PIZZAS-04"></span> <span class="item-unidad">A LA PIEDRA</span>
+                    </div>
                 </div>
             </div>
             <div class="carta-item carta-item--img">
@@ -790,8 +795,12 @@
                 <div class="item-info">
                     <div><span class="item-nombre">ESPECIAL</span>
                         <p class="item-desc">Muzarella, jamón cocido, morrones, huevo y olivas verdes</p>
-                    </div><span class="item-precio" id="COMIDA-PIZZAS-05"></span> <span class="item-unidad">AL MOLDE</span>
+                        <div class="precio-doble">
+                    </div>
+                    <div class="precio-doble"><span class="item-precio" id="COMIDA-PIZZAS-05"></span> <span class="item-unidad">AL MOLDE</span>
                     <span class="item-precio" id="COMIDA-PIZZAS-06"></span> <span class="item-unidad">A LA PIEDRA</span>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1895,6 +1904,321 @@
                          Para cambiar imagen: modificar .slide-pizza en style.css -->
                     <div class="slider-slide slide-pizza">
                         <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <span class="slide-dia">JUEVES</span>
+                            <h3 class="slide-nombre">Pizza & Burger</h3>
+                            <p class="slide-desc">Las mejores pizzas y burgers de autor con ingredientes frescos</p>
+                            <button onclick="abrirModalEvento('Jueves de Pizza & Burger', 'jueves')" class="slide-btn">
+                                <i class="ti ti-calendar"></i> RESERVAR
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ── PARA AGREGAR UN NUEVO EVENTO ──
+                    <div class="slider-slide slide-nuevo">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <span class="slide-dia">DÍA</span>
+                            <h3 class="slide-nombre">Nombre del Evento</h3>
+                            <p class="slide-desc">Descripción del evento</p>
+                            <button onclick="abrirModalEvento('Nombre del Evento', 'dia')" class="slide-btn">
+                                <i class="ti ti-calendar"></i> RESERVAR
+                            </button>
+                        </div>
+                    </div>
+                    Acordate de: 1) agregar un <span class="slider-dot"></span> abajo
+                                 2) agregar .slide-nuevo { background-image: url(...) } en style.css
+                                 3) actualizar sliderTotal en script.js si es necesario -->
+
+                </div>
+
+                <!-- Dots del slider — agregar uno por cada slide nuevo -->
+                <div class="slider-dots">
+                    <span class="slider-dot active"></span>
+                    <span class="slider-dot"></span>
+                </div>
+            </div>
+
+            <!-- MODAL RESERVA DE EVENTOS (pasta/pizza/etc) -->
+            <div class="modal-overlay" id="modal-evento-overlay" onclick="cerrarModalEvento()">
+                <div class="modal" onclick="event.stopPropagation()">
+                    <button class="modal-close" onclick="cerrarModalEvento()">✕</button>
+                    <h2 class="modal-titulo">RESERVAR</h2>
+                    <p class="modal-subtitulo" id="modal-evento-tipo"></p>
+                    <div class="modal-form">
+                        <div class="form-group">
+                            <label>Tu nombre</label>
+                            <input type="text" id="evento-nombre" placeholder="Nombre y apellido">
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha <span style="font-size:0.6rem; opacity:0.6">solo <span
+                                        id="evento-dia-label"></span></span></label>
+                            <input type="date" id="evento-fecha">
+                        </div>
+                        <div class="form-group">
+                            <label>Hora <span style="font-size:0.6rem; opacity:0.6">desde las 20:00</span></label>
+                            <input type="time" id="evento-hora" min="20:00" max="23:59">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Adultos</label>
+                                <input type="number" id="evento-adultos" placeholder="0" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label>Niños</label>
+                                <input type="number" id="evento-ninos" placeholder="0" min="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Sector</label>
+                            <div class="sector-btns">
+                                <button class="sector-btn activo" onclick="elegirSectorEvento('Adentro', this)">
+                                    <i class="ti ti-building"></i> Adentro
+                                </button>
+                                <button class="sector-btn" onclick="elegirSectorEvento('Afuera', this)">
+                                    <i class="ti ti-tree"></i> Afuera
+                                </button>
+                            </div>
+                        </div>
+                        <button class="modal-btn" onclick="enviarReservaEvento()">
+                            <i class="ti ti-brand-whatsapp"></i> CONFIRMAR RESERVA
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+            EVENTOS PRIVADOS
+            Las cards son fijas (cumple, casamiento, etc)
+            Solo cambia el texto del modal si es necesario
+            ========================================== -->
+        <section class="eventos-privados-section">
+            <h2 class="eventos-titulo">EVENTOS</h2>
+            <div class="box-intro">
+                <p class="eventos-intro">Reservá tu evento en una de las ubicaciones más exclusivas de Rosario.
+                    Gastronomía, atención personalizada y una vista privilegiada frente al río para crear una
+                    experiencia verdaderamente inolvidable en Puerto Norte.</p>
+            </div>
+            <div class="eventos-grid">
+                <div class="evento-privado-card" onclick="abrirModal('Cumpleaños')">
+                    <div class="evento-privado-overlay"></div>
+                    <div class="evento-privado-content"><i class="ti ti-balloon"></i>
+                        <h3>Cumpleaños</h3><span class="evento-privado-btn">CONSULTAR</span>
+                    </div>
+                </div>
+                <div class="evento-privado-card" onclick="abrirModal('Casamiento')">
+                    <div class="evento-privado-overlay"></div>
+                    <div class="evento-privado-content"><i class="ti ti-heart"></i>
+                        <h3>Casamientos</h3><span class="evento-privado-btn">CONSULTAR</span>
+                    </div>
+                </div>
+                <div class="evento-privado-card" onclick="abrirModal('Bautismo')">
+                    <div class="evento-privado-overlay"></div>
+                    <div class="evento-privado-content"><i class="ti ti-star"></i>
+                        <h3>Bautismos</h3><span class="evento-privado-btn">CONSULTAR</span>
+                    </div>
+                </div>
+                <div class="evento-privado-card" onclick="abrirModal('Evento Privado')">
+                    <div class="evento-privado-overlay"></div>
+                    <div class="evento-privado-content"><i class="ti ti-users"></i>
+                        <h3>Corporativos</h3><span class="evento-privado-btn">CONSULTAR</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL CONSULTA EVENTOS CORPORATIVOS -->
+        <div class="modal-overlay" id="modal-overlay" onclick="cerrarModal()">
+            <div class="modal" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="cerrarModal()">✕</button>
+                <h2 class="modal-titulo">Consultar Presupuesto</h2>
+                <p class="modal-subtitulo" id="modal-tipo"></p>
+                <div class="modal-form">
+                    <div class="form-group"><label>Tipo de evento</label><input type="text" id="form-tipo" readonly>
+                    </div>
+                    <div class="form-group"><label>Tu nombre</label><input type="text" id="form-nombre"
+                            placeholder="Nombre y apellido"></div>
+                    <div class="form-group"><label>Fecha del evento</label><input type="date" id="form-fecha"></div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Adultos</label><input type="number" id="form-adultos"
+                                placeholder="0" min="0"></div>
+                        <div class="form-group"><label>Niños</label><input type="number" id="form-ninos" placeholder="0"
+                                min="0"></div>
+                    </div>
+                    <button class="modal-btn" onclick="enviarConsulta()"><i class="ti ti-brand-whatsapp"></i> ENVIAR
+                        CONSULTA</button>
+                </div>
+            </div>
+        </div>
+
+    <!-- ==========================================
+    CATERING — identidad visual dorada
+    Una sola card genérica que lleva al modal
+    de selección de paquetes
+    ========================================== -->
+<section class="catering-section">
+    <h2 class="eventos-titulo">CATERING</h2>
+    <p class="catering-intro">Llevamos la experiencia Cuervo Blanco a tu evento</p>
+    <div class="catering-card-single">
+        <div class="evento-privado-card fondo-caterin" onclick="abrirModalCatering('Catering')">
+            <div class="evento-privado-overlay"></div>
+            <div class="evento-privado-content">
+                <i class="ti ti-tools-kitchen-2"></i>
+                <h3>Catering</h3>
+                <span class="evento-privado-btn">CONSULTAR</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- MODAL CATERING — 2 pasos: elegir paquete → formulario
+             Para agregar paquetes: copiar un catering-paquete-item
+             y cambiar el nombre en elegirPaquete() -->
+        <div class="modal-overlay" id="modal-catering-overlay" onclick="cerrarModalCatering()">
+            <div class="modal modal-catering" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="cerrarModalCatering()">✕</button>
+                <h2 class="modal-titulo">CATERING</h2>
+                <p class="modal-subtitulo" id="modal-catering-tipo"></p>
+
+                <!-- PASO 1: Elegir paquete — actualizar nombres y descripciones cuando estén definidos -->
+                <div id="catering-paso1">
+                    <p class="catering-paso-label">Elegí tu paquete</p>
+                    <div class="catering-paquetes-modal">
+                        <div class="catering-paquete-item" onclick="elegirPaquete('Paquete 1')">
+                            <div class="catering-paquete-icon"><i class="ti ti-tools-kitchen-2"></i></div>
+                            <div class="catering-paquete-info"><span class="catering-paquete-nombre">PAQUETE
+                                    1</span><span class="catering-paquete-desc">Descripción del paquete</span></div>
+                            <i class="ti ti-chevron-right catering-paquete-arrow"></i>
+                        </div>
+                        <div class="catering-paquete-item" onclick="elegirPaquete('Paquete 2')">
+                            <div class="catering-paquete-icon"><i class="ti ti-star"></i></div>
+                            <div class="catering-paquete-info"><span class="catering-paquete-nombre">PAQUETE
+                                    2</span><span class="catering-paquete-desc">Descripción del paquete</span></div>
+                            <i class="ti ti-chevron-right catering-paquete-arrow"></i>
+                        </div>
+                        <div class="catering-paquete-item" onclick="elegirPaquete('Paquete 3')">
+                            <div class="catering-paquete-icon"><i class="ti ti-crown"></i></div>
+                            <div class="catering-paquete-info"><span class="catering-paquete-nombre">PAQUETE
+                                    3</span><span class="catering-paquete-desc">Descripción del paquete</span></div>
+                            <i class="ti ti-chevron-right catering-paquete-arrow"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 2: Formulario — se muestra al elegir paquete -->
+                <div id="catering-paso2" style="display:none">
+                    <button class="catering-volver" onclick="volverPaso1()"><i class="ti ti-arrow-left"></i>
+                        Volver</button>
+                    <p class="catering-paso-label">Paquete seleccionado: <span id="catering-paquete-elegido"></span></p>
+                    <div class="modal-form">
+                        <div class="form-group"><label>Tipo de evento</label><input type="text" id="catering-form-tipo"
+                                readonly></div>
+                        <div class="form-group"><label>Tu nombre</label><input type="text" id="catering-form-nombre"
+                                placeholder="Nombre y apellido"></div>
+                        <div class="form-group"><label>Fecha del evento</label><input type="date"
+                                id="catering-form-fecha"></div>
+                        <div class="form-row">
+                            <div class="form-group"><label>Adultos</label><input type="number"
+                                    id="catering-form-adultos" placeholder="0" min="0"></div>
+                            <div class="form-group"><label>Niños</label><input type="number" id="catering-form-ninos"
+                                    placeholder="0" min="0"></div>
+                        </div>
+                        <button class="modal-btn" onclick="enviarConsultaCatering()"><i
+                                class="ti ti-brand-whatsapp"></i> ENVIAR CONSULTA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================
+        FOOTER
+        ========================================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="/img/cuervolog2.jpg" alt="Logo Cuervo Blanco">
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-titulo">HORARIOS</h3>
+                <p>Lunes a Jueves <span>8:00 - 1:00</span></p>
+                <p>Viernes a Domingo <span>8:00 - 3:00</span></p>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-titulo">UBICACIÓN</h3>
+                <a href="https://www.google.com/maps/place/Cuervo+Blanco/@-32.9230564,-60.6633547,17z"
+                    target="_blank">Av. Carballo 158 004<br>Puerto Norte, Rosario</a>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-titulo">REDES</h3>
+                <a href="https://www.instagram.com/cuervoblanco.puertonorte/" target="_blank"><i
+                        class="ti ti-brand-instagram"></i> Cuervo Blanco</a>
+                <a href="https://www.instagram.com/cuervoblanco.cafe/" target="_blank"><i
+                        class="ti ti-brand-instagram"></i> Cuervo Café</a>
+                <a href="https://api.whatsapp.com/send?phone=543413742910" target="_blank"><i
+                        class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.pedidosya.com.ar/restaurantes/rosario/cuervo-blanco-menu" target="_blank"
+                    class="footer-pedidosya">
+                    <img class="pedidoya" src="../img/pedidoya.png" alt="PedidosYa">Pedidos Ya
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Cuervo Blanco · Puerto Norte, Rosario</p>
+        </div>
+    </footer>
+
+<!-- ==========================================
+        MODAL RESERVAS GENERAL
+        Se abre desde el botón RESERVAR del header
+========================================== -->
+    <div class="modal-overlay" id="modal-reserva-overlay" onclick="cerrarModalReserva()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="cerrarModalReserva()">✕</button>
+            <h2 class="modal-titulo">RESERVAR</h2>
+            <p class="modal-subtitulo">Cuervo Blanco · Puerto Norte</p>
+            <div class="modal-form">
+                <div class="form-group"><label>Tu nombre</label><input type="text" id="reserva-nombre"
+                        placeholder="Nombre y apellido"></div>
+                <div class="form-group"><label>Fecha</label><input type="date" id="reserva-fecha"></div>
+                <div class="form-group">
+                    <label>Turno</label>
+                    <select id="reserva-turno">
+                        <option value="" disabled selected>Elegí un turno</option>
+                        <option value="Desayuno">Desayuno</option>
+                        <option value="Almuerzo">Almuerzo</option>
+                        <option value="Merienda">Merienda</option>
+                        <option value="Cena">Cena</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Adultos</label><input type="number" id="reserva-adultos"
+                            placeholder="0" min="0"></div>
+                    <div class="form-group"><label>Niños</label><input type="number" id="reserva-ninos" placeholder="0"
+                            min="0"></div>
+                </div>
+                <div class="form-group">
+                    <label>Sector</label>
+                    <div class="sector-btns">
+                        <button class="sector-btn activo" onclick="elegirSectorReserva('Adentro', this)">
+                            <i class="ti ti-building"></i> Adentro
+                        </button>
+                        <button class="sector-btn" onclick="elegirSectorReserva('Afuera', this)">
+                            <i class="ti ti-tree"></i> Afuera
+                        </button>
+                    </div>
+                </div>
+                <button class="modal-btn" onclick="enviarReserva()"><i class="ti ti-brand-whatsapp"></i> CONFIRMAR RESERVA</button>
+            </div>
+        </div>
+    </div>    
+    <script src="/js/home.js"></script>
+    <script src="/js/precios.js" defer></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
                         <div class="slide-content">
                             <span class="slide-dia">JUEVES</span>
                             <h3 class="slide-nombre">Pizza & Burger</h3>
