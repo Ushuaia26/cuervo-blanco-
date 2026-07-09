@@ -113,6 +113,121 @@
     font-size: 0.9rem;
     letter-spacing: 0.3px;
     transition: color 0.2s;
+}/* ============================================================
+   HOME.CSS — Estilos exclusivos de home.html (carta completa)
+   Requiere que style.css esté cargado antes (variables :root,
+   header, video-background, modal reserva, etc.)
+
+   NOTA: acá se consolidaron varios selectores que en el
+   style.css original estaban declarados 2 veces (.carta,
+   .carta-box, .carta-grid, .categorias-wrapper, .carrusel-btn,
+   .categorias-carrusel, .logo-section). Quedaron en una sola
+   regla con los valores que ya se ven hoy en la página.
+   ============================================================ */
+
+
+   /*--- HEADER — nav de home.html (el logo splash de index está en index.css) ---*/
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(900px, 92%);
+    z-index: 1000;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--color-principaln);
+    backdrop-filter: blur(10px);
+    border: 1px solid #ffffff1a;
+    padding: 0 30px;
+    height: 65px;
+    border-radius: 16px;
+
+    /*--- animation ---*/
+
+    container-type: inline-size;
+    container-name: header;
+    animation: header-movement both;
+    animation-timeline: scroll();
+    animation-range: 10px 80px;
+}
+
+#logo-nav-cafe {
+    display: none;
+}
+
+.nav-list {
+    display: flex;
+    overflow: visible;
+    list-style: none;
+    margin: 0;
+    gap: 20px;
+    padding: 8px 10px 0;
+}
+
+.header .main-logo {
+    width: 100px;
+    padding: 0px;
+    margin: 0;
+}
+
+.nav-list li {
+    flex: 0 0 auto;
+}
+
+.nav-list a {
+    display: block;
+    padding: 14px 5px;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    border-radius: 8px;
+    background: var(--color-primary-hover);
+    color: #7b7b7b;
+    transition: all 0.25s ease;
+}
+
+.nav-reserva {
+    background: var(--color-secundary);
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: background 0.25s;
+    white-space: nowrap;
+}
+
+.nav-reserva:hover {
+    background: transparent;
+    color: var(--color-blanco);
+}
+
+/* DROPDOWN NAV */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown__label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 14px 5px;
+    color: var(--color-text);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
 }
 
 .nav-dropdown__label:hover {
@@ -535,6 +650,23 @@
     grid-template-columns: 1fr 1fr;
     gap: 0 1rem;
 }
+
+.precio-doble {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    #pizzas .item-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+    }
+}
+
 
 @media (max-width: 768px) {
     .carta-grid-inner {
