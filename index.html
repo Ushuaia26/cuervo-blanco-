@@ -1,1 +1,203 @@
 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    </noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="icon" type="image/png" href="/img/android-chrome-512x512.png">
+    <title>CUERVO BLANCO</title>
+</head>
+
+<body>
+
+    <!-- El video que queda de fondo para siempre -->
+
+    <video id="video-cena" autoplay muted loop playsinline class="video-background activo">
+        <source src="/video/cuervo-cena.mp4" type="video/mp4">
+    </video>
+
+    <main class="content-wrapper">
+        <section class="splash">
+            <div class="splash__logo">
+                <img id="logo-principal" src="/img/cuervolog2.jpg" alt="Logo cuervo blanco">
+            </div>
+
+
+            <p class="splash__sub">Una experiencia diferente en cada momento del día.</p>
+            <div class="scroll-arrow">↓</div>
+            <div class="splash__btns">
+
+
+                <!-- ti-tools-kitchen-2 -->
+                <!-- VER PRODUCTOS  -->
+                <input type="checkbox" id="toggle-productos" class="checkbox__submenu">
+                <label class="splash__btn splash__btn--menu" for="toggle-productos">
+                    <span class="splash__btn-left">
+                        <span class="splash__btn-icon"><i class="ti ti-notebook"></i></span>
+                        CARTA
+                    </span>
+                    <i class="ti ti-chevron-down splash__arrow"></i>
+                </label>
+
+                <div class="splash__acordeon-inner">
+                    <div class="splash__acordeon-wrap">
+                        <a class="splash__acordeon-item" href="/page/home.html#cafeteria">
+                            <i class="ti ti-coffee"></i> Cuevo Cafe
+                        </a>
+                        <a class="splash__acordeon-item" href="/page/home.html#ejecutivo-section">
+                            <i class="ti ti-bowl-spoon"></i> Menu ejecutivo
+                        </a>
+                        <a class="splash__acordeon-item" href="/page/home.html#almuerzo-cena-section">
+                            <i class="ti ti-tools-kitchen-2"></i> Carta de comida
+                        </a>
+                        <a class="splash__acordeon-item" href="/page/home.html#bebidas-section">
+                            <i class="ti ti-glass-full"></i> Carta de bebidas
+                        </a>
+                    </div>
+                </div>
+                <!-- REDES -->
+                <input type="checkbox" id="toggle-redes" class="checkbox__submenu">
+                <label class="splash__btn splash__btn--menu" for="toggle-redes">
+                    <span class="splash__btn-left">
+                        <span class="splash__btn-icon"><i class="ti ti-brand-instagram"></i></span>
+                        REDES
+                    </span>
+                    <i class="ti ti-chevron-down splash__arrow"></i>
+                </label>
+
+                <div class="splash__acordeon-inner">
+                    <div class="splash__acordeon-wrap">
+                        <a class="splash__acordeon-item" href="https://www.instagram.com/cuervoblanco.cafe/"
+                            target="_blank">
+                            <i class="ti ti-brand-instagram"></i> Cuervo Café
+                        </a>
+                        <a class="splash__acordeon-item" href="https://www.instagram.com/cuervoblanco.puertonorte/"
+                            target="_blank">
+                            <i class="ti ti-brand-instagram"></i> Cuervo Blanco
+                        </a>
+                        <a class="splash__acordeon-item"
+                            href="https://www.facebook.com/p/Cuervo-Blanco-Puerto-Norte-100049401042238/?locale=es_LA"
+                            target="_blank">
+                            <i class="ti ti-brand-facebook"></i> Cuervo Blanco
+                        </a>
+
+                    </div>
+                </div>
+
+                <a class="splash__btn splash__btn--ins"
+                    href="https://www.pedidosya.com.ar/restaurantes/rosario/cuervo-blanco-menu" target="_blank">
+                    <span class="splash__btn-icon"><img class="pedidoya" src="../img/pedidoya.png"
+                            alt="PedidosYa"></i></span>
+                    Hace tu pedido
+                </a>
+
+
+
+
+                <!-- RESERVAS -->
+
+                <input type="checkbox" id="toggle-reservas" class="checkbox__submenu">
+                <label class="splash__btn splash__btn--menu" for="toggle-reservas">
+                    <span class="splash__btn-left">
+                        <span class="splash__btn-icon"><i class="ti ti-calendar"></i></span>
+                        RESERVAS
+                    </span>
+                    <i class="ti ti-chevron-down splash__arrow"></i>
+                </label>
+
+                <div class="splash__acordeon-inner">
+                    <div class="splash__acordeon-wrap">
+                        <a class="splash__acordeon-item" onclick="abrirModalReserva()" style="cursor:pointer">
+                            <i class="ti ti-table"></i> Reservar mesa
+                        </a>
+                        <a class="splash__acordeon-item" href="/page/home.html#eventos-section">
+                            <i class="ti ti-flame"></i> Día especial
+                        </a>
+                        <a class="splash__acordeon-item" href="/page/home.html#eventos-privados-section">
+                            <i class="ti ti-users"></i> Tu evento
+                        </a>
+                        <a class="splash__acordeon-item" href="/page/home.html#catering-section">
+                            <i class="ti ti-tools-kitchen-2"></i> Catering
+                        </a>
+                    </div>
+                </div>
+
+                <!-- UBICACION -->
+                <a class="splash__btn splash__btn--ubi"
+                    href="https://www.google.com/maps/place/Cuervo+Blanco/@-32.9230564,-60.6633547,17z/data=!4m6!3m5!1s0x95b65519cb738cd1:0xb361e1ab4a3aae22!8m2!3d-32.9230564!4d-60.6633547!16s%2Fg%2F11gxhnbcmd?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D">
+                    <span class="splash__btn-icon"><i class="ti ti-map-pin"></i></span>
+                    Av. Carballo 158 004, S2000 Rosario, Santa Fe
+                </a>
+
+            </div>
+
+            <a class="splash__skip" href="/page/home.html">Entrar a la página →</a>
+
+        </section>
+    </main>
+    <script src="/js/index.js"></script>
+    <script src="/js/script.js"></script>
+
+    <!-- ==========================================
+        MODAL RESERVAS GENERAL
+        Se abre desde el botón RESERVAR del header
+========================================== -->
+    <div class="modal-overlay" id="modal-reserva-overlay" onclick="cerrarModalReserva()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="cerrarModalReserva()">✕</button>
+            <h2 class="modal-titulo">RESERVAR</h2>
+            <p class="modal-subtitulo">Cuervo Blanco · Puerto Norte</p>
+            <div class="modal-form">
+                <div class="form-group"><label>Tu nombre</label><input type="text" id="reserva-nombre"
+                        placeholder="Nombre y apellido"></div>
+                <div class="form-group"><label>Fecha</label><input type="date" id="reserva-fecha"></div>
+                <div class="form-group">
+                    <label>Turno</label>
+                    <select id="reserva-turno">
+                        <option value="" disabled selected>Elegí un turno</option>
+                        <option value="Desayuno">Desayuno</option>
+                        <option value="Almuerzo">Almuerzo</option>
+                        <option value="Merienda">Merienda</option>
+                        <option value="Cena">Cena</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Adultos</label><input type="number" id="reserva-adultos"
+                            placeholder="0" min="0"></div>
+                    <div class="form-group"><label>Niños</label><input type="number" id="reserva-ninos" placeholder="0"
+                            min="0"></div>
+                </div>
+                <div class="form-group">
+                    <label>Sector</label>
+                    <div class="sector-btns">
+                        <button class="sector-btn activo" onclick="elegirSectorReserva('Adentro', this)">
+                            <i class="ti ti-building"></i> Adentro
+                        </button>
+                        <button class="sector-btn" onclick="elegirSectorReserva('Afuera', this)">
+                            <i class="ti ti-tree"></i> Afuera
+                        </button>
+                    </div>
+                </div>
+                <button class="modal-btn" onclick="enviarReserva()"><i class="ti ti-brand-whatsapp"></i> CONFIRMAR
+                    RESERVA</button>
+            </div>
+        </div>
+</body>
+
+</html>
